@@ -38,3 +38,10 @@ ul li {
 	padding: 2px;
 	font-size: 1.6rem;
 }
+
+footer {
+	margin-top: 32px;
+	margin-bottom: 32px;
+	font-size: 1.6rem;
+	text-align: right;
+}
