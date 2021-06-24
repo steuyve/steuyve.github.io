@@ -2,11 +2,11 @@
 % Stephen Liu
 % June 2021
 
-## Introduction
+# Introduction
 
 These are just some notes as I try to get up to speed on differential and Riemannian geometry. My main reference is Manfredo do Carmo's *Riemannian Geometry*.
 
-## Differential Manifolds
+# Differential Manifolds
 
 We begin with some basic definitions.
 
@@ -20,6 +20,6 @@ We begin with some basic definitions.
 
 Test.
 
-## References
+# References
 
 Manfredo do Carmo (translated by Francis Flaherty). *Riemannian Geometry*, Birkhauser Boston 1992.
