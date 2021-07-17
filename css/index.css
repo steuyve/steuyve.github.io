@@ -14,7 +14,7 @@ body {
 h1 {
 	font-family: Consolas, "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 	font-weight: normal;
-	font-size: 3.2rem;
+	font-size: 2.5rem;
 }
 
 h2 {
@@ -45,4 +45,13 @@ footer {
 	margin-bottom: 32px;
 	font-size: 1.6rem;
 	text-align: right;
+}
+
+.def {
+	background-color: #fffad9;
+}
+
+.proof {
+	font-style: italic;
+	background-color: #d9e7ff;
 }
