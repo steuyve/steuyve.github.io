@@ -74,12 +74,44 @@ We first show that the trivial sets $M$ and $\emptyset$ are open in this propose
 
 The essence of this definition is that a mapping $\varphi$ between manifolds is called differentiable if after expressing it in coordinates using the parametrizations $\mathbf{x}, \mathbf{y}$, the resulting map between Euclidean spaces is differentiable in the Euclidean sense. In fact, the mapping $\mathbf{y}^{-1}\circ\varphi\mathbf{x}$ is called the *expression* of $\varphi$ in the parameterizations $\mathbf{x}$ and $\mathbf{y}$. We should check here that the given definition is indeed independent of the choices of parameterizations:
 
-<div class="proof">
+<div class="proof"> Proof:
 Let $\mathbf{\alpha}:A\subset\mathbb{R}^m\to M_2$ and $\mathbf{\beta}: B\subset\mathbb{R}^n\to M_1$ be another choice of parameterizations such that $\varphi(\mathbf{\beta}(B))\subset\mathbf{\alpha}(A)$. Then by condition (2) in the definition of a differentiable manifold, the transition maps $\mathbf{\alpha}^{-1}\circ\mathbf{y}$ and $\mathbf{x}^{-1}\circ\mathbf{\beta}$ are differentiable (assuming their ranges overlap) and so composing on the left and right we have that the map
 \begin{equation*}
 \mathbf{\alpha}^{-1}\circ\mathbf{y}\circ\mathbf{y}^{-1}\circ\varphi\circ\mathbf{x}\circ\mathbf{x}^{-1}\circ\mathbf{\beta} = \mathbf{\alpha}^{-1}\circ\varphi\circ\mathbf{\beta}
 \end{equation*}
 is differentiable.
+</div>
+
+## The Tangent Bundle
+
+Here we introduce the tangent bundle and provide a differentiable structure for it.
+
+<div class="def">
+Let $M$ be a differentiable manifold. Define the set
+\begin{equation*}
+TM = \left\{(p,v): p\in M, v\in T_pM\right\}
+\end{equation*}
+For a differential structure, let $\left\{\left(U_\alpha, \mathbf{x}_\alpha\right)\right\}$ be a maximal differentiable structure on $M$. Denote by $(x_1^\alpha, \dots, x_n^\alpha)$ the coordinates in $U_\alpha$ and by $\left\{\frac{\partial}{\partial x_1^\alpha},\dots,\frac{\partial}{\partial x_n^\alpha}\right\}$ the associated bases to the tangent spaces of $\mathbf{x}_\alpha\left(U_\alpha\right)$. Then for every $\alpha$, define the mapping $\mathbf{y}_\alpha:U_\alpha\times\mathbb{R}^n\to TM$ by
+\begin{equation*}
+\mathbf{y}_\alpha\left(x_1^\alpha,\dots,x_n^\alpha,u_1,\dots,u_n\right) = \left(\mathbf{x}_\alpha\left(x_1^\alpha,\dots,x_n^\alpha\right),\sum\limits_{i=1}^n u_i \frac{\partial}{\partial x_i^\alpha} \right)
+\end{equation*}
+for $(u_1,\dots,u_n)\in\mathbb{R}^n$. Then $\left\{\left(U_\alpha\times\mathbb{R}^n\right),\mathbf{y}_\alpha\right\}$ is a differentiable structure on $TM$, which we prove below.
+</div>
+
+<div class="proof"> Proof:
+First we need to show that $\mathbf{y}_\alpha\left(U_\alpha\times\mathbb{R}^n\right)$ covers $TM$. Since $\mathbf{x}_\alpha\left(U_\alpha\right) = M$ and for every $q \in U_\alpha$, the differential $(d\mathbf{x}_\alpha)_q\left(\mathbb{R}^n\right) = T_{\mathbf{x}_\alpha(q)}M$, we have that
+\begin{equation*}
+\bigcup\mathbf{y}_\alpha\left(U_\alpha\times\mathbb{R}^n\right) = TM.
+\end{equation*}
+Now it remains to show that the transition maps between two overlapping parameterizations is differentiable. Suppose we have a point of $TM$, $(p,v) \in \mathbf{y}_\alpha\left(U_\alpha\times\mathbb{R}^n\right)\cap\mathbf{y}_\beta\left(U_\beta\times\mathbb{R}^n\right)$, then we can write $(p,v)$ as
+\begin{equation*}
+(p,v) = \left(\mathbf{x}_\alpha\left(q_\alpha\right),d\mathbf{x}_\alpha\left(v_\alpha\right)\right) = \left(\mathbf{x}_\beta\left(q_\beta\right),d\mathbf{x}_\beta\left(v_\beta\right)\right)
+\end{equation*}
+for some $q_\alpha\in U_\alpha$, $q_\beta\in U_\beta$, and $v_\alpha,v_\beta \in \mathbb{R}^n$. Then consider the following:
+\begin{align*}
+\mathbf{y}_\beta^{-1}\circ\mathbf{y}_\alpha\left(q_\alpha,v_\alpha\right) &= \mathbf{y}_\beta^{-1}\left(\mathbf{x}_\alpha\left(q_\alpha\right),d\mathbf{x}_\alpha\left(v_\alpha\right)\right) \\ &= \left(\mathbf{x}_\beta^{-1}\circ\mathbf{x}_\alpha\left(q_\alpha\right), d\left(\mathbf{x}_\beta^{-1}\circ\mathbf{x}_\alpha\right)\left(v_\alpha\right)\right)
+\end{align*}
+Clearly $\mathbf{x}_\beta^{-1}\circ\mathbf{x}_\alpha$ is differentiable, and since it is, the differential, $d\left(\mathbf{x}_\beta^{-1}\circ\mathbf{x}_\alpha\right)$ is as well. So $\mathbf{y}_\beta^{-1}\circ\mathbf{y}_\alpha$ is differentiable and hence we have a differentiable structure on $TM$.
 </div>
 
 # References
