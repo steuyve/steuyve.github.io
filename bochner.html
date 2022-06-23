@@ -44,7 +44,111 @@ other words, we define</p>
 <p><span class="math display">\[
 \omega_{ij} = \Gamma^j_{ki}\omega_k
 \]</span></p>
-<p>We can check that</p>
+<p>It is easy to check that these connection 1-forms are linear and
+tensorial and thus are indeed 1-forms.</p>
+<p>In addition, given a linear connection <span
+class="math inline">\(\nabla\)</span> on <span
+class="math inline">\(M\)</span>, we can define a map <span
+class="math inline">\(\tau:\mathscr{T}(M)\times\mathscr{T}(M)\to\mathscr{T}(M)\)</span>
+by</p>
+<p><span class="math display">\[
+    \tau(X,Y) = \nabla_XY - \nabla_YX - [X,Y]
+\]</span></p>
+<p>called the <em>torsion tensor of <span
+class="math inline">\(\nabla\)</span></em>.</p>
+<p>We now show the following formulas, which is known as Cartan’s
+<em>first structural equations</em></p>
+<div id="prop:C1" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 2.1</span> <span
+class="statement-info">(Cartan’s first structural
+equations)</span>.</span><span class="statement-spah"> </span>For each
+<span class="math inline">\(\omega_j\)</span> in the dual coframe <span
+class="math inline">\(\{\omega_i\}\)</span>, we have <span
+class="math display">\[
+    d\omega_j = \omega_i \wedge \omega_{ij} + \tau^j
+\]</span></p>
+<p>where <span class="math inline">\(\{\tau^1,\dots,\tau^n\}\)</span>
+are the <em>torsion 2-forms</em>, defined in terms of the torsion tensor
+<span class="math inline">\(\tau\)</span> and the frame <span
+class="math inline">\(\{e_i\}\)</span> by</p>
+<p><span class="math display">\[
+    \tau(X,Y) = \tau^j(X,Y)e_j.
+\]</span></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>Let <span class="math inline">\(e_p,
+e_q\)</span> be elements in the local frame. Then since <span
+class="math inline">\(\omega_j\)</span> is a 1-form, we have that <span
+class="math display">\[
+\begin{aligned}
+    d\omega_j(e_p,e_q) &amp;= e_p(\omega_j(e_q)) - e_q(\omega_j(e_p)) -
+\omega_j([e_p,e_q]) \\
+    &amp;= e_p(\delta^j_q) - e_q(\delta^j_p) -
+\omega_j\left(\nabla_{e_p}e_q - \nabla_{e_q}e_p - \tau(e_p,e_q)\right)
+\\
+    &amp;= -\omega_j\left(\Gamma^k_{pq}e_k - \Gamma^k_{qp}e_k -
+\tau^k(e_p,e_q)e_k\right),
+\end{aligned}
+\]</span></p>
+<p>where the second equality is by the definition of the torsion tensor
+of <span class="math inline">\(\nabla\)</span> and the last equality is
+because <span class="math inline">\(e_p(\delta^j_q) - e_q(\delta^j_p) =
+0 - 0 = 0\)</span> if <span class="math inline">\(p \neq q\)</span> or
+<span class="math inline">\(e_p(\delta^j_q) - e_q(\delta^j_p) = 1 - 1 =
+0\)</span> if <span class="math inline">\(p = q\)</span>.</p>
+<p>Then for the terms with the Christoffel symbols we use the definition
+of the connection 1-forms</p>
+<p><span class="math display">\[
+    \omega_{qk}(e_p) = \Gamma^k_{sq}\omega_s(e_p) =
+\Gamma^k_{sq}\delta^s_p = \Gamma^k_{pq}.
+\]</span></p>
+<p>So continuing, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+    d\omega_j(e_p,e_q) &amp;= -\omega_j\left(\Gamma^k_{pq}e_k -
+\Gamma^k_{qp}e_k - \tau^k(e_p,e_q)e_k\right) \\
+    &amp;= -\omega_j\left(\omega_{qk}(e_p)e_k - \omega_{pk}(e_q)e_k -
+\tau^k(e_p,e_q)e_k\right) \\
+    &amp;= \omega_{pk}(e_q)\omega_j(e_k) - \omega_{qk}(e_p)\omega_j(e_k)
++ \tau^k(e_p,e_q)\omega_j(e_k) \\
+    &amp;= \omega_{pk}(e_q)\delta^j_k - \omega_{qk}(e_p)\delta^j_k +
+\tau^k(e_p,e_q)\delta^j_k \\
+    &amp;= \omega_{pj}(e_q) - \omega_{qj}(e_p) + \tau^j(e_p,e_q).
+\end{aligned}
+\]</span></p>
+<p>Observe that</p>
+<p><span class="math display">\[
+    (\omega_i\otimes\omega_{ij})(e_p,e_q) =
+\omega_i(e_p)\omega_{ij}(e_q) = \delta^i_p\omega_{ij}(e_q) =
+    \omega_{pj}(e_q),
+\]</span></p>
+<p>and similarly <span
+class="math inline">\((\omega_i\otimes\omega_{ij})(e_q,e_p) =
+\omega_{qj}(e_p)\)</span>. So continuing, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+    d\omega_j(e_p,e-q) &amp;= \omega_{pj}(e_q) - \omega_{qj}(e_p) +
+\tau^j(e_p,e_q) \\
+    &amp;= (\omega_i\otimes\omega_{ij})(e_p,e_q) -
+(\omega_i\otimes\omega_{ij})(e_q,e_p) + \tau^j(e_p,e_q) \\
+    &amp;= (\omega_i\wedge\omega_{ij})(e_p,e_q) + \tau^j(e_p,e_q).
+\end{aligned}
+\]</span></p>
+<p>This implies that</p>
+<p><span class="math display">\[
+    d\omega_j(X,Y) = X^pY^qd\omega_j(e_p,e_q) =
+X^pY^q(\omega_i\wedge\omega_{ij}+\tau^j)(e_p,e_q) =
+    (\omega_i\wedge\omega_{ij}+\tau^j)(X,Y).
+\]</span></p>
+<p>In other words, that</p>
+<p><span class="math display">\[
+    d\omega_j = \omega_i\wedge\omega_{ij} + \tau,
+\]</span></p>
+<p>as required.</p>
+</div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
