@@ -6,7 +6,7 @@ body {
 	font-family: Cambria, Georgia, serif;
 	font-weight: normal;
 	line-height: 1.6;
-	max-width: 700px;
+	max-width: 70%;
 	text-align: justify;
 	margin: 0 auto;
 }
@@ -47,11 +47,8 @@ footer {
 	text-align: right;
 }
 
-.def {
-	background-color: #fffad9;
+.statement {
+	border-style: solid none solid none;
+	border-width: 1px;
 }
 
-.proof {
-	font-style: italic;
-	background-color: #d9e7ff;
-}
