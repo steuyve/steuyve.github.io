@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Kotscwhar-Ni Notes</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>These are some notes I’m writing while reading the Kotschwar-Ni paper
+(see <span class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>).</p>
+<h1 data-number="2" id="initial-setup"><span
+class="header-section-number">2</span> Initial Setup</h1>
+<p>Let <span class="math inline">\(p &gt; 1\)</span>. A function <span
+class="math inline">\(v: M \to \mathbb{R}\)</span> is called a <span
+class="math inline">\(p\)</span>-harmonic function if it satisfies</p>
+<p><span id="eq:pharmv" class="eqnos"><span class="math display">\[
+    \text{div}\left(\left|\nabla v\right|^{p-2}\nabla v\right) = 0.
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p>Note that when <span class="math inline">\(p = 2\)</span>, this
+reduces to the ordinary Laplace equation. Letting <span
+class="math inline">\(u := -(p-1)\log{v}\)</span>, then (<a
+href="#eq:pharmv">2.1</a>) becomes</p>
+<p><span id="eq:pharmu" class="eqnos"><span class="math display">\[
+    \text{div}\left(\left|\nabla u\right|^{p-2}\nabla u\right) -
+\left|\nabla u\right|^p = 0.
+\]</span><span class="eqnos-number">(2.2)</span></span> </p>
+<p>Note that when <span class="math inline">\(p = 1\)</span>, (<a
+href="#eq:pharmu">2.2</a>) above is the equation to the level-set
+formulation of the inverse mean curvature flow on a co-compact subdomain
+<span class="math inline">\(\Omega \subset \mathbb{R}^n\)</span>.</p>
+<p>Let <span class="math inline">\(f := \left|\nabla
+u\right|^2\)</span>. Then the LHS of (<a href="#eq:pharmu">2.2</a>)
+becomes</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \text{div}\left(\left|\nabla u\right|^{p-2}\nabla u\right) &amp;=
+\text{div}\left(f^{p/2-1}\nabla u\right) \\
+    &amp;= f^{p/2-1}\text{div}\left(\nabla u\right) + \left\langle
+\nabla u, \nabla\left(f^{p/2-1}\right)\right\rangle \\
+    &amp;= f^{p/2-1}\Delta u +
+\left(\frac{p}{2}-1\right)f^{p/2-2}\left\langle\nabla f, \nabla
+u\right\rangle.
+\end{aligned}
+\]</span></p>
+<p>and the RHS of the same equation becomes <span
+class="math inline">\(\left|\nabla u\right|^{p} = \left(\left|\nabla u
+\right|^2\right)^{p/2} = f^{p/2}\)</span>. So we have that for <span
+class="math inline">\(f\)</span>, (<a href="#eq:pharmu">2.2</a>) is
+equivalent to</p>
+<p><span id="eq:pharmf" class="eqnos"><span class="math display">\[
+    f^{p/2-1}\Delta u + \left(\frac{p}{2}-1\right)f^{p/2-2}\langle\nabla
+f, \nabla u\rangle = f^{p/2}.
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+<h1 data-number="3" id="a-nonlinear-bochner-type-formula"><span
+class="header-section-number">3</span> A Nonlinear Bochner-type
+Formula</h1>
+<p>Assume <span class="math inline">\(u, f &gt; 0\)</span> and <span
+class="math inline">\(u\)</span> is a solution to (<a
+href="#eq:pharmu">2.2</a>) above. Let us denote by <span
+class="math inline">\(\Lambda_p\)</span> the operator on the LHS of (<a
+href="#eq:pharmu">2.2</a>), that is,</p>
+<p><span class="math display">\[
+    \Lambda_p(\varphi) := \text{div}\left(\left|\nabla
+\varphi\right|^{p-2}\nabla \varphi\right) - \left|\nabla
+\varphi\right|^p
+\]</span></p>
+<p>and let <span class="math inline">\(L\)</span> denote the
+linearization of <span class="math inline">\(\Lambda_p\)</span> at <span
+class="math inline">\(u\)</span>.</p>
+<p>We can compute what <span class="math inline">\(L\)</span> must be by
+computing <span
+class="math inline">\(\frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\Lambda_p(u+\varepsilon\varphi)\)</span>,
+i.e., taking the derivative at 0 of a small perturbation of <span
+class="math inline">\(\Lambda_p(u)\)</span>. Note that we have <span
+class="math inline">\(\nabla(u+\varepsilon\varphi) = \nabla u +
+\varepsilon\nabla\varphi\)</span> and that</p>
+<p><span class="math display">\[
+\left|\nabla(u+\varepsilon\varphi)\right|^p = \left(\langle\nabla u +
+\varepsilon\nabla\varphi, \nabla u +
+\varepsilon\nabla\varphi\rangle\right)^{p/2} = \left(|\nabla u|^2 +
+2\varepsilon\langle\nabla u,\nabla \varphi\rangle +
+\varepsilon^2|\nabla\varphi|^2\right)^{p/2}
+\]</span></p>
+<p>So we have that</p>
+<p><span id="eq:ddepnorm" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}|\nabla(u+\varepsilon\varphi)|^p
+&amp;= \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\left(|\nabla u|^2 +
+2\varepsilon\langle\nabla u,\nabla \varphi\rangle +
+\varepsilon^2|\nabla\varphi|^2\right)^{p/2} \\
+    &amp;= \frac{p}{2}\left(|\nabla u|^2 + 2\varepsilon\langle\nabla u,
+\nabla \varphi\rangle +
+\varepsilon^2|\nabla\varphi|^2\right)^{p/2-1}\left(2\langle\nabla u,
+\nabla\varphi\rangle +
+2\varepsilon|\nabla\varphi|^2\right)\Big|_{\varepsilon=0} \\
+    &amp;= p\left(|\nabla u|^2\right)^{p/2-1}\langle\nabla
+u,\nabla\varphi\rangle \\
+    &amp;= pf^{p/2-1}\langle\nabla u,\nabla\varphi\rangle.
+\end{aligned}
+\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p>Similarly, we can evaluate <span
+class="math inline">\(\frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\)</span>
+of the expression inside the <span
+class="math inline">\(\text{div}\)</span> operator. We have</p>
+<p><span id="eq:ddeinsidediv" class="eqnos"><span
+class="math display">\[
+\begin{aligned}
+    \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\left|\nabla(u+\varepsilon\varphi)\right|^{p-2}\nabla(u+\varepsilon\varphi)
+&amp;= \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\left(|\nabla u|^2 +
+2\varepsilon\langle\nabla u,\nabla \varphi\rangle +
+\varepsilon^2|\nabla\varphi|^2\right)^{p/2-1}\nabla(u+\varepsilon\varphi)
+\\
+    &amp;\qquad + \left(|\nabla u|^2 + 2\varepsilon\langle\nabla
+u,\nabla \varphi\rangle +
+\varepsilon^2|\nabla\varphi|^2\right)^{p/2-1}\frac{d}{d\varepsilon}\Big|_{\varepsilon=0}(\nabla
+u + \varepsilon\nabla\varphi) \\
+    &amp;= \left(\frac{p}{2}-1\right)\left(|\nabla
+u|^2\right)^{p/2-1}2\langle\nabla u, \nabla \varphi\rangle\nabla u +
+\left(|\nabla u|^2\right)^{p/2-1}\nabla\varphi \\
+    &amp;= (p-2)f^{p/2-2}\langle\nabla u,\nabla\varphi\rangle\nabla u +
+f^{p/2-1}\nabla\varphi. \\
+\end{aligned}
+\]</span><span class="eqnos-number">(3.2)</span></span> </p>
+<p>Notice that the tensor <span class="math inline">\(\nabla u \otimes
+\nabla u\)</span> applied to the vector <span
+class="math inline">\(\nabla \varphi\)</span> in coordinates is given
+by</p>
+<p><span class="math display">\[
+\begin{aligned}
+    (\nabla u \otimes \nabla u)(\nabla\varphi) &amp;= \left(u_i u_j
+dx^i\otimes dx^j\right)\left(g^{k\ell}\varphi_k\partial_\ell\right) \\
+    &amp;= u_iu_jdx^i\left(g^{k\ell}\varphi_k\partial_\ell\right)dx^j \\
+    &amp;= u_iu_jg^{k\ell}\varphi_k\delta^i_\ell dx^j \\
+    &amp;= u_iu_j g^{ki}\varphi_kdx^j = \langle\nabla
+u,\nabla\varphi\rangle \nabla u.
+\end{aligned}
+\]</span></p>
+<p>In view of this, we can define the tensor <span
+class="math inline">\(A:= \text{id} + (p-2)\frac{\nabla u \otimes \nabla
+u}{f}\)</span> and rewrite the last line of (<a
+href="#eq:ddeinsidediv">3.2</a>) as</p>
+<p><span class="math display">\[
+    \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\left|\nabla(u+\varepsilon\varphi)\right|^{p-2}\nabla(u+\varepsilon\varphi)
+= f^{p/2-1}A(\nabla\varphi).
+\]</span></p>
+<p>So commuting <span
+class="math inline">\(\frac{d}{d\varepsilon}\)</span> past the <span
+class="math inline">\(\text{div}\)</span> operator, and combining the
+above with the last line of (<a href="#eq:ddepnorm">3.1</a>), all
+together we have</p>
+<p><span id="eq:L" class="eqnos"><span class="math display">\[
+    L(\varphi) = \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\Lambda_p(u
++ \varepsilon\varphi) = \text{div}\left(f^{p/2-1}A(\nabla\varphi)\right)
+- pf^{p/2-1}\langle\nabla u,\nabla\varphi\rangle.
+\]</span><span class="eqnos-number">(3.3)</span></span> </p>
+<p>With this explicit expression for <span
+class="math inline">\(L\)</span>, Kotschwar and Ni then show the
+following lemma.</p>
+<div id="lem:Lf" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+3.1</span>.</span><span class="statement-spah"> </span>[Kotschwar-Ni,
+Lemma 2.1] With <span class="math inline">\(u, f, A, L\)</span> as
+above, we have the following expression for <span
+class="math inline">\(L(f)\)</span>.</p>
+<p><span class="math display">\[
+L(f) = 2f^{p/2-1}\left(u_{ij}^2 + R_{ij}u_iu_j\right) +
+\left(\frac{p}{2}-1\right)|\nabla f|^2f^{p/2-2},
+\]</span></p>
+<p>where <span class="math inline">\(u_{ij}\)</span> is the Hessian of
+<span class="math inline">\(u\)</span>, <span
+class="math inline">\(R_{ij}\)</span> is the Ricci curvature of <span
+class="math inline">\(M\)</span>.</p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>The expression comes from computing <span
+class="math inline">\(L(f)\)</span> using the expression we got in (<a
+href="#eq:L">3.3</a>) above, and combining with the Bochner formula for
+<span class="math inline">\(f\)</span>.</p>
+<p>Recall that the Bochner formula is given by the following.</p>
+<p><span id="eq:bochner" class="eqnos"><span class="math display">\[
+    \Delta f = 2u_{ij}^2 + 2\langle\nabla\Delta u, \nabla u\rangle +
+2R_{ij}u_iu_j.
+\]</span><span class="eqnos-number">(3.4)</span></span> </p>
+<p>By the definition of <span class="math inline">\(A\)</span> and
+evaluating, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \text{div}\left(f^{p/2-1}A(\nabla f)\right) &amp;=
+\text{div}\left(f^{p/2-1}\left(\nabla f + (p-2)\frac{\nabla u \otimes
+\nabla u}{f}\nabla f\right)\right) \\
+    &amp;= \text{div}\left(f^{p/2-1}\nabla f\right) +
+(p-2)\text{div}\left(f^{p/2-2}(\nabla u \otimes \nabla u)(\nabla
+f)\right) \\
+    &amp;= f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 +
+(p-2)\text{div}\left(f^{p/2-2}(\nabla u \otimes \nabla u)(\nabla
+f)\right) \\
+    &amp;= f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 \\
+        &amp;\qquad+ (p-2)\left[f^{p/2-2}\text{div}\left((\nabla u
+\otimes \nabla u)(\nabla f)\right) + \left\langle
+\nabla\left(f^{p/2-2}\right),(\nabla u \otimes \nabla u)\nabla
+f\right\rangle\right] \\
+    &amp;= f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 \\
+        &amp;\qquad+ (p-2)\left[f^{p/2-2}\text{div}\left((\nabla u
+\otimes \nabla u)(\nabla f)\right) +
+\left(\frac{p}{2}-2\right)f^{p/2-3}\langle\nabla u, \nabla
+f\rangle^2\right] \\
+    &amp;= f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 \\
+        &amp;\qquad+ (p-2)\left[f^{p/2-2}\langle\nabla u,\nabla
+f\rangle\Delta u + f^{p/2-2}\left\langle\nabla(\langle\nabla u, \nabla
+f\rangle),\nabla u\right\rangle\right. \\
+        &amp;\qquad+
+\left.\left(\frac{p}{2}-2\right)f^{p/2-3}\langle\nabla u, \nabla
+f\rangle^2\right] \\
+\end{aligned}
+\]</span></p>
+<p>So we have the expression for <span
+class="math inline">\(L(f)\)</span></p>
+<p><span id="eq:Lfintermediate" class="eqnos"><span
+class="math display">\[
+\begin{aligned}
+    L(f) &amp;= f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 + (p-2)f^{p/2-2}\Delta u
+\langle \nabla u,\nabla f \rangle \\
+        &amp;\qquad +
+(p-2)\left(\frac{p}{2}-2\right)f^{p/2-3}\langle\nabla u,\nabla
+f\rangle^2 + (p-2)f^{p/2-2}\left\langle\nabla(\langle\nabla u, \nabla
+f\rangle),\nabla u\right\rangle \\
+        &amp;\qquad - pf^{p/2-1}\langle\nabla u,\nabla f\rangle.
+\end{aligned}
+\]</span><span class="eqnos-number">(3.5)</span></span> </p>
+<p>Taking the <span class="math inline">\(\nabla\)</span> of (<a
+href="#eq:pharmf">2.3</a>) and then taking the inner product with <span
+class="math inline">\(\nabla u\)</span>, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \frac{p}{2}f^{p/2-1}\langle\nabla f,\nabla u\rangle &amp;=
+\left\langle\nabla\left(f^{p/2-1}\right),\nabla u\right\rangle\Delta u +
+f^{p/2-1}\langle\nabla\Delta u,\nabla u\rangle \\
+        &amp;\qquad +
+\left\langle\nabla\left(\left(\frac{p}{2}-1\right)f^{p/2-2}\right),\nabla
+u\right\rangle\langle\nabla f,\nabla u\rangle +
+\left(\frac{p}{2}-1\right)f^{p/2-2}\langle\nabla(\langle\nabla f,\nabla
+u\rangle),\nabla\rangle \\
+    &amp;= \left(\frac{p}{2}-1\right)f^{p/2-2}\langle\nabla f,\nabla
+u\rangle\Delta u + f^{p/2-1}\langle\nabla\Delta u,\nabla u\rangle \\
+        &amp;\qquad +
+\left(\frac{p}{2}-1\right)\left(\frac{p}{2}-2\right)f^{p/2-3}\langle\nabla
+f,\nabla u\rangle^2 +
+\left(\frac{p}{2}-1\right)f^{p/2-2}\langle\nabla(\langle\nabla f,\nabla
+u\rangle),\nabla u\rangle.
+\end{aligned}
+\]</span></p>
+<p>And two times the above coincides with the term we are subtracting in
+(<a href="#eq:Lfintermediate">3.5</a>), so a lot of terms cancel out and
+we get a more simplified form of <span
+class="math inline">\(L(f)\)</span> as</p>
+<p><span class="math display">\[
+    L(f) = f^{p/2-1}\Delta f +
+\left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 -
+2f^{p/2-1}\langle\nabla\Delta u,\nabla u\rangle.
+\]</span></p>
+<p>Finally substituting the RHS of the Bochner formula (<a
+href="#eq:bochner">3.4</a>) into the first term above and canceling, we
+arrive at</p>
+<p><span class="math display">\[
+    L(f) = 2f^{p/2-1}\left(u_{ij}^2+R_{ij}u_iu_j\right) +
+\left(\frac{p}{2}-1\right)f^{p/2-1}|\nabla f|^2
+\]</span></p>
+<p>as required.</p>
+</div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-KN09" class="csl-entry" role="doc-biblioentry">
+Kotschwar, Brett, and Lei Ni. 2009. <span>“Local Gradient Estimates of
+<span class="math inline">\(p\)</span>-Harmonic Functions, <span
+class="math inline">\(1/H\)</span>-Flow, and an Entropy Formula.”</span>
+<em>Annales Scientifiques de l’École Normale Supérieure</em> Ser. 4, 42
+(1): 1–36. <a
+href="https://doi.org/10.24033/asens.2089">https://doi.org/10.24033/asens.2089</a>.
+</div>
+</div>
+</body>
+</html>

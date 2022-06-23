@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bochner Formula Notes</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>My notes on Section 3 of Li’s <em>Lecture Notes on Geometric
+Analysis</em> on the Bochner-Weitzenbock Formulas (see <span
+class="citation" data-cites="Li93">(<a href="#ref-Li93"
+role="doc-biblioref">Li 1993</a>)</span>).</p>
+<h1 data-number="2" id="cartans-structural-equations"><span
+class="header-section-number">2</span> Cartan’s Structural
+Equations</h1>
+<p>Here we first introduce Cartan’s structural equations. Note that
+these are Problem 4-5 and Problem 7-2 of <span class="citation"
+data-cites="Lee97">(<a href="#ref-Lee97" role="doc-biblioref">Lee
+1997</a>)</span>, though the notation we are following is from <span
+class="citation" data-cites="Li93">(<a href="#ref-Li93"
+role="doc-biblioref">Li 1993</a>)</span> for the sake of consistency
+with the following sections. Let <span
+class="math inline">\(\nabla\)</span> be a linear connection on a
+Riemannian manifold <span class="math inline">\(M\)</span>. Let <span
+class="math inline">\(U \subset M\)</span> be an open subset with a
+local frame <span class="math inline">\(\{e_i\}\)</span> and <span
+class="math inline">\(\{\omega_i\}\)</span> the dual coframe, that is,
+<span class="math inline">\(\omega_i(e_j) = \delta^i_j\)</span>. Notice
+that for a vector field <span class="math inline">\(X = X^ke_k\)</span>,
+we have that</p>
+<p><span class="math display">\[
+\nabla_Xe_i = \nabla_{X^ke_k}e_i = X^k\nabla_{e_k}e_i =
+X^k\Gamma^j_{ki}e_j
+\]</span></p>
+<p>Then we can define the unique <em>connection 1-forms</em> associated
+with this connection and this local frame by defining <span
+class="math inline">\(\omega_{ij}\)</span> by <span
+class="math inline">\(\omega_{ij}(X) = X^k\Gamma^j_{ki}\)</span>. In
+other words, we define</p>
+<p><span class="math display">\[
+\omega_{ij} = \Gamma^j_{ki}\omega_k
+\]</span></p>
+<p>We can check that</p>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-Lee97" class="csl-entry" role="doc-biblioentry">
+Lee, John M. 1997. <em><span>R</span>iemannian <span>M</span>anifolds:
+<span>A</span>n <span>I</span>ntroduction to
+<span>C</span>urvature</em>. <span>G</span>raduate <span>T</span>exts in
+<span>M</span>athematics. Springer.
+</div>
+<div id="ref-Li93" class="csl-entry" role="doc-biblioentry">
+Li, Peter. 1993. <em>Lecture Notes on Geometric Analysis</em>.
+<em>RIMGARC Lecture Notes Series 6</em>. Seoul National University.
+</div>
+</div>
+</body>
+</html>

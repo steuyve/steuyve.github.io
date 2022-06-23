@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Volume Comparison Notes</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>The goal of this final project is to demonstrate the relationship
+between the curvature of a Riemannian manifold (a local property) and
+its global topology by presenting Myer’s theorem as a corollary of
+Bishop’s volume comparison theorem. Along the way, we will derive the
+first and second variational formulas for area for Riemannian manifolds
+which will be used to develop the volume comparison results. In the last
+section, we will mention further results connecting the geometry and
+curvature of a Riemannian manifold to its topology that can be arrived
+at via the framework of volume comparison. The statements and proofs of
+these results are based on the exposition in the first two chapters of
+Peter Li’s <em>Geometric Analysis</em> (<span class="citation"
+data-cites="li">(<a href="#ref-li" role="doc-biblioref">Li
+2012</a>)</span>).</p>
+<h2 data-number="1.1" id="basic-concepts-from-riemanian-manifolds"><span
+class="header-section-number">1.1</span> Basic Concepts from Riemanian
+Manifolds</h2>
+<p>We first introduce basic concepts of Riemannian manifolds that we
+will use throughout. The purpose of this section is more to establish
+notation and standard results that we will use in Sections 2 and 3
+rather than exposition. To shorten the exposition, we will just state
+these definitions and results below without proof. A useful resource for
+this material is John M. Lee’s <em>Riemannian Manifolds: An Introduction
+to Curvature</em> (<span class="citation" data-cites="lee">(<a
+href="#ref-lee" role="doc-biblioref">Lee 1997</a>)</span>). We endeavor
+to give explicit citations and page numbers of major named results in
+this section (such as the statement of the Hopf-Rinow Theorem), but
+otherwise you can assume that all basic definitions and facts here are
+taken from <span class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span>. Note that <span
+class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span> also gives proofs of Bonnet’s
+and Myer’s theorems for Riemannian manifolds, though more directly using
+Jacobi fields rather than via volume comparison (see p.200-201 of <span
+class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span>).</p>
+<p>Let <span class="math inline">\(M\)</span> be an <span
+class="math inline">\(m\)</span>-dimensional smooth manifold. Then we
+can make endow <span class="math inline">\(M\)</span> with a
+<em>Riemannian metric</em> which is a choice of positive definite inner
+product, denoted <span class="math inline">\(g\)</span> on the tangent
+spaces <span class="math inline">\(T_pM\)</span> that smoothly vary with
+<span class="math inline">\(p\)</span> (in other words, it is a 2-tensor
+on the tangent bundle <span class="math inline">\(TM\)</span>). If <span
+class="math inline">\(X, Y\)</span> are two vector fields on <span
+class="math inline">\(M\)</span>, then their inner product is
+denoted</p>
+<p><span class="math display">\[
+    g(X,Y) = \langle X, Y \rangle.
+\]</span></p>
+<p>If <span class="math inline">\(\{x_1,\dots,x_m\}\)</span> are local
+coordinates at <span class="math inline">\(p\)</span> and <span
+class="math inline">\(\{\frac{\partial}{\partial
+x_1},\dots,\frac{\partial}{\partial x_m}\}\)</span> are the
+corresponding coordinate vector fields, then we also denote</p>
+<p><span class="math display">\[
+    g_{ij} = g\left(\frac{\partial}{\partial
+x_i},\frac{\partial}{\partial x_j}\right) = \left\langle
+\frac{\partial}{\partial x_i}, \frac{\partial}{\partial x_j}
+\right\rangle.
+\]</span></p>
+<p>Then <span class="math inline">\(g_{ij}\)</span> can be thought of as
+an <span class="math inline">\(m\times m\)</span> matrix that varies
+with choice of point <span class="math inline">\(p \in M\)</span> (so we
+might also denote the Riemannian metric by <span
+class="math inline">\(g_{ij}(p)\)</span> with the vector fields above
+evaluated at <span class="math inline">\(p\)</span>). Recall from a
+previous homework problem in this course that we can use a partition of
+unity argument to show the existence of Riemannian metrics on smooth
+manifolds.</p>
+<p>Let <span class="math inline">\(\mathscr{T}(M)\)</span> be the space
+of smooth vector fields on <span class="math inline">\(M\)</span>. Then
+we have a notion of covariant derivatives in the notion of a
+<em>connection</em> <span class="math inline">\(\nabla:
+\mathscr{T}(M)\times\mathscr{T}(M)\to\mathscr{T}(M)\)</span> which
+satisfies the following: let <span class="math inline">\(a, b \in
+\mathbb{R}, f, g \in C^\infty(M), X, Y, Z \in \mathscr{T}(M)\)</span>
+then</p>
+<ol type="1">
+<li><p>Linearity over <span
+class="math inline">\(C^\infty(M)\)</span>:</p>
+<p><span class="math display">\[
+    \nabla_{(fX + gY)}Z = f\nabla_X Z + g\nabla_Y Z
+\]</span></p></li>
+<li><p>Linearity over <span
+class="math inline">\(\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[
+    \nabla_X(aY + bZ) = a\nabla_X Y + b\nabla_X Z
+\]</span></p></li>
+<li><p>Product rule:</p>
+<p><span class="math display">\[
+    \nabla_X(fY) = X(f)Y + f\nabla_X Y
+\]</span></p></li>
+</ol>
+<p>We can have two additional properties of <em>metric
+compatibility</em> and <em>torsion free</em>.</p>
+<ol type="1">
+<li><p>Metric compatible:</p>
+<p><span class="math display">\[
+    X\langle Y, Z\rangle = \langle \nabla_X Y, Z \rangle + \langle Y,
+\nabla_X Z \rangle
+\]</span></p></li>
+<li><p>Torsion free:</p>
+<p><span class="math display">\[
+    [X,Y] = \nabla_X Y - \nabla_Y X
+\]</span></p></li>
+</ol>
+<p>Then requiring the connection to additionally be metric compatible
+and torsion free makes <span class="math inline">\(\nabla\)</span> into
+the unique <em>Levi-Civita connection</em> (also called the
+<em>Riemannian connection</em>) on <span class="math inline">\((M,
+g)\)</span> (<span class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span>, p.68).</p>
+<p>A curve <span class="math inline">\(\gamma: I\subseteq\mathbb{R} \to
+M\)</span> is called a <em>geodesic</em> if its acceleration with
+respect to <span class="math inline">\(\nabla\)</span> is 0, that is,
+<span class="math inline">\(D_t \dot{\gamma} \equiv 0\)</span> where
+<span class="math inline">\(D_t\)</span> is the covariant derivative
+operator induced from the connection. We saw the exponential map on
+smooth manifolds in class, much of which carries over into the
+Riemannian setting. Additionally, we will also use the notion of
+geodesic balls in a Riemannian manifold which is the image of Euclidean
+balls in the tangent spaces under the exponential map as well as the
+notion of normal coordinates. For the sake of brevity, we do not state
+these results but rather refer the reader to <span class="citation"
+data-cites="lee">(<a href="#ref-lee" role="doc-biblioref">Lee
+1997</a>)</span>, p. 72-81 for the general theory.</p>
+<p>Looking at the coordinate vector fields, we define the
+<em>Christoffel symbols</em> by</p>
+<p><span class="math display">\[
+    \nabla_{\frac{\partial}{\partial x_i}}\frac{\partial}{\partial x_j}
+= \Gamma^k_{ij} \frac{\partial}{\partial x_k}.
+\]</span></p>
+<p>The Riemannian metric <span class="math inline">\(g\)</span> on <span
+class="math inline">\(M\)</span> induces a <em>distance function</em>
+<span class="math inline">\(d_g\)</span> on <span
+class="math inline">\(M\)</span> as the infimum over the length of
+piecewise smooth curves connecting <span
+class="math inline">\(p\)</span> to <span
+class="math inline">\(q\)</span> in <span
+class="math inline">\(M\)</span>. Then this turns <span
+class="math inline">\(M\)</span> into a bona fide metric space with the
+topology induced by the metric coinciding with the original manifold
+topology of <span class="math inline">\(M\)</span>. Then the
+<em>Hopf-Rinow Theorem</em> (<span class="citation" data-cites="lee">(<a
+href="#ref-lee" role="doc-biblioref">Lee 1997</a>)</span>, p.108) states
+that a connected Riemannian manifold is geodesically complete (i.e. all
+maximal geodeics are defined on all of <span
+class="math inline">\(\mathbb{R}\)</span>) if and only if it is complete
+as a metric space. One particular corollary of the Hopf-Rinow Theorem
+that we will rely on later is that <span
+class="math inline">\(M\)</span> is complete if and only if any two
+points in <span class="math inline">\(M\)</span> can be joined by a
+minimizing geodesic segment (<span class="citation" data-cites="lee">(<a
+href="#ref-lee" role="doc-biblioref">Lee 1997</a>)</span>, p.111). The
+<em>diameter</em> of <span class="math inline">\(M\)</span> is then
+defined as <span class="math display">\[\text{diam}(M) =
+\sup\{d_g(p,q):p,q\in M\}.\]</span></p>
+<p>The <em>Riemannian curvature tensor</em> of the metric is then
+determined by</p>
+<p><span class="math display">\[
+    R(X,Y)Z = \nabla_X\nabla_Y Z - \nabla_Y\nabla_X Z - \nabla_{[X, Y]}
+Z, \quad X,Y,Z \in \mathscr{T}(M)
+\]</span></p>
+<p>and satisfies the following identities (collected here for the sake
+of convenience) (<span class="citation" data-cites="li">(<a
+href="#ref-li" role="doc-biblioref">Li 2012</a>)</span>, p.2):</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;R(X,Y)Z = -R(Y,X) Z \\
+    &amp;R(X,Y)Z + R(Y,Z)X + R(Z,X)Y = 0 \\
+    &amp;\langle R(X,Y)Z, W \rangle = \langle R(Z,W)X, Y \rangle \\
+    &amp;R(fX,Y)Z = R(X,fY)Z = R(X,Y)(fZ) = fR(X,Y)Z
+\end{aligned}
+\]</span></p>
+<p>We can then define the other notions of curvature on <span
+class="math inline">\(M\)</span> from the Riemannian curvature tensor.
+For any 2-dimensional subspace <span
+class="math inline">\(\sigma_p\)</span> of <span
+class="math inline">\(T_pM\)</span> spanned by orthonormal vectors <span
+class="math inline">\(X, Y\)</span>, then the <em>sectional
+curvature</em> of <span class="math inline">\(\sigma_p\)</span> at <span
+class="math inline">\(p\)</span> is given by</p>
+<p><span class="math display">\[
+    K(X,Y) = \langle R(X,Y)Y, X \rangle.
+\]</span></p>
+<p>The <em>Ricci curvature</em> is then given in coordinates by</p>
+<p><span class="math display">\[
+    R_{ij} = \sum\limits_{k=1}^m \langle R(e_i, e_k)e_k, e_j\rangle
+\]</span></p>
+<p>whenever <span class="math inline">\(\{e_1,\dots,e_m\}\)</span> is an
+orthonormal basis of <span class="math inline">\(T_pM\)</span>. In
+particular, the diagonal elements are</p>
+<p><span class="math display">\[
+R_{ii} = \sum\limits_{k\neq i}^m K\left(e_i, e_k\right).
+\]</span></p>
+<p>If <span class="math inline">\(N\)</span> is an <span
+class="math inline">\(n\)</span>-dimensional submanifold of <span
+class="math inline">\(M\)</span> with <span class="math inline">\(n &lt;
+m\)</span>, then for smooth vector fields <span class="math inline">\(X,
+Y \in \mathscr{T}(M)\)</span>, then given the Levi-Civita connection
+<span class="math inline">\(\nabla\)</span> on <span
+class="math inline">\(M\)</span>, we can define <span
+class="math inline">\(\nabla^t\)</span> on <span
+class="math inline">\(N\)</span> by</p>
+<p><span class="math display">\[
+    \nabla^t_XY = \left(\nabla_XY\right)^t
+\]</span></p>
+<p>where the superscript <span class="math inline">\(t\)</span> on the
+right-hand side denotes taking the component of <span
+class="math inline">\(\nabla_XY\)</span> tangential to <span
+class="math inline">\(N\)</span>. Then it is easy enough to check that
+<span class="math inline">\(\nabla^t\)</span> is still a connection on
+<span class="math inline">\(N\)</span> and is in fact the Levi-Civita
+connection on <span class="math inline">\(N\)</span> with respect to the
+metric induced from <span class="math inline">\(g\)</span> on <span
+class="math inline">\(M\)</span>.</p>
+<p>We similarly define the <em>Second Fundamental Form</em> of <span
+class="math inline">\(N\)</span> by taking the negative of the normal
+component of <span class="math inline">\(\nabla\)</span>:</p>
+<p><span class="math display">\[
+    \vec{II}(X, Y) = -\left(\nabla_XY\right)^n
+\]</span></p>
+<p>which is symmetric in <span class="math inline">\(X,Y\)</span> and
+also satisfies</p>
+<p><span class="math display">\[
+    \vec{II}(fX,Y) = f\vec{II}(X,Y).
+\]</span></p>
+<p>Finally we define the <em>mean curvature vector</em> on <span
+class="math inline">\(N\)</span> by taking the trace of the second
+fundamental form</p>
+<p><span class="math display">\[
+    \vec{H} = \text{tr}\vec{II} = \sum\limits_{k=1}^n\vec{II}(e_k,e_k)
+\]</span></p>
+<p>where <span class="math inline">\(\{e_1,\dots,e_n\}\)</span> is an
+orthonormal basis of <span class="math inline">\(T_pN\)</span>. Note
+that while the definitions of the second fundamental form and mean
+curvature vector can be found in <span class="citation"
+data-cites="lee">(<a href="#ref-lee" role="doc-biblioref">Lee
+1997</a>)</span>, p.134 and p.142 respectively, the notation and
+definitions above more closely follow <span class="citation"
+data-cites="li">(<a href="#ref-li" role="doc-biblioref">Li
+2012</a>)</span>, p.2 for the sake of keeping the notation consistent
+with the proofs in Sections 2 and 3 below (in particular, the definition
+of the second fundamental form given above differs from that given in
+<span class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span> by a negative sign).</p>
+<h1 data-number="2" id="variational-formulas-for-area"><span
+class="header-section-number">2</span> Variational Formulas for
+Area</h1>
+<p>In this section, we derive the first and second variational formulas
+for area for a Riemmanian manifold. The proofs and derivations in this
+section and Section 3 below are from chapters 1 and 2 of <span
+class="citation" data-cites="li">(<a href="#ref-li"
+role="doc-biblioref">Li 2012</a>)</span>.</p>
+<h2 data-number="2.1" id="first-variational-formula-for-area"><span
+class="header-section-number">2.1</span> First Variational Formula for
+Area</h2>
+<p>As in the previous section, let <span
+class="math inline">\(N\)</span> be an <span
+class="math inline">\(n\)</span>-dimensional submanifold of an <span
+class="math inline">\(m\)</span>-dimensional manifold <span
+class="math inline">\(M\)</span> with <span class="math inline">\(n &lt;
+m\)</span>. Given <span class="math inline">\(\varepsilon &gt;
+0\)</span>, we can view a smooth map</p>
+<p><span class="math display">\[
+    \phi:N\times(-\varepsilon,\varepsilon) \xhookrightarrow{} M
+\]</span></p>
+<p>as giving a one-parameter family of deformations, or variations of
+<span class="math inline">\(N\)</span>. That is, we have a family of
+manifolds parameterized by the “time” variable <span
+class="math inline">\(t \in (-\varepsilon,\varepsilon)\)</span> given by
+<span class="math inline">\(N_t = \phi(N,t)\)</span> with <span
+class="math inline">\(N = N_0 = \phi(N, 0)\)</span>. Then for <span
+class="math inline">\(\{x_1,\dots,x_n\}\)</span> a local coordinate
+system around a point <span class="math inline">\(p \in N\)</span>, we
+can denote by <span class="math inline">\(\{x_1,\dots,x_n,t\}\)</span>
+to be a local coordinate system around <span class="math inline">\((p,
+0) \in N \times (-\varepsilon,\varepsilon)\)</span>. For convenience, we
+will use <span class="math inline">\(\partial_i\)</span> to denote <span
+class="math inline">\(\frac{\partial}{\partial x_i}\)</span> for <span
+class="math inline">\(i = 1,\dots,n\)</span> and <span
+class="math inline">\(\partial_t\)</span> to denote <span
+class="math inline">\(\frac{\partial}{\partial t}\)</span>. Then we also
+denote <span class="math display">\[e_i = d\phi(\partial_i),\quad T =
+d\phi(\partial_t).\]</span> We denote by <span
+class="math inline">\(g_{ij} = \langle e_i,e_j\rangle\)</span> to be the
+metric on <span class="math inline">\(N_t\)</span> induced from the
+metric on <span class="math inline">\(M\)</span> (understanding <span
+class="math inline">\(e_{n+1}\)</span> to be <span
+class="math inline">\(T\)</span> in this case).</p>
+<p>Let <span class="math inline">\(dA_t\)</span> be the area element of
+<span class="math inline">\(N_t\)</span> with respect to the induced
+metric and we write <span class="math inline">\(dA_t =
+J(p,t)dA_0\)</span> for <span class="math inline">\((p,t)\in
+N\times(-\varepsilon,\varepsilon)\)</span> and for <span
+class="math inline">\(t\)</span> sufficiently close to 0. Then we have
+<span class="math display">\[J(p,t) =
+\frac{\sqrt{\det(g_{ij}(p,t))}}{\sqrt{\det(g_{ij}(p,0))}}.\]</span> Then
+our goal will be to compute <span class="math display">\[J&#39;(p,t) =
+\frac{\partial J(p,t)}{\partial_t}.\]</span></p>
+<p>If we let <span class="math inline">\(\{x_1,\dots,x_n\}\)</span> to
+be normal coordinates around <span class="math inline">\(p\in
+N\)</span>, then we have that <span class="math inline">\(g_{ij}(p,0) =
+\delta_{ij}\)</span> the kronecker delta, and additionally since in
+these coordinates the Christoffel symbols vanish at <span
+class="math inline">\((p, 0)\)</span>, we also have that <span
+class="math inline">\(\nabla_{e_i}e_j(p,0) = 0\)</span>. Then in these
+coordinates, since <span class="math inline">\(g_{ij}(p,0) =
+\delta_{ij}\)</span> we have that <span
+class="math inline">\(\det(g_{ij}(p,0)) = \det\delta_{ij} = 1\)</span>
+and <span class="math display">\[\begin{aligned}
+    J&#39;(p,0) &amp;=
+\left.\frac{\partial}{\partial_t}J(p,0)\right|_{t=0} =
+\left.\frac{\partial}{\partial_t}\frac{\sqrt{\det(g_{ij}(p,t))}}{\sqrt{\det(g_{ij}(p,0))}}\right|_{t=0}
+= \left.\frac{\partial}{\partial_t}\sqrt{\det(g_{ij}(p,t))}\right|_{t=0}
+\\
+    &amp;=
+\left.\frac{1}{2}g(p,t)^{-\frac{1}{2}}\right|_{t=0}\left.\frac{\partial}{\partial_t}g(p,t)\right|_{t=0}
+= \frac{1}{2}g&#39;(p,0).\end{aligned}\]</span> On the other hand, by
+the Laplace/cofactor expansion for the determinant, we have that <span
+class="math display">\[\det(g_{ij}) = \sum\limits_{j=1}^n
+g_{1j}c_{1j}\]</span> where <span class="math inline">\(c_{ij}\)</span>
+are the cofactors of <span class="math inline">\(g_{ij}\)</span>. So by
+the product rule, we have that <span
+class="math display">\[\begin{aligned}
+    g&#39;(p,0) &amp;= \left(\sum\limits_{j=1}^n
+g_{1j}(p,0)c_{1j}(p,0)\right)&#39; \\
+    &amp;= \sum\limits_{j=1}^n g&#39;_{1j}(p,0)c_{1j}(p,0) +
+\sum\limits_{j=1}^n g_{1j}(p,0)c&#39;_{1j}(p,0).\end{aligned}\]</span>
+Note that in normal coordinates since <span class="math inline">\(g_{ij}
+= \delta_{ij}\)</span>, <span class="math inline">\(g_{1j}(p,0)\)</span>
+is 1 if <span class="math inline">\(j = 1\)</span> and 0 otherwise, so
+the last sum becomes just <span
+class="math inline">\(c&#39;_{11}(p,0)\)</span>. Similarly in the first
+sum when <span class="math inline">\(j = 1\)</span>, the <span
+class="math inline">\(1,1\)</span>-th minor of <span
+class="math inline">\(g_{ij} = \delta_{ij}\)</span> is still <span
+class="math inline">\(\delta_{ij}\)</span> (one dimension lower), so
+<span class="math inline">\(c_{11}(p,0) = 1\)</span> while when <span
+class="math inline">\(j \neq 1\)</span>, the <span
+class="math inline">\(1,j\)</span>-th minor will have a 0 on the main
+diagonal, so <span class="math inline">\(c_{1j}(p,0) = 0\)</span>, so
+the first sum becomes just <span
+class="math inline">\(g&#39;_{11}(p,0)\)</span>. So we have that <span
+class="math display">\[g&#39;(p,0) = g&#39;_{11}(p,0) +
+c&#39;_{11}(p,0).\]</span> Then continuing the calculation on <span
+class="math inline">\(c&#39;_{11}\)</span> we eventually get that <span
+class="math display">\[g&#39;(p,0) = \sum\limits_{i=1}^n
+g&#39;_{ii}(p,0).\]</span></p>
+<p>Now we evaulate <span
+class="math inline">\(g&#39;_{ii}(p,0)\)</span>: We have <span
+class="math display">\[g&#39;_{ii}(p,0) = T\langle e_i,e_i\rangle =
+\langle\nabla_T e_i,e_i\rangle + \langle e_i,\nabla_T e_i\rangle =
+2\langle \nabla_T e_i, e_i \rangle = 2\langle \nabla_{e_i}T,
+e_i\rangle.\]</span> Note that since both <span
+class="math inline">\(T\)</span> and <span
+class="math inline">\(e_i\)</span> are coordinate vector fields, their
+Lie bracket <span class="math inline">\([T, e_i] = 0\)</span> so by the
+torsion free property of the connection, we can interchange their order
+when taking the covariant derivative in the last equality above.</p>
+<p>Note that <span class="math inline">\(g&#39;(p,0)\)</span> is
+independent of choice of basis and hence is defined globally. Then
+decomposing <span class="math inline">\(T = T^t + T^n\)</span> into
+tangential and normal components and by metric compatibility, we have
+that <span class="math display">\[\begin{aligned}
+    \sum\limits_{i=1}^n \langle \nabla_{e_i}T, e_i\rangle &amp;=
+\sum\limits_{i=1}^n \langle \nabla_{e_i}T^t, e_i \rangle +
+\sum\limits_{i=1}^n \langle\nabla_{e_i}T^n,e_i\rangle \\
+    &amp;= \sum\limits_{i=1}^n \langle\nabla_{e_i}T^t, e_i\rangle +
+\sum\limits_{i=1}^n\left(e_i\langle T^n, e_i\rangle - \langle T^n,
+\nabla_{e_i}e_i\rangle\right) \\
+    &amp;= \sum\limits_{i=1}^n \langle\nabla_{e_i}T^t, e_i\rangle -
+\sum\limits_{i=1}^n \langle T^n, \nabla_{e_i}e_i\rangle \\
+    &amp;= \text{div}T^t + \langle T^n, \vec{H}\rangle
+,\end{aligned}\]</span> where we have used in the second-to-last
+equality the fact that the <span class="math inline">\(e_i\)</span>’s
+are all tangential so each <span class="math inline">\(\langle T^n,
+e_i\rangle = 0\)</span> and in the last equality the definition of the
+divergence operator and the definition of the mean curvature vector
+<span class="math inline">\(\vec{H}\)</span>.</p>
+<p>So we have shown that <span
+class="math display">\[\left.\frac{\partial J(p,t)}{\partial
+t}\right|_{(p,0)} = \frac{1}{2}g&#39;(p,0) = \text{div}T^t + \langle
+T^n, \vec{H}\rangle.\]</span> In other words, we have that the first
+variation for the volume form at the point <span
+class="math inline">\((p,0)\)</span> is given by</p>
+<p><span id="eq:firstvarpoint" class="eqnos"><span
+class="math display">\[
+    \frac{d}{dt} dA_t |_{(p,0)} = \left(\text{div}T^t + \langle T^n,
+\vec{H}\rangle\right) dA_0|_{(p,0)}.
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p>However, the right hand side is intrinsically defined independent of
+choice of coordinates and hence Equation (<a
+href="#eq:firstvarpoint">2.1</a>) is valid at any arbitrary point.</p>
+<p>Moreover, if <span class="math inline">\(T\)</span> is a compactly
+supported variational vector field on <span
+class="math inline">\(N\)</span>, then by the generalized divergence
+theorem we have that</p>
+<p><span id="eq:firstvarcompact" class="eqnos"><span
+class="math display">\[
+    \left.\frac{d}{dt}A(N_t)\right|_{t=0} = \int_{N} \langle T^n,
+\vec{H}\rangle.
+\]</span><span class="eqnos-number">(2.2)</span></span> </p>
+<p>From Equation (<a href="#eq:firstvarcompact">2.2</a>) above we can
+see that the mean curvature of <span class="math inline">\(N\)</span> is
+identically 0 if and only if <span class="math inline">\(N\)</span> is a
+critical point of the area functional. We call immersed submanifolds
+<span class="math inline">\(N \xhookrightarrow{} M\)</span>
+<em>minimal</em> in this case.</p>
+<h2 data-number="2.2" id="second-variational-formula-for-area"><span
+class="header-section-number">2.2</span> Second Variational Formula for
+Area</h2>
+<p>For the second variational formula for area, we consider <span
+class="math display">\[\phi:
+N\times(-\varepsilon,\varepsilon)\times(-\varepsilon,\varepsilon)
+\xhookrightarrow{} M\]</span> a two-parameter family of variations of
+<span class="math inline">\(N\)</span> with “time” variables <span
+class="math inline">\(t,s\)</span>. Then similarly to above we will
+denote for <span class="math inline">\(i = 1,\dots,n\)</span> <span
+class="math display">\[e_i = d\phi\left(\frac{\partial}{\partial
+x_i}\right),\quad T = d\phi\left(\frac{\partial}{\partial
+t}\right),\quad S = d\phi\left(\frac{\partial}{\partial
+s}\right)\]</span> Then again, we will write <span
+class="math display">\[dA_{t,s} = J(p,t,s)dA_{0,0}\]</span> where <span
+class="math inline">\(dA_{t,s}\)</span> is the area element of <span
+class="math inline">\(N_{t,s} = \phi(N, t, s)\)</span> and <span
+class="math display">\[J(p,t,s) =
+\frac{\sqrt{\det{g_{ij}}(p,t,s)}}{\sqrt{\det{g_{ij}(p,0,0)}}}.\]</span>
+Then our goal will be to compute <span
+class="math inline">\(\frac{\partial^2}{\partial s\partial
+t}J(p,t,s)\)</span></p>
+<p>Note that by a straightforward calculation (similarly to the one for
+the first variational formula for area above) we can find that <span
+class="math display">\[\frac{\partial}{\partial t}J(p,t,s) =
+\sum\limits_{i,j=1}^n g^{ij}\langle\nabla_{e_i}T,e_j\rangle
+J(p,t,s),\]</span> where <span class="math inline">\(g^{ij}\)</span>
+denotes the inverse matrix of <span
+class="math inline">\(g_{ij}\)</span>.</p>
+<p>Now differentiating the above with respect to <span
+class="math inline">\(s\)</span>, we have <span
+class="math display">\[\begin{aligned}
+    \frac{\partial^2 J}{\partial s \partial t} &amp;=
+\sum\limits_{i,j=1}^n S\left(g^{ij}\langle\nabla_{e_i} T,e_j\rangle
+J\right) \\
+    &amp;= \sum\limits_{ij=1}^n (Sg^{ij})\langle\nabla_{e_i}T,e_j\rangle
+J + \sum\limits_{ij=1}^n g^{ij} S\langle\nabla_{e_i}T,e_j\rangle J +
+\sum\limits_{ij=1}^n g^{ij}\langle\nabla_{e_i}T,e_j\rangle
+S(J).\end{aligned}\]</span> Once again we choose normal coordinates and
+evaluate the above at <span class="math inline">\((p,0,0)\)</span>. Then
+in the above, <span class="math inline">\(J(p,0,0) = 1\)</span> and each
+<span class="math inline">\(g^{ij} = \delta_{ij}\)</span> the kronecker
+delta. So the above becomes</p>
+<p><span id="eq:del1" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    \frac{\partial^2 J}{\partial s \partial t} &amp;=
+\sum\limits_{ij=1}^n (Sg^{ij})\langle\nabla_{e_i}T,e_j\rangle +
+\sum\limits_{ij=1}^n \delta_{ij} S\langle\nabla_{e_i}T,e_j\rangle +
+\sum\limits_{ij=1}^n \delta_{ij}\langle\nabla_{e_i}T,e_j\rangle S(J)
+\nonumber \\
+    &amp;= \sum\limits_{i,j=1}^n
+(Sg^{ij})\langle\nabla_{e_i}T,e_j\rangle + \sum\limits_{i=1}^n
+S\langle\nabla_{e_i}T,e_i\rangle +
+\sum\limits_{i,j=1}^n\delta_{ij}\langle\nabla_{e_i}T,e_j\rangle S(J).
+\end{aligned}
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+<p>To simplify the first sum on the right-hand side above, recall that
+since <span class="math inline">\(g^{ij}, g_{ij}\)</span> are inverse to
+each other, we have the equality <span
+class="math display">\[\sum\limits_{k=1}^n g^{ik}g_{kj} =
+\delta_{ij}\]</span> We can differentiate this with respect to <span
+class="math inline">\(S\)</span> and compute</p>
+<p><span id="eq:Ssum1" class="eqnos"><span class="math display">\[
+    \sum\limits_{k=1}^n(Sg^{ik})g_{kj} =
+-\sum\limits_{k=1}^ng^{ik}(Sg_{kj})
+\]</span><span class="eqnos-number">(2.4)</span></span> </p>
+<p>So multiplying on the right by <span class="math inline">\(g^{\ell
+j}\)</span> and renaming some indices, the left-hand side of Equation
+(<a href="#eq:Ssum1">2.4</a>) above becomes <span
+class="math display">\[\sum\limits_{k=1}^n(Sg^{ik})g_{k\ell}g^{\ell j} =
+\sum\limits_{k=1} (Sg^{ik})\delta_{kj} = Sg^{ij}\]</span> and on the
+right-hand side we have <span class="math display">\[\begin{aligned}
+    -\sum\limits_{k,\ell=1}^n g^{ik}(Sg_{kj})g^{\ell j} &amp;=
+-\sum\limits_{k,\ell=1}^n g^{ik}\left(S\langle
+e_k,e_j\rangle\right)g^{\ell j} \\
+    &amp;= -\sum\limits_{k,\ell=1}^n g^{ik}\left(\langle\nabla_S
+e_k,e_j\rangle+\langle e_k,\nabla_S e_j\rangle\right)g^{\ell j} \\
+    &amp;= - \langle\nabla_{e_i} S,e_j\rangle - \langle e_i,\nabla_{e_j}
+S\rangle\end{aligned}\]</span> where in the last equality we have
+simplified by choosing normal coordinates and we can exchange the order
+in the covariant derivative since <span class="math inline">\(S\)</span>
+and <span class="math inline">\(e_i\)</span> are coordinate vector
+fields (as above). So after multiplying by <span
+class="math inline">\(g^{\ell j}\)</span>, (<a href="#eq:Ssum1">2.4</a>)
+above becomes <span class="math display">\[Sg^{ij} = -\langle
+\nabla_{e_i} S, e_j\rangle - \langle \nabla_{e_j} S,
+e_i\rangle.\]</span> So the first sum in Equation (<a
+href="#eq:del1">2.3</a>) becomes</p>
+<p><span id="eq:firstsum" class="eqnos"><span class="math display">\[
+    \sum\limits_{i,j=1}^n (Sg^{ij})\langle\nabla_{e_i}T,e_j\rangle =
+-\sum\limits_{i,j=1}^n\langle\nabla_{e_i}S,e_j\rangle\langle\nabla_{e_i}T,e_j\rangle
+- \sum\limits_{i,j=1}^n
+\langle\nabla_{e_j}S,e_i\rangle\langle\nabla_{e_i}T,e_j\rangle.
+\]</span><span class="eqnos-number">(2.5)</span></span> </p>
+<p>To simplify the second sum in Equation (<a href="#eq:del1">2.3</a>)
+above, recall that <span class="math display">\[R(S,e_i)T =
+\nabla_S\nabla_{e_i}T - \nabla_{e_i}\nabla_S T -
+\nabla_{[S,e_i]}T\]</span> and since <span class="math inline">\(S,
+e_i\)</span> are coordinate vector fields, their Lie bracket <span
+class="math inline">\([S, e_i] = 0\)</span> so the last term above
+vanishes and we have <span class="math display">\[\nabla_S\nabla_{e_i}T
+= R(S,e_i)T + \nabla_{e_i}\nabla_S T.\]</span></p>
+<p>Hence, the second sum in Equation (<a href="#eq:del1">2.3</a>) can be
+written as <span id="eq:secondsum" class="eqnos"><span
+class="math display">\[
+\begin{aligned}
+    \sum\limits_{i=1}^n S\langle\nabla_{e_i}T,e_i\rangle &amp;=
+\sum\limits_{i=1}^n \langle\nabla_S\nabla_{e_i}T,e_i\rangle +
+\sum\limits_{i=1}^n\langle\nabla_{e_i}T,\nabla_S e_i\rangle \nonumber \\
+    &amp;= \sum\limits_{i=1}^n\langle R(S,e_i)T,e_i\rangle +
+\sum\limits_{i=1}^n \langle\nabla_{e_i}\nabla_S T,e_i\rangle +
+\sum\limits_{i=1}^n\langle\nabla_{e_i} T, \nabla_{e_i}
+S\rangle.\end{aligned}
+\]</span><span class="eqnos-number">(2.6)</span></span> </p>
+<p>To deal with the last sum above, consider that at <span
+class="math inline">\((p,0,0)\)</span> and in normal coordinates, we
+have <span class="math display">\[\begin{aligned}
+    S(J)|_{(p,0,0)} &amp;= \left.\frac{\partial}{\partial
+s}J(p,t,s)\right|_{(p,0,0)} \\
+    &amp;= \left.\sum\limits_{i,j=1}^n
+g^{ij}\langle\nabla_{e_i}S,e_j\rangle J(p,t,s)\right|_{(p,0,0)} \\
+    &amp;=
+\sum\limits_{i,j=1}^n\delta_{ij}\langle\nabla_{e_i}S,e_j\rangle J(p,0,0)
+\\
+    &amp;=
+\sum\limits_{j=1}^n\langle\nabla_{e_j}S,e_j\rangle.\end{aligned}\]</span>
+So the last sum in Equation (<a href="#eq:del1">2.3</a>) above
+becomes</p>
+<p><span id="eq:thirdsum" class="eqnos"><span class="math display">\[
+    \sum\limits_{i,j=1}^n\delta_{ij}\langle\nabla_{e_i}T,e_j\rangle S(J)
+=
+\left(\sum\limits_{i=1}^n\langle\nabla_{e_i}T,e_i\rangle\right)\left(\sum\limits_{j=1}^n\langle\nabla_{e_j}S,e_j\rangle\right)
+\]</span><span class="eqnos-number">(2.7)</span></span> </p>
+<p>Substituting (<a href="#eq:firstsum">2.5</a>), (<a
+href="#eq:secondsum">2.6</a>) and (<a href="#eq:thirdsum">2.7</a>) into
+Equation (<a href="#eq:del1">2.3</a>) yields the second variational
+formula for area:</p>
+<p><span id="eq:del2" class="eqnos"><span class="math display">\[
+\begin{aligned}
+     \frac{\partial^2 J}{\partial s \partial t} &amp;=
+-\sum\limits_{i,j=1}^n \langle\nabla_{e_i} S,e_j\rangle\langle
+\nabla_{e_i}T,e_j\rangle -
+\sum\limits_{i,j=1}^n\langle\nabla_{e_j}S,e_i\rangle\langle\nabla_{e_i}T,e_j\rangle
+\nonumber \\
+     &amp;\quad + \sum\limits_{i=1}^n\langle R(S,e_i)T,e_i\rangle +
+\sum\limits_{i=1}^n \langle\nabla_{e_i}\nabla_S T,e_i\rangle +
+\sum\limits_{i=1}^n\langle\nabla_{e_i}T,\nabla_{e_i}S\rangle \nonumber
+\\
+     &amp;\quad +
+\left(\sum\limits_{i=1}^n\langle\nabla_{e_i}T,e_i\rangle\right)\left(\sum\limits_{j=1}^n\langle\nabla_{e_j}S,e_j\rangle\right).
+\end{aligned}
+\]</span><span class="eqnos-number">(2.8)</span></span> </p>
+<h2 data-number="2.3" id="special-case"><span
+class="header-section-number">2.3</span> Special Case</h2>
+<p>While the two variational formulas arrived at in above are quite
+general, for the purposes of the next section we are especially
+interested in the following special case, which we simply state below:
+let <span class="math inline">\(N\)</span> be an oriented hypersurface
+in an oriented manifold <span class="math inline">\(M\)</span> (i.e. it
+has codimension 1) and the variation is restricted to be given by
+hypersurfaces which are constant distance from <span
+class="math inline">\(N\)</span>. The variational vector field in this
+case is given by <span class="math inline">\(e_m\)</span> with <span
+class="math inline">\(\nabla_{e_m}e_m = 0\)</span> identically. In this
+case, the mean curvature vector can be written <span
+class="math inline">\(\vec{H} = He_m\)</span> and the two variational
+formulas for area become</p>
+<p><span id="eq:firstspeccase" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}J(p,0) = H(p)J(p,0)
+\]</span><span class="eqnos-number">(2.9)</span></span> </p>
+<p><span id="eq:secspeccase" class="eqnos"><span class="math display">\[
+    \frac{\partial^2}{\partial t^2}J(p,0) = -\sum\limits_{i,j = 1}^{m-1}
+h_{ij}^2(p)J(p,0) - R(e_m,e_m)(p)J(p,0) + H^2(p)J(p,0)
+\]</span><span class="eqnos-number">(2.10)</span></span> </p>
+<p>where <span class="math inline">\(h_{ij}\)</span> are the components
+of the second fundamental form and <span
+class="math inline">\(R(X,X)\)</span> denotes the Ricci curvature of
+<span class="math inline">\(M\)</span> in the direction of a vector
+<span class="math inline">\(X\)</span>.</p>
+<h1 data-number="3" id="volume-comparison-results"><span
+class="header-section-number">3</span> Volume Comparison Results</h1>
+<p>Using the special case for the first and second variational formulas
+for area stated at the end of the previous section, in this section we
+develop some volume comparison results for Riemannian manifolds.</p>
+<h2 data-number="3.1" id="bishop-comparison-theorem"><span
+class="header-section-number">3.1</span> Bishop Comparison Theorem</h2>
+<p>Let <span class="math inline">\(M\)</span> be a complete <span
+class="math inline">\(m\)</span>-dimensional Riemannian manifold and
+<span class="math inline">\(p \in M\)</span> be a point. Then in polar
+normal coordinates at <span class="math inline">\(p\)</span>, we can
+write the volume element as <span class="math display">\[J(\theta,r)dr
+\wedge d\theta,\]</span> where <span
+class="math inline">\(d\theta\)</span> is the area element of the unit
+<span class="math inline">\((m-1)\)</span>-sphere. We will denote by
+<span class="math inline">\(B_p(r)\)</span> to be the geodesic ball of
+radius <span class="math inline">\(r\)</span> centred at <span
+class="math inline">\(p\)</span> in <span
+class="math inline">\(M\)</span> (that is, it is the image under the
+exponential map at <span class="math inline">\(p\)</span> of the
+Euclidean ball of radius <span class="math inline">\(r\)</span> in <span
+class="math inline">\(T_pM\)</span>). Then by the Gauss Lemma (<span
+class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span>, p.102), the area element of
+the boundary <span class="math inline">\(\partial B_p(r)\)</span> is
+given by <span class="math inline">\(J(\theta, r)d\theta\)</span>. Let
+<span class="math inline">\(x \in (\theta, r)\)</span> be a point not in
+the cut-locus of <span class="math inline">\(p\)</span> (so geodesics
+are still minimizing), then writing Equations (<a
+href="#eq:firstspeccase">2.9</a>) and (<a
+href="#eq:secspeccase">2.10</a>) in polar coordinates we have</p>
+<p><span id="eq:firstpolar" class="eqnos"><span class="math display">\[
+    J&#39;(\theta,r) = H(\theta,r)J(\theta,r)
+\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p>and,</p>
+<p><span id="eq:secpolar" class="eqnos"><span class="math display">\[
+    J&#39;&#39;(\theta,r) =
+-\sum\limits_{i,j=1}^{m-1}h^2_{ij}(\theta,r)J(\theta,r)-R_{rr}J(\theta,r)+H^2(\theta,r)J(\theta,r)
+\]</span><span class="eqnos-number">(3.2)</span></span> </p>
+<p>where <span class="math inline">\(R_{rr} =
+R\left(\frac{\partial}{\partial r}, \frac{\partial}{\partial
+r}\right)\)</span> denotes the Ricci curvature in the radial direction,
+and <span class="math inline">\(H(\theta,r)\)</span>, and <span
+class="math inline">\(h_{ij}(\theta,r)\)</span> are respectively the
+mean curvature and the second fundamental form of <span
+class="math inline">\(\partial B_p(r)\)</span> at the point <span
+class="math inline">\(x = (\theta, r)\)</span>.</p>
+<p>Note that by the Cauchy-Schwarz inequality we have <span
+class="math display">\[\begin{aligned}
+    \left(\sum\limits_{i=1}^{m-1}h_{ii}\right)^2 &amp;=
+\left(\sum\limits_{i=1}^{m-1}h_{ii}\cdot 1\right)^2 \leq
+\left(\sum\limits_{i=1}^{m-1}h_{ii}^2\right)\left(\sum\limits_{i=1}^{m-1}1^2\right)
+=
+(m-1)\left(\sum\limits_{i=1}^{m-1}h_{ii}^2\right).\end{aligned}\]</span>
+Hence, we have that <span class="math display">\[\begin{aligned}
+    \sum\limits_{i,j=1}^{m-1}h_{ij}^2 &amp;=
+\sum\limits_{i=1}^{m-1}\sum\limits_{j=1}^{m-1}h_{ij}^2 \\
+    &amp;\geq \sum\limits_{i=1}^{m-1}h_{ii}^2 \\
+    &amp;\geq \frac{\left(\sum\limits_{i=1}^{m-1}h_{ii}\right)^2}{m-1} =
+\frac{H^2}{m-1}.\end{aligned}\]</span></p>
+<p>Then substituting this inequality into Equation (<a
+href="#eq:secpolar">3.2</a>) and using Equation (<a
+href="#eq:firstpolar">3.1</a>), we have</p>
+<p><span id="eq:secineq" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    J&#39;&#39; &amp;= -\sum\limits_{i,j=1}^{m-1}h_{ii}^2J - R_{rr}J +
+H^2J \nonumber \\
+    &amp;\leq \frac{H^2}{m-1}J - R_{rr}J + H^2J \nonumber \\
+    &amp;= J\left(\frac{H^2}{m-1}-R_{rr}+H^2\right) \nonumber \\
+    &amp;= \frac{m-2}{m-1}H^2J - R_{rr}J \nonumber \\
+    &amp;= \frac{m-2}{m-1}(J&#39;)^2J^{-1} - R_{rr}J.
+\end{aligned}
+\]</span><span class="eqnos-number">(3.3)</span></span> </p>
+<p>Note that as <span class="math inline">\(r\to0\)</span> we have the
+initial conditions <span class="math display">\[\begin{aligned}
+    &amp;J(\theta,r) \sim r^{m-1} \\
+    &amp;J&#39;(\theta,r) \sim (m-1)r^{m-2}\end{aligned}\]</span> since
+close to <span class="math inline">\(p\)</span> the metric is locally
+Euclidean. Also note that if we choose <span
+class="math inline">\(M\)</span> to be a simply connected manifold with
+constant sectional curvature <span class="math inline">\(K\)</span>
+(which we will call a <em>space form</em>), then <span
+class="math inline">\(R_{rr} = (m-1)K\)</span> and the inequality above
+in Equation (<a href="#eq:secineq">3.3</a>) becomes an equality with
+<span class="math display">\[J&#39;&#39; =
+\frac{m-2}{m-1}(J&#39;)^2J^{-1} - (m-1)KJ.\]</span></p>
+<p>This leads us to the statement of Bishop’s Comparison Theorem:</p>
+<div id="thm:bishop" class="statement sta_theorem_1 plain unnumbered">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+1</span> <span class="statement-info">(Bishop’s Comparison
+Theorem)</span>.</span><span class="statement-spah"> </span><em>Let
+<span class="math inline">\(M\)</span> be an <span
+class="math inline">\(m\)</span>-dimensional complete Riemannian
+manifold and fix a point <span class="math inline">\(p \in M\)</span>.
+Suppose that the Ricci curvature tensor of <span
+class="math inline">\(M\)</span> at any point <span
+class="math inline">\(x\)</span> is bounded below by <span
+class="math inline">\((m-1)K(r(p,x))\)</span> for some function <span
+class="math inline">\(K\)</span> depending on the distance from <span
+class="math inline">\(p\)</span> denoted <span
+class="math inline">\(r:=r(p,x)\)</span>. If <span
+class="math inline">\(J(\theta,r)d\theta\)</span> is the area element of
+<span class="math inline">\(\partial B_p(r)\)</span> as defined above
+and <span class="math inline">\(\bar{J}(r)\)</span> is the solution of
+the ordinary differential equation <span
+class="math display">\[\bar{J}&#39;&#39; =
+\frac{m-2}{m-1}(\bar{J}&#39;)^2\bar{J}^{-1} - (m-1)K\bar{J}\]</span>
+with initial conditions <span class="math display">\[\begin{aligned}
+    &amp;\bar{J}(r) \sim r^{m-1} \\
+    &amp;\bar{J}&#39;(r) \sim (m-1)r^{m-2}\end{aligned}\]</span> as
+<span class="math inline">\(r\to0\)</span>, then within the cut-locus of
+<span class="math inline">\(p\)</span>, the function <span
+class="math inline">\(\frac{J(\theta,r)}{\bar{J}(r)}\)</span> is a
+nonincreasing function of <span class="math inline">\(r\)</span>.
+Denoting <span class="math inline">\(\bar{H}(r) =
+\frac{\bar{J}&#39;}{\bar{J}}\)</span>, then <span
+class="math inline">\(H(\theta,r)\leq\bar{H}(r)\)</span> whenever <span
+class="math inline">\((\theta,r)\)</span> is within the cut-locus of
+<span class="math inline">\(p\)</span>. In particular, if <span
+class="math inline">\(K\)</span> is a constant, then <span
+class="math inline">\(\bar{J}d\theta\)</span> corresponds to the area
+element of the sphere of radius <span class="math inline">\(r\)</span>
+in the simply connected space form of constant curvature <span
+class="math inline">\(K\)</span>.</em></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>Set <span class="math inline">\(f =
+J^{\frac{1}{m-1}}\)</span>, then substituting into (<a
+href="#eq:firstpolar">3.1</a>) and (<a href="#eq:secpolar">3.2</a>), we
+have</p>
+<p><span id="eq:ffirstpolar" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    f&#39; = \left(J^{\frac{1}{m-1}}\right)&#39; &amp;=
+\frac{1}{m-1}\left(J^{\frac{1}{m-1}-1}\right)J&#39; \nonumber \\
+    &amp;= \frac{1}{m-1}J^{\frac{1}{m-1}-1}HJ \nonumber \\
+    &amp;= \frac{1}{m-1}HJ^{\frac{1}{m-1}} = \frac{1}{m-1}Hf,
+\end{aligned}
+\]</span><span class="eqnos-number">(3.4)</span></span> </p>
+<p>and</p>
+<p><span id="eq:fsecpolar" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    f&#39;&#39; &amp;= \left(J^{\frac{1}{m-1}}\right)&#39;&#39;
+\nonumber \\
+    &amp;=
+\left(\frac{1}{m-1}\left(J^{\frac{1}{m-1}-1}\right)J&#39;\right)&#39;
+\nonumber \\
+    &amp;=
+\frac{1}{m-1}\left(\left(\frac{1}{m-1}-1\right)J^{\frac{1}{m-1}-2}(J&#39;)^2+J^{\frac{1}{m-1}-1}J&#39;&#39;\right)
+\nonumber \\
+    &amp;=
+\frac{1}{m-1}\left(\left(\frac{1}{m-1}-1\right)J^{\frac{1}{m-1}-2}H^2J^2+J^{\frac{1}{m-1}-1}J&#39;&#39;\right)
+\nonumber \\
+    &amp;\leq
+\frac{1}{m-1}\left(\left(\frac{1}{m-1}-1\right)J^{\frac{1}{m-1}}H^2+J^{\frac{1}{m-1}-1}\left(\frac{m-2}{m-1}H^2J-R_{rr}J\right)\right)
+\nonumber \\
+    &amp;= \frac{1}{m-1}\frac{2-m}{m-1}fH^2 +
+\frac{1}{m-1}\frac{m-2}{m-1}fH^2 - \frac{1}{m-1}R_{rr}f \nonumber \\
+    &amp;= \frac{-1}{m-1}R_{rr}f \nonumber \\
+    &amp;= -Kf.
+\end{aligned}
+\]</span><span class="eqnos-number">(3.5)</span></span> </p>
+<p>The initial conditions correspondingly become <span
+class="math display">\[\begin{aligned}
+    &amp;f(\theta,0) = 0 \\
+    &amp;f&#39;(\theta, 0) = 1.\end{aligned}\]</span> Let <span
+class="math inline">\(\bar{f} = \bar{J}^{\frac{1}{m-1}}\)</span> be the
+corresponding function defined using <span
+class="math inline">\(\bar{J}\)</span>. Then by the assumption that
+<span class="math inline">\(\bar{J}\)</span> is the solution to the ODE,
+we have that <span class="math display">\[\bar{f}&#39;&#39; = -K\bar{f},
+\quad \bar{f}(0) = 0, \quad \bar{f}&#39;(0) = 1.\]</span> If <span
+class="math inline">\(K\)</span> is a constant, then we have several
+cases:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(K = 0\)</span>, then <span
+class="math inline">\(\bar{f}&#39;(r) = 1\)</span> everywhere and so
+<span class="math inline">\(\bar{f}(r) &gt; 0\)</span> for all <span
+class="math inline">\(r \in (0,\infty)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(K \leq 0\)</span>, then <span
+class="math inline">\(\bar{f}&#39;(r) \geq 1\)</span> everywhere and so
+<span class="math inline">\(\bar{f}(r) &gt; 0\)</span> for all <span
+class="math inline">\(r \in (0,\infty)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(K &gt; 0\)</span>, then <span
+class="math inline">\(\bar{f}&#39;(r)\)</span> is decreasing from an
+initial value of 1, so there is some <span class="math inline">\(a &gt;
+0\)</span> such that <span class="math inline">\(0 &lt; \bar{f}&#39;(r)
+&lt; 1\)</span>. Then <span class="math inline">\(\bar{f}(r) &gt;
+0\)</span> for all <span class="math inline">\(r \in (0,
+a)\)</span>.</p></li>
+</ol>
+<p>In any case we can suppose that there is some <span
+class="math inline">\(a &gt; 0\)</span> for which <span
+class="math inline">\(\bar{f}(r) &gt; 0\)</span> for <span
+class="math inline">\(r \in (0, a)\)</span>. Hence we can define <span
+class="math display">\[F(\theta,r) = \frac{f(\theta,r)}{\bar{f}(r)},
+\quad \text{for } r \in (0,a).\]</span> Then by the quotient rule we
+have <span class="math display">\[F&#39; =
+\bar{f}^{-2}(f&#39;\bar{f}-f\bar{f}&#39;),\]</span> and computing we
+have</p>
+<p><span id="eq:Fineq1" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    F&#39;&#39; &amp;=
+\bar{f}^{-4}(\bar{f}^2(f&#39;&#39;\bar{f}-f\bar{f}&#39;&#39;) -
+2\bar{f}\bar{f}&#39;(\bar{f}f&#39;-f\bar{f}&#39;)) \nonumber \\
+    &amp;=
+\bar{f}^{-2}(f&#39;&#39;\bar{f}-f\bar{f}&#39;&#39;)-2\bar{f}&#39;\bar{f}^{-1}(\bar{f}^{-2}(\bar{f}f&#39;-f\bar{f}&#39;))
+\nonumber \\
+    &amp;= \bar{f}^{-2}(f&#39;&#39;\bar{f}-f\bar{f}&#39;&#39;) -
+2\bar{f}&#39;\bar{f}^{-1}F&#39; \nonumber \\
+    &amp;= \bar{f}^{-2}(f&#39;&#39;\bar{f}+fK\bar{f}) -
+2\bar{f}&#39;\bar{f}^{-1}F&#39; \nonumber \\
+    &amp;=
+\bar{f}^{-1}(f&#39;&#39;+K\bar{f})-2\bar{f}&#39;\bar{f}^{-1}F&#39;
+\nonumber \\
+    &amp;\leq \bar{f}^{-1}(-Kf+Kf) - 2\bar{f}&#39;\bar{f}^{-1}F&#39;
+\nonumber \\
+    &amp;= -2\bar{f}&#39;\bar{f}^{-1}F&#39;,
+\end{aligned}
+\]</span><span class="eqnos-number">(3.6)</span></span> </p>
+<p>where we used the fact that <span
+class="math inline">\(\bar{f}&#39;&#39; = -K\bar{f}\)</span> in the 4th
+equality above and the fact that <span class="math inline">\(f&#39;&#39;
+\leq -Kf\)</span> in the inequality above. Hence we have that</p>
+<p><span id="eq:Fineq2" class="eqnos"><span class="math display">\[
+\begin{aligned}
+    (\bar{f}^2F&#39;)&#39; = (\bar{f}^2)&#39;F&#39; +
+\bar{f}^2F&#39;&#39; &amp;= 2\bar{f}\bar{f}&#39;F&#39; +
+\bar{f}^2F&#39;&#39; \nonumber \\
+    &amp;= \bar{f}^2(2\bar{f}&#39;\bar{f}^{-1}F&#39; + F&#39;&#39;)
+\nonumber \\
+    &amp;\leq \bar{f}^2(2\bar{f}&#39;\bar{f}^{-1}F&#39; -
+2\bar{f}&#39;\bar{f}^{-1}F&#39;) = 0.
+\end{aligned}
+\]</span><span class="eqnos-number">(3.7)</span></span> </p>
+<p>Let <span class="math inline">\(0 &lt; \varepsilon &lt; r\)</span>.
+Then using inequalities (<a href="#eq:Fineq1">3.6</a>) and (<a
+href="#eq:Fineq2">3.7</a>) and integrating from <span
+class="math inline">\(\varepsilon\)</span> to <span
+class="math inline">\(r\)</span> and using the Fundamental Theorem of
+Calculus we have that <span class="math display">\[\begin{aligned}
+    F&#39;(r) &amp;\leq
+F&#39;(\varepsilon)\bar{f}^2(\varepsilon)\bar{f}^{-2}(r) \\
+    &amp;=
+\bar{f}^{-2}(\varepsilon)(f&#39;(\varepsilon)\bar{f}(\varepsilon)-f(\varepsilon)\bar{f}&#39;(\varepsilon))\bar{f}^2(\varepsilon)\bar{f}^{-2}(r)
+\\
+    &amp;=
+(f&#39;(\varepsilon)\bar{f}(\varepsilon)-f(\varepsilon)\bar{f}&#39;(\varepsilon))\bar{f}^{-2}(r),\end{aligned}\]</span>
+and letting <span class="math inline">\(\varepsilon \to 0\)</span> by
+the initial conditions we have that <span
+class="math inline">\(f(\varepsilon) \to 0\)</span>, <span
+class="math inline">\(\bar{f}(\varepsilon) \to 0\)</span>, so the
+right-hand side above goes to 0. That is, <span
+class="math display">\[F&#39;(r)\leq 0\]</span> which implies that <span
+class="math inline">\(\bar{f}f&#39;-\bar{f}&#39;f \leq 0\)</span>. Then
+substituting <span class="math inline">\(f&#39; =
+\frac{1}{m-1}Hf\)</span>, <span
+class="math inline">\(\bar{f}&#39;=\frac{1}{m-1}\bar{H}\bar{f}\)</span>
+we therefore can conclude that <span
+class="math display">\[H(\theta,r)\leq\bar{H}(r), \quad \text{for } r
+\in (0,a).\]</span> Finally, the nonincreasing property of <span
+class="math inline">\(F\)</span> then also implies that <span
+class="math inline">\((F(r))^{m-1} =
+\frac{J(\theta,r)}{\bar{J}(r)}\)</span> is nonincreasing on the same
+interval and we are done.</p>
+</div>
+<h2 data-number="3.2" id="myers-theorem"><span
+class="header-section-number">3.2</span> Myer’s Theorem</h2>
+<p>From Bishop’s Comparison Theorem, we get Myer’s Theorem as a
+corollary:</p>
+<div id="theorem-2" class="statement sta_theorem_2 plain unnumbered">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+2</span> <span class="statement-info">(Myer’s
+Theorem)</span>.</span><span class="statement-spah"> </span><em>Let
+<span class="math inline">\(M\)</span> be an <span
+class="math inline">\(m\)</span>-dimensional complete Riemannian
+manifold with Ricci curvature bounded from below by <span
+class="math display">\[R_{ij} \geq (m-1)K\]</span> for some positive
+constant <span class="math inline">\(K &gt; 0\)</span>. Then <span
+class="math inline">\(M\)</span> must be compact with diameter <span
+class="math inline">\(d\)</span> bounded from above by <span
+class="math display">\[d\leq \frac{\pi}{\sqrt{K}}.\]</span></em></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>Under the same assumptions as in Bishop’s
+Comparison Theorem, if <span class="math inline">\(K\)</span> is a
+constant, then we can compute the area element and mean curvature of a
+space form with constant sectional curvature <span
+class="math inline">\(K\)</span> explicitly: <span
+class="math display">\[\bar{J}(r) = \begin{cases}
+        \left(\frac{1}{\sqrt{K}}\right)^{m-1}\sin^{m-1}\left(\sqrt{K}r\right)
+&amp;\text{for } K &gt; 0, \\
+        r^{m-1} &amp;\text{for } K = 0, \\
+        \left(\frac{1}{\sqrt{-K}}\right)^{m-1}\sinh^{m-1}\left(\sqrt{-K}r\right)
+&amp;\text{for } K &lt; 0,
+    \end{cases}\]</span> and by the conclusion of Bishop’s Comparison
+Theorem we get that <span
+class="math inline">\(\frac{J(\theta,r)}{\bar{J}(r)}\)</span> is
+nonincreasing in <span class="math inline">\(r\)</span> and we can
+estimate: <span class="math display">\[H(r) \leq
+\frac{\bar{J}&#39;(r)}{\bar{J}(r)} = \begin{cases}
+        \left(\frac{1}{\sqrt{K}}\right)^{m-1}\cot^{m-1}\left(\sqrt{K}r\right)
+&amp;\text{for } K &gt; 0, \\
+        (m-1)r^{-1} &amp;\text{for } K = 0, \\
+        \left(\frac{1}{\sqrt{-K}}\right)^{m-1}\coth^{m-1}\left(\sqrt{-K}r\right)
+&amp;\text{for } K &lt; 0.
+    \end{cases}\]</span> Then under our assumptions we are interested in
+the <span class="math inline">\(K &gt; 0\)</span> case, and the estimate
+on <span class="math inline">\(H\)</span> implies that there must be a
+cut-point (that is, a point <span class="math inline">\(q\)</span> which
+makes <span class="math inline">\(M\setminus\{q\}\)</span> disconnected)
+along any geodesic which has length <span
+class="math inline">\(\frac{\pi}{\sqrt{K}}\)</span> since at that
+distance <span
+class="math inline">\(\bar{J}\left(\frac{\pi}{\sqrt{K}}\right)\)</span>
+vanishes. Hence, <span class="math inline">\(M\)</span> must have
+diameter <span class="math inline">\(d\)</span> bounded from above by
+<span class="math inline">\(\frac{\pi}{\sqrt{K}}\)</span>. Then from a
+basepoint <span class="math inline">\(p \in M\)</span>, by the corollary
+of the Hopf-Rinow Theorem given in Section 1 above, any other point
+<span class="math inline">\(q\)</span> can be connected to <span
+class="math inline">\(p\)</span> can be connected to <span
+class="math inline">\(p\)</span> by a geodesic segment of length at most
+<span class="math inline">\(\frac{\pi}{\sqrt{K}}\)</span>. This implies
+that the exponential map at <span class="math inline">\(p\)</span>,
+<span class="math inline">\(\exp_p:\bar{B}_{\frac{\pi}{\sqrt{K}}}(0) \to
+M\)</span> is surjective. So <span class="math inline">\(M\)</span> is
+the continuous image of a compact set and hence itself is compact.</p>
+</div>
+<p>Also note that this result implies that the universal cover of <span
+class="math inline">\(M\)</span> is also compact and hence <span
+class="math inline">\(M\)</span> has finite fundamental group.</p>
+<h2 data-number="3.3" id="other-further-results"><span
+class="header-section-number">3.3</span> Other Further Results</h2>
+<p>While Myer’s theorem can be proven using more directly (again, see
+p.200-201 of <span class="citation" data-cites="lee">(<a href="#ref-lee"
+role="doc-biblioref">Lee 1997</a>)</span>), one advantage of developing
+the framework of volume comparison is that that they can be extended to
+prove other local-to-global results along the same vein of Myer’s
+theorem. In particular, these tools can be used to prove Cheng’s
+diameter rigity theorem (<span class="citation" data-cites="li">(<a
+href="#ref-li" role="doc-biblioref">Li 2012</a>)</span>, p. 18), and
+develop further results such as the Laplacian comparison theorem,
+Cheeger-Gromoll’s splitting theorem and Cheng’s Eigenvalue comparison
+theorem (<span class="citation" data-cites="li">(<a href="#ref-li"
+role="doc-biblioref">Li 2012</a>)</span>, Chapter 4) for Riemannian
+manifolds with Ricci curvature bounded from below. See <span
+class="citation" data-cites="li">(<a href="#ref-li"
+role="doc-biblioref">Li 2012</a>)</span> for further exposition of these
+results, which, due to length considerations, unfortunately could not be
+included here.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-lee" class="csl-entry" role="doc-biblioentry">
+Lee, John M. 1997. <em><span>R</span>iemannian <span>M</span>anifolds:
+<span>A</span>n <span>I</span>ntroduction to
+<span>C</span>urvature</em>. <span>G</span>raduate <span>T</span>exts in
+<span>M</span>athematics. Springer.
+</div>
+<div id="ref-li" class="csl-entry" role="doc-biblioentry">
+Li, Peter. 2012. <em><span>G</span>eometric <span>A</span>nalysis</em>.
+<span>C</span>ambridge <span>S</span>tudies in <span>A</span>dvanced
+<span>M</span>athematics 134. Cambridge University Press.
+</div>
+</div>
+</body>
+</html>
