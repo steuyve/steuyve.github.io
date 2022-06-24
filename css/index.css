@@ -48,8 +48,14 @@ footer {
 }
 
 .statement {
-	border-style: solid none solid none;
+	border-style: solid none none none;
 	border-width: 1px;
+}
+
+.statement.proof {
+	border-style: dashed none solid none;
+	border-width: 1px;
+	margin: auto 1em auto;
 }
 
 .references {
