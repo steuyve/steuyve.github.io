@@ -20,16 +20,13 @@ Equations</h1>
 <p>Here we first introduce Cartan’s structural equations. Note that
 these are Problem 4-5 and Problem 7-2 of <span class="citation"
 data-cites="Lee97">(<a href="#ref-Lee97" role="doc-biblioref">Lee
-1997</a>)</span>, though the notation we are following is from <span
-class="citation" data-cites="Li93">(<a href="#ref-Li93"
-role="doc-biblioref">Li 1993</a>)</span> for the sake of consistency
-with the following sections. Let <span
-class="math inline">\(\nabla\)</span> be a linear connection on a
-Riemannian manifold <span class="math inline">\(M\)</span>. Let <span
-class="math inline">\(U \subset M\)</span> be an open subset with a
-local frame <span class="math inline">\(\{e_i\}\)</span> and <span
-class="math inline">\(\{\omega_i\}\)</span> the dual coframe, that is,
-<span class="math inline">\(\omega_i(e_j) = \delta^i_j\)</span>. Notice
+1997</a>)</span>. Let <span class="math inline">\(\nabla\)</span> be a
+linear connection on a Riemannian manifold <span
+class="math inline">\(M\)</span>. Let <span class="math inline">\(U
+\subset M\)</span> be an open subset with a local frame <span
+class="math inline">\(\{e_i\}\)</span> and <span
+class="math inline">\(\{\omega^i\}\)</span> the dual coframe, that is,
+<span class="math inline">\(\omega^i(e_j) = \delta^i_j\)</span>. Notice
 that for a vector field <span class="math inline">\(X = X^ke_k\)</span>,
 we have that</p>
 <p><span class="math display">\[
@@ -38,11 +35,11 @@ X^k\Gamma^j_{ki}e_j
 \]</span></p>
 <p>Then we can define the unique <em>connection 1-forms</em> associated
 with this connection and this local frame by defining <span
-class="math inline">\(\omega_{ij}\)</span> by <span
-class="math inline">\(\omega_{ij}(X) = X^k\Gamma^j_{ki}\)</span>. In
+class="math inline">\({\omega_i}^j\)</span> by <span
+class="math inline">\({\omega_i}^j(X) = X^k\Gamma^j_{ki}\)</span>. In
 other words, we define</p>
 <p><span class="math display">\[
-\omega_{ij} = \Gamma^j_{ki}\omega_k
+{\omega_i}^j = \Gamma^j_{ki}\omega^k
 \]</span></p>
 <p>It is easy to check that these connection 1-forms are linear and
 tensorial and thus are indeed 1-forms.</p>
@@ -63,10 +60,9 @@ class="math inline">\(\nabla\)</span></em>.</p>
 class="statement-label">Proposition 2.1</span> <span
 class="statement-info">(Cartan’s first structural
 equations)</span>.</span><span class="statement-spah"> </span>For each
-<span class="math inline">\(\omega_j\)</span> in the dual coframe <span
-class="math inline">\(\{\omega_i\}\)</span>, we have <span
-class="math display">\[
-    d\omega_j = \omega_i \wedge \omega_{ij} + \tau^j
+<span class="math inline">\(\omega^j\)</span> in the dual coframe, we
+have <span class="math display">\[
+    d\omega^j = \omega^i \wedge {\omega_i}^j + \tau^j
 \]</span></p>
 <p>where <span class="math inline">\(\{\tau^1,\dots,\tau^n\}\)</span>
 are the <em>torsion 2-forms</em>, defined in terms of the torsion tensor
@@ -81,15 +77,15 @@ class="math inline">\(\{e_i\}\)</span> by</p>
 class="statement-label">Proof</span>.</span><span
 class="statement-spah"> </span>Let <span class="math inline">\(e_p,
 e_q\)</span> be elements in the local frame. Then since <span
-class="math inline">\(\omega_j\)</span> is a 1-form, we have that <span
+class="math inline">\(\omega^j\)</span> is a 1-form, we have that <span
 class="math display">\[
 \begin{aligned}
-    d\omega_j(e_p,e_q) &amp;= e_p(\omega_j(e_q)) - e_q(\omega_j(e_p)) -
-\omega_j([e_p,e_q]) \\
+    d\omega^j(e_p,e_q) &amp;= e_p(\omega^j(e_q)) - e_q(\omega^j(e_p)) -
+\omega^j([e_p,e_q]) \\
     &amp;= e_p(\delta^j_q) - e_q(\delta^j_p) -
-\omega_j\left(\nabla_{e_p}e_q - \nabla_{e_q}e_p - \tau(e_p,e_q)\right)
+\omega^j\left(\nabla_{e_p}e_q - \nabla_{e_q}e_p - \tau(e_p,e_q)\right)
 \\
-    &amp;= -\omega_j\left(\Gamma^k_{pq}e_k - \Gamma^k_{qp}e_k -
+    &amp;= -\omega^j\left(\Gamma^k_{pq}e_k - \Gamma^k_{qp}e_k -
 \tau^k(e_p,e_q)e_k\right),
 \end{aligned}
 \]</span></p>
@@ -102,51 +98,174 @@ because <span class="math inline">\(e_p(\delta^j_q) - e_q(\delta^j_p) =
 <p>Then for the terms with the Christoffel symbols we use the definition
 of the connection 1-forms</p>
 <p><span class="math display">\[
-    \omega_{qk}(e_p) = \Gamma^k_{sq}\omega_s(e_p) =
+    {\omega_q}^k(e_p) = \Gamma^k_{sq}\omega^s(e_p) =
 \Gamma^k_{sq}\delta^s_p = \Gamma^k_{pq}.
 \]</span></p>
 <p>So continuing, we have</p>
 <p><span class="math display">\[
 \begin{aligned}
-    d\omega_j(e_p,e_q) &amp;= -\omega_j\left(\Gamma^k_{pq}e_k -
+    d\omega^j(e_p,e_q) &amp;= -\omega^j\left(\Gamma^k_{pq}e_k -
 \Gamma^k_{qp}e_k - \tau^k(e_p,e_q)e_k\right) \\
-    &amp;= -\omega_j\left(\omega_{qk}(e_p)e_k - \omega_{pk}(e_q)e_k -
+    &amp;= -\omega^j\left({\omega_q}^k(e_p)e_k - {\omega_p}^k(e_q)e_k -
 \tau^k(e_p,e_q)e_k\right) \\
-    &amp;= \omega_{pk}(e_q)\omega_j(e_k) - \omega_{qk}(e_p)\omega_j(e_k)
-+ \tau^k(e_p,e_q)\omega_j(e_k) \\
-    &amp;= \omega_{pk}(e_q)\delta^j_k - \omega_{qk}(e_p)\delta^j_k +
+    &amp;= {\omega_p}^k(e_q)\omega^j(e_k) -
+{\omega_q}^k(e_p)\omega^j(e_k) + \tau^k(e_p,e_q)\omega^j(e_k) \\
+    &amp;= {\omega_p}^k(e_q)\delta^j_k - {\omega_q}^k(e_p)\delta^j_k +
 \tau^k(e_p,e_q)\delta^j_k \\
-    &amp;= \omega_{pj}(e_q) - \omega_{qj}(e_p) + \tau^j(e_p,e_q).
+    &amp;= {\omega_p}^j(e_q) - {\omega_q}^j(e_p) + \tau^j(e_p,e_q).
 \end{aligned}
 \]</span></p>
 <p>Observe that</p>
 <p><span class="math display">\[
-    (\omega_i\otimes\omega_{ij})(e_p,e_q) =
-\omega_i(e_p)\omega_{ij}(e_q) = \delta^i_p\omega_{ij}(e_q) =
-    \omega_{pj}(e_q),
+    (\omega^i\otimes{\omega_i}^j)(e_p,e_q) =
+\omega^i(e_p){\omega_i}^j(e_q) = \delta^i_p{\omega_i}^j(e_q) =
+    {\omega_p}^j(e_q),
 \]</span></p>
 <p>and similarly <span
-class="math inline">\((\omega_i\otimes\omega_{ij})(e_q,e_p) =
-\omega_{qj}(e_p)\)</span>. So continuing, we have</p>
+class="math inline">\((\omega^i\otimes{\omega_i}^j)(e_q,e_p) =
+{\omega_q}^j(e_p)\)</span>. So continuing, we have</p>
 <p><span class="math display">\[
 \begin{aligned}
-    d\omega_j(e_p,e-q) &amp;= \omega_{pj}(e_q) - \omega_{qj}(e_p) +
+    d\omega^j(e_p,e-q) &amp;= {\omega_p}^j(e_q) - {\omega_q}^j(e_p) +
 \tau^j(e_p,e_q) \\
-    &amp;= (\omega_i\otimes\omega_{ij})(e_p,e_q) -
-(\omega_i\otimes\omega_{ij})(e_q,e_p) + \tau^j(e_p,e_q) \\
-    &amp;= (\omega_i\wedge\omega_{ij})(e_p,e_q) + \tau^j(e_p,e_q).
+    &amp;= (\omega^i\otimes{\omega_i}^j)(e_p,e_q) -
+(\omega^i\otimes{\omega_i}^j)(e_q,e_p) + \tau^j(e_p,e_q) \\
+    &amp;= (\omega^i\wedge{\omega_i}^j)(e_p,e_q) + \tau^j(e_p,e_q).
 \end{aligned}
 \]</span></p>
 <p>This implies that</p>
 <p><span class="math display">\[
-    d\omega_j(X,Y) = X^pY^qd\omega_j(e_p,e_q) =
-X^pY^q(\omega_i\wedge\omega_{ij}+\tau^j)(e_p,e_q) =
-    (\omega_i\wedge\omega_{ij}+\tau^j)(X,Y).
+    d\omega^j(X,Y) = X^pY^qd\omega^j(e_p,e_q) =
+X^pY^q(\omega^i\wedge{\omega_i}^j+\tau^j)(e_p,e_q) =
+    (\omega^i\wedge{\omega_i}^j+\tau^j)(X,Y).
 \]</span></p>
 <p>In other words, that</p>
 <p><span class="math display">\[
-    d\omega_j = \omega_i\wedge\omega_{ij} + \tau,
+    d\omega^j = \omega^i\wedge{\omega_i}^j + \tau,
 \]</span></p>
+<p>as required.</p>
+</div>
+<p>Similarly, we define the <em>connection 2-forms</em> <span
+class="math inline">\({\Omega_i}^j\)</span> in the following way. Let
+<span class="math inline">\(\nabla\)</span> now be the unique
+Riemann/Levi-Civita connection on <span
+class="math inline">\((M,g)\)</span> and <span
+class="math inline">\(R\)</span> be the Riemann curvature endomorphism.
+Recall that <span class="math inline">\(R\)</span> is given by</p>
+<p><span class="math display">\[
+    R(X,Y)Z = \nabla_X\nabla_YZ - \nabla_Y\nabla_XZ - \nabla_{[X,Y]}Z,
+\]</span></p>
+<p>for smooth vector fields <span class="math inline">\(X,Y,Z\)</span>
+on <span class="math inline">\(M\)</span>. Then we define <span
+class="math inline">\({\Omega_i}^j\)</span>’s by the following
+relation</p>
+<p><span class="math display">\[
+    {\Omega_i}^j = \frac{1}{2}{R_{k\ell i}}^j\omega^k\wedge\omega^\ell.
+\]</span></p>
+<p>And along with this definition of the connection 2-forms we have
+Cartan’s second structural equations.</p>
+<div id="prop:C2" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 2.2</span> <span
+class="statement-info">(Cartan’s second structural
+equations)</span>.</span><span class="statement-spah"> </span>For the
+connection 2-forms <span class="math inline">\({\Omega_i}^j\)</span>, we
+have</p>
+<p><span class="math display">\[
+    {\Omega_i}^j = d{\omega_i}^j - {\omega_i}^k\wedge{\omega_k}^j.
+\]</span></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>We have that</p>
+<p><span id="eq:R1" class="eqnos"><span class="math display">\[
+    {R_{k\ell i}}^je_j = R(e_k,e_\ell)e_i = \nabla_k\nabla_\ell e_i -
+\nabla_\ell\nabla_k e_i -
+    \nabla_{[e_k,e_\ell]}e_i,
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p>where <span class="math inline">\(\nabla_i\)</span> is shorthand for
+<span class="math inline">\(\nabla_{e_i}\)</span>.</p>
+<p>Similarly to above, we have that <span
+class="math inline">\(\nabla_\ell e_i =
+{\omega_i}^p(e_\ell)e_p\)</span>, and since <span
+class="math inline">\(\nabla\)</span> is torsion free, after some
+calculation we also find that <span
+class="math inline">\(\nabla_{[e_k,e_\ell]}e_i =
+{\omega_i}^p([e_k,e_\ell])e_p\)</span>. So inserting these into (<a
+href="#eq:R1">2.1</a>) above, we have that</p>
+<p><span id="eq:R2" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    R(e_k,e_\ell)e_i &amp;= \nabla_k({\omega_i}^p(e_\ell)e_p) -
+\nabla_\ell({\omega_i}^p(e_k)e_p) -
+    {\omega_i}^p([e_k,e_\ell])e_p \\
+    &amp;= (e_k{\omega_i}^p(e_\ell))e_p +
+{\omega_i}^p(e_\ell)\nabla_ke_p -
+    (e_\ell{\omega_i}^p(e_k))e_p - {\omega_i}^p(e_k)\nabla_\ell e_p -
+    {\omega_i}^p([e_k,e_\ell])e_p \\
+    &amp;= e_k({\omega_i}^p(e_\ell))e_p +
+{\omega_i}^p(e_\ell){\omega_p}^j(e_k)e_j -
+    e_\ell({\omega_i}^p(e_k))e_p -
+{\omega_i}^p(e_k){\omega_p}^j(e_\ell)e_j -
+    {\omega_i}^p([e_k,e_\ell])e_p.
+\end{aligned}\]</span><span class="eqnos-number">(2.2)</span></span>
+</p>
+<p>Since <span class="math inline">\({\omega_i}^p\)</span> is a 1-form
+we have that</p>
+<p><span class="math display">\[
+    d{\omega_i}^p(e_k,e_\ell) = e_k({\omega_i}^p(e_\ell)) -
+e_\ell({\omega_i}^p(e_k)) -
+    {\omega_i}^p([e_k,e_\ell])
+\]</span></p>
+<p>So (<a href="#eq:R2">2.2</a>) above becomes</p>
+<p><span id="eq:R3" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    R(e_k,e_\ell)e_i &amp;= e_k({\omega_i}^p(e_\ell))e_p +
+{\omega_i}^p(e_\ell){\omega_p}^j(e_k)e_j -
+    e_\ell({\omega_i}^p(e_k))e_p -
+{\omega_i}^p(e_k){\omega_p}^j(e_\ell)e_j -
+    {\omega_i}^p([e_k,e_\ell])e_p \\
+    &amp;= d{\omega_i}^p(e_k,e_\ell)e_p +
+{\omega_i}^p(e_\ell){\omega_p}^j(e_k)e_j -
+    {\omega_i}^p(e_k){\omega_p}^j(e_\ell)e_j.
+\end{aligned}\]</span><span class="eqnos-number">(2.3)</span></span>
+</p>
+<p>Now notice that</p>
+<p><span class="math display">\[\begin{aligned}
+    {\omega_i}^p\wedge{\omega_p}^j(e_\ell,e_k) &amp;=
+    {\omega_i}^p\otimes{\omega_p}^j(e_\ell,e_k) -
+    {\omega_i}^p\otimes{\omega_p}^j(e_k,e_\ell) \\
+    &amp;= {\omega_i}^p(e_\ell){\omega_p}^j(e_k) -
+    {\omega_i}^p(e_k){\omega_p}^j(e_\ell).
+\end{aligned}\]</span></p>
+<p>Here we are using the determinant convention for the wedge product.
+So (<a href="#eq:R3">2.3</a>) above becomes</p>
+<p><span class="math display">\[\begin{aligned}
+    R(e_k,e_\ell)e_i &amp;= d{\omega_i}^p(e_k,e_\ell)e_p +
+{\omega_i}^p(e_\ell){\omega_p}^j(e_k)e_j -
+    {\omega_i}^p(e_k){\omega_p}^j(e_\ell)e_j \\
+    &amp;= d{\omega_i}^j(e_k,e_\ell)e_j -
+({\omega_i}^p\wedge\omega{_p^j})(e_k,e_\ell)e_j,
+\end{aligned}\]</span></p>
+<p>where in the last line we have renamed the dummy variable from <span
+class="math inline">\(p\)</span> to <span
+class="math inline">\(j\)</span> for the first term and for the second
+term we have swapped the order of the arguments going into the wedge
+product (hence the change in sign).</p>
+<p>So we have that</p>
+<p><span class="math display">\[
+    {R_{k\ell i}}^j = d{\omega_i}^j - {\omega_i}^p\wedge{\omega_p}^j.
+\]</span></p>
+<p>So finally we have that</p>
+<p><span class="math display">\[\begin{aligned}
+    {\Omega_i}^j(e_p,e_q) &amp;= \frac{1}{2}{R_{k\ell
+i}}^j\omega^k\wedge\omega^ell(e_p,e_q) \\
+    &amp;= \frac{1}{2}{R_{k\ell i}}^j(\delta^k_p\delta^\ell_q -
+\delta^k_q\delta^\ell_p) \\
+    &amp;= \frac{1}{2}\left({R_{k\ell i}}^j - {R_{\ell ki}}^j\right) \\
+    &amp;= {R_{k\ell i}}^j = (d{\omega_i}^j -
+{\omega_i}^k\wedge{\omega_k}^j)(e_p,e_q),
+\end{aligned}\]</span></p>
 <p>as required.</p>
 </div>
 <h1 class="unnumbered" id="references">References</h1>
