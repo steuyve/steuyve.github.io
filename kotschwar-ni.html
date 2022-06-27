@@ -69,11 +69,11 @@ href="#eq:pharmu">2.2</a>), that is,</p>
 \varphi\right|^{p-2}\nabla \varphi\right) - \left|\nabla
 \varphi\right|^p
 \]</span></p>
-<p>and let <span class="math inline">\(L\)</span> denote the
+<p>and let <span class="math inline">\(\mathcal{L}\)</span> denote the
 linearization of <span class="math inline">\(\Lambda_p\)</span> at <span
 class="math inline">\(u\)</span>.</p>
-<p>We can compute what <span class="math inline">\(L\)</span> must be by
-computing <span
+<p>We can compute what <span class="math inline">\(\mathcal{L}\)</span>
+must be by computing <span
 class="math inline">\(\frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\Lambda_p(u+\varepsilon\varphi)\)</span>,
 i.e., taking the derivative at 0 of a small perturbation of <span
 class="math inline">\(\Lambda_p(u)\)</span>. Note that we have <span
@@ -154,21 +154,24 @@ class="math inline">\(\text{div}\)</span> operator, and combining the
 above with the last line of (<a href="#eq:ddepnorm">3.1</a>), all
 together we have</p>
 <p><span id="eq:L" class="eqnos"><span class="math display">\[
-    L(\varphi) = \frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\Lambda_p(u
-+ \varepsilon\varphi) = \text{div}\left(f^{p/2-1}A(\nabla\varphi)\right)
-- pf^{p/2-1}\langle\nabla u,\nabla\varphi\rangle.
+    \mathcal{L}(\varphi) =
+\frac{d}{d\varepsilon}\Big|_{\varepsilon=0}\Lambda_p(u +
+\varepsilon\varphi) = \text{div}\left(f^{p/2-1}A(\nabla\varphi)\right) -
+pf^{p/2-1}\langle\nabla u,\nabla\varphi\rangle.
 \]</span><span class="eqnos-number">(3.3)</span></span> </p>
 <p>With this explicit expression for <span
-class="math inline">\(L\)</span>, Kotschwar and Ni then show the
-following lemma.</p>
+class="math inline">\(\mathcal{L}\)</span>, Kotschwar and Ni then show
+the following lemma.</p>
 <div id="lem:Lf" class="statement lemma plain">
 <p><span class="statement-heading"><span class="statement-label">Lemma
-3.1</span>.</span><span class="statement-spah"> </span>[Kotschwar-Ni,
-Lemma 2.1] With <span class="math inline">\(u, f, A, L\)</span> as
-above, we have the following expression for <span
-class="math inline">\(L(f)\)</span>.</p>
+3.1</span> <span class="statement-info">(<span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span>, Lemma 2.1)</span>.</span><span
+class="statement-spah"> </span>With <span class="math inline">\(u, f, A,
+\mathcal{L}\)</span> as above, we have the following expression for
+<span class="math inline">\(\mathcal{L}(f)\)</span>.</p>
 <p><span class="math display">\[
-L(f) = 2f^{p/2-1}\left(u_{ij}^2 + R_{ij}u_iu_j\right) +
+\mathcal{L}(f) = 2f^{p/2-1}\left(u_{ij}^2 + R_{ij}u_iu_j\right) +
 \left(\frac{p}{2}-1\right)|\nabla f|^2f^{p/2-2},
 \]</span></p>
 <p>where <span class="math inline">\(u_{ij}\)</span> is the Hessian of
@@ -180,9 +183,9 @@ class="math inline">\(M\)</span>.</p>
 <p><span class="statement-heading"><span
 class="statement-label">Proof</span>.</span><span
 class="statement-spah"> </span>The expression comes from computing <span
-class="math inline">\(L(f)\)</span> using the expression we got in (<a
-href="#eq:L">3.3</a>) above, and combining with the Bochner formula for
-<span class="math inline">\(f\)</span>.</p>
+class="math inline">\(\mathcal{L}(f)\)</span> using the expression we
+got in (<a href="#eq:L">3.3</a>) above, and combining with the Bochner
+formula for <span class="math inline">\(f\)</span>.</p>
 <p>Recall that the Bochner formula is given by the following.</p>
 <p><span id="eq:bochner" class="eqnos"><span class="math display">\[
     \Delta f = 2u_{ij}^2 + 2\langle\nabla\Delta u, \nabla u\rangle +
@@ -225,11 +228,11 @@ f\rangle^2\right] \\
 \end{aligned}
 \]</span></p>
 <p>So we have the expression for <span
-class="math inline">\(L(f)\)</span></p>
+class="math inline">\(\mathcal{L}(f)\)</span></p>
 <p><span id="eq:Lfintermediate" class="eqnos"><span
 class="math display">\[
 \begin{aligned}
-    L(f) &amp;= f^{p/2-1}\Delta f +
+    \mathcal{L}(f) &amp;= f^{p/2-1}\Delta f +
 \left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 + (p-2)f^{p/2-2}\Delta u
 \langle \nabla u,\nabla f \rangle \\
         &amp;\qquad +
@@ -264,9 +267,9 @@ u\rangle),\nabla u\rangle.
 <p>And two times the above coincides with the term we are subtracting in
 (<a href="#eq:Lfintermediate">3.5</a>), so a lot of terms cancel out and
 we get a more simplified form of <span
-class="math inline">\(L(f)\)</span> as</p>
+class="math inline">\(\mathcal{L}(f)\)</span> as</p>
 <p><span class="math display">\[
-    L(f) = f^{p/2-1}\Delta f +
+    \mathcal{L}(f) = f^{p/2-1}\Delta f +
 \left(\frac{p}{2}-1\right)f^{p/2-2}|\nabla f|^2 -
 2f^{p/2-1}\langle\nabla\Delta u,\nabla u\rangle.
 \]</span></p>
@@ -274,11 +277,221 @@ class="math inline">\(L(f)\)</span> as</p>
 href="#eq:bochner">3.4</a>) into the first term above and canceling, we
 arrive at</p>
 <p><span class="math display">\[
-    L(f) = 2f^{p/2-1}\left(u_{ij}^2+R_{ij}u_iu_j\right) +
+    \mathcal{L}(f) = 2f^{p/2-1}\left(u_{ij}^2+R_{ij}u_iu_j\right) +
 \left(\frac{p}{2}-1\right)f^{p/2-1}|\nabla f|^2
 \]</span></p>
 <p>as required.</p>
 </div>
+<h1 data-number="4" id="a-parabolic-analog"><span
+class="header-section-number">4</span> A Parabolic Analog</h1>
+<p>In this section we consider the parabolic analog to the <span
+class="math inline">\(p\)</span>-harmonic equation. Let <span
+class="math inline">\(u\)</span> be a solution to the equation</p>
+<p><span id="eq:parabolicpharmu" class="eqnos"><span
+class="math display">\[
+    \frac{\partial u }{\partial t} - \Lambda_p(u) = \frac{\partial
+u}{\partial t} - \text{div}(|\nabla u|^{p-2}\nabla u)
+    + |\nabla u|^p = 0.
+\]</span><span class="eqnos-number">(4.1)</span></span> </p>
+<p>The corresponding equation for <span class="math inline">\(v =
+\exp\left(-\frac{u}{p-1}\right)\)</span> is</p>
+<p><span id="eq:parabolicpharmv" class="eqnos"><span
+class="math display">\[
+    \frac{\partial v^{p-1}}{\partial t} = (p-1)^{p-1}\text{div}(|\nabla
+v|^{p-2}\nabla v).
+\]</span><span class="eqnos-number">(4.2)</span></span> </p>
+<p>Then we have an analog to Lemma (<a href="#lem:Lf"
+title="3.1">3.1</a>)</p>
+<div id="lem:parabolicLf" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+4.1</span> <span class="statement-info">(<span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span> Eq 6.3)</span>.</span><span
+class="statement-spah"> </span>With <span
+class="math inline">\(\mathcal{L}\)</span> and <span
+class="math inline">\(A\)</span> as before, for <em>any</em> <span
+class="math inline">\(u\)</span> and <span class="math inline">\(f =
+|\nabla u|^2\)</span>, we have the following nonlinear Bochner
+formula</p>
+<p><span class="math display">\[
+    \mathcal{L}(f) = 2f^{p/2-1}(u_{ij}^2 + R_{ij}u_iu_j) +
+2\langle\nabla u, \nabla(\Lambda_p(u))\rangle +
+    \left(\frac{p}{2}-1\right)|\nabla f|^2f^{p/2-2}.
+\]</span></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span><strong>TODO</strong></p>
+</div>
+<h2 data-number="4.1" id="conservation-law"><span
+class="header-section-number">4.1</span> Conservation Law</h2>
+<p>We now are moving toward a nonlinear entropy formula for this
+parabolic analog of the <span
+class="math inline">\(p\)</span>-Laplacian. First, we need to establish
+the following proposition.</p>
+<div id="prop:conslaw" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 4.2</span> <span
+class="statement-info">(<span class="citation" data-cites="KN09">(<a
+href="#ref-KN09" role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>,
+Proposition 6.11)</span>.</span><span class="statement-spah"> </span>For
+<span class="math inline">\(v :=
+\exp\left(-\frac{u}{p-1}\right)\)</span> where <span
+class="math inline">\(u\)</span> is a positive solution to (<a
+href="#eq:parabolicpharmu">4.1</a>) above (hence <span
+class="math inline">\(v\)</span> is also positive), first observe that
+the quantity <span class="math inline">\(\int_M v^{p-1}\)</span> is
+preserved under the equation (<a href="#eq:parabolicpharmv">4.2</a>).
+Then, for any smooth <span class="math inline">\(\psi\)</span>, we have
+the conservation law</p>
+<p><span class="math display">\[
+    \frac{d}{dt}\int_M \psi v^{p-1} =
+\int_M\left(\left(\frac{\partial}{\partial t} -
+\mathcal{L}\right)\psi\right)v^{p-1}.
+\]</span></p>
+<p>In particular, if <span class="math inline">\(\psi\)</span>
+satisifies</p>
+<p><span id="eq:oppsi" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \mathcal{L}\right)\psi = 0,
+\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+<p>then <span class="math inline">\(\int_M \psi v^{p-1}\)</span> is
+constant along the equations (<a href="#eq:parabolicpharmv">4.2</a>) and
+(<a href="#eq:oppsi">4.3</a>).</p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>By “the quantity <span
+class="math inline">\(\int_M v^{p-1}\)</span> is preserved under the
+equation” we mean the following</p>
+<p><span class="math display">\[
+    \frac{d}{dt}\int_M v^{p-1} = \int_M \frac{\partial v^{p-1}}{\partial
+t} = \int_M (p-1)^{p-1}\text{div}(|\nabla
+    v|^{p-2}\nabla v).
+\]</span></p>
+<p><strong>TODO: Proof of this claim</strong>.</p>
+<p>Now let <span class="math inline">\(\psi\)</span> be smooth. It is
+easy enough to check that</p>
+<p><span id="eq:nablav" class="eqnos"><span class="math display">\[
+    \nabla v = -\frac{v}{p-1}\nabla u,
+\]</span><span class="eqnos-number">(4.4)</span></span> </p>
+<p>and hence</p>
+<p><span id="eq:vp-1" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    (p-1)^{p-1}|\nabla v|^{p-2}\nabla v &amp;=
+(p-1)^{p-1}\left|\frac{-v}{p-1}\nabla
+    u\right|^{p-2}\left(-\frac{v}{p-1}\nabla u\right) \\
+    &amp;= -v^{p-1}|\nabla u|^{p-2}\nabla u.
+\end{aligned}\]</span><span class="eqnos-number">(4.5)</span></span>
+</p>
+<p>Then we compute</p>
+<p><span id="eq:ddtint1" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{dt}\int_M \psi v^{p-1} &amp;= \int_M \psi_t v^{p-1} + \psi
+\left(v^{p-1}\right)_t \\
+    &amp;= \int_M \psi_t v^{p-1} - \mathcal{L}(\psi)v^{p-1} +
+\mathcal{L}(\psi)v^{p-1} + \psi\left(v^{p-1}\right)_t \\
+    &amp;= \int_M \left(\left(\frac{\partial}{\partial t} -
+\mathcal{L}\right)\psi\right)v^{p-1} + \int_M \mathcal{L}(\psi)v^{p-1} +
+\int_M
+    \psi \left(v^{p-1}\right)_t.
+\end{aligned}\]</span><span class="eqnos-number">(4.6)</span></span>
+</p>
+<p>By the definition of <span class="math inline">\(\mathcal{L}\)</span>
+and integration by parts, the second integral above becomes</p>
+<p><span id="eq:intLpsiv" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \int_M \mathcal{L}(\psi)v^{p-1} &amp;= \int_M
+v^{p-1}\text{div}(|\nabla u|^{p-2}A(\nabla\psi)) - p\int_M |\nabla
+    u|^{p-2}\langle\nabla u,\nabla\psi\rangle v^{p-1} \\
+    &amp;= -\int_M \langle v^{p-1}, |\nabla u|^{p-2}A(\nabla
+\psi)\rangle + \int_{\partial M} v^{p-1}\langle |\nabla
+    u|^{p-2}A(\nabla \psi), \vec{N}\rangle \\
+        &amp;\qquad- p\int_M |\nabla u|^{p-2}\langle \nabla u, \nabla
+\psi \rangle v^{p-1}
+    \\
+    &amp;= -\int_M |\nabla u|^{p-2}\langle\nabla A(\nabla\psi),\nabla
+v^{p-1}\rangle - p\int_M |\nabla u|^{p-2}\langle\nabla
+    u,\nabla\psi\rangle v^{p-1}.
+\end{aligned}\]</span><span class="eqnos-number">(4.7)</span></span>
+</p>
+<p>where we are assuming <span class="math inline">\(\partial M =
+0\)</span>.</p>
+<p>Similarly, by (<a href="#eq:parabolicpharmv">4.2</a>) and (<a
+href="#eq:vp-1">4.5</a>), and then using integration by parts, the third
+integral in (<a href="#eq:ddtint1">4.6</a>) becomes</p>
+<p><span id="eq:intpsivt" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \int_M \psi\left(v^{p-1}\right)_t &amp;= \int_M \psi
+\text{div}\left((p-1)^{p-1}|\nabla u|^{p-2}\nabla u\right) \\
+    &amp;= \int_M \psi \text{div}(-v^{p-1}|\nabla u|^{p-2}\nabla u) \\
+    &amp;= -\int_M \langle \nabla\psi, -v^{p-1}|\nabla u|^{p-2}\nabla
+u\rangle + \int_{\partial M} \psi\langle
+    -v^{p-1}|\nabla u|^{p-2}\nabla u,\vec{N}\rangle \\
+    &amp;= \int_M |\nabla u|^{p-2}\langle \nabla\psi, \nabla u\rangle
+v^{p-1}.
+\end{aligned}\]</span><span class="eqnos-number">(4.8)</span></span>
+</p>
+<p>So combining (<a href="#eq:intLpsiv">4.7</a>) and (<a
+href="#eq:intpsivt">4.8</a>) into (<a href="#eq:ddtint1">4.6</a>), we
+arrive at</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{d}{dt}\int_M \psi v^{p-1} &amp;= \int_M
+\left(\left(\frac{\partial}{\partial t} -
+\mathcal{L}\right)\psi\right)v^{p-1} -\int_M |\nabla
+u|^{p-2}\langle\nabla A(\nabla\psi),\nabla v^{p-1}\rangle \\
+        &amp;\qquad -(p-1)\int_M |\nabla u|^{p-2}\langle \nabla\psi,
+\nabla u\rangle v^{p-1}.
+\end{aligned}\]</span></p>
+<p>It remains to show that the last two integrals above cancel each
+other out. Observe that</p>
+<p><span class="math display">\[
+    \nabla v^{p-1} = (p-1)v^{p-2}\nabla v = -v^{p-1}\nabla u.
+\]</span></p>
+<p>Then expanding the definition for <span
+class="math inline">\(A\)</span> and using the above, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    -\int_M |\nabla u|^{p-2}\langle A(\nabla\psi),\nabla v^{p-1}\rangle
+&amp;= -\int_M |\nabla
+    u|^{p-2}\langle\nabla\psi,\nabla v^{p-1}\rangle \\
+        &amp;\qquad - (p-2)\int_M |\nabla
+u|^{p-4}\langle\nabla\psi,\nabla u\rangle\langle\nabla u, \nabla
+        v^{p-1}\rangle \\
+    &amp;= (p-1)\int_M |\nabla u|^{p-2}v^{p-1}\langle \nabla \psi,
+\nabla u\rangle.
+\end{aligned}\]</span></p>
+<p>And so the last two integrals indeed cancel out as required.</p>
+</div>
+<div class="statement remark remark">
+<p><span class="statement-heading"><span class="statement-label">Remark
+4.3</span>.</span><span class="statement-spah"> </span>In the above,
+<span class="math inline">\(\psi\)</span> doesn’t necessarily need to be
+smooth. The argument carries over assuming only the summability of the
+integrands.</p>
+</div>
+<h2 data-number="4.2" id="the-entropy-formula"><span
+class="header-section-number">4.2</span> The Entropy Formula</h2>
+<p>Let <span class="math inline">\((a_{ij})\)</span> be the inverse of
+<span class="math inline">\((A^{ij})\)</span>, that is,</p>
+<p><span class="math display">\[
+    a_{ij} = g_{ij} - \frac{p-2}{p-1}\frac{u_i u_j}{f},
+\]</span></p>
+<p>and can be viewed as a metric tensor. Let <span
+class="math inline">\(v\)</span> be a positive solution to (<a
+href="#eq:parabolicpharmv">4.2</a>) normalized so that <span
+class="math inline">\(\int_M v^{p-1} = 1\)</span>. Let <span
+class="math inline">\(u := -\log(v^{p-1})\)</span>. Then we define the
+following quantities</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;N(v,t) := \int_M v^{p-1} u \\
+    &amp;\mathcal{N}_p(v,t) := N(v,t) - \frac{n}{p}\log{t} = \int_M
+v^{p-1} u - \frac{n}{p}\log{t} \\
+    &amp;\mathcal{F}_p(v,t) := \frac{d}{dt}\mathcal{N}_p(v,t) \\
+    &amp;\mathcal{W}_p(v,t) :=
+\frac{d}{dt}\left(t\mathcal{N}_p(v,t)\right).
+\end{aligned}
+\]</span></p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
