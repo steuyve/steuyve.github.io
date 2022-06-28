@@ -324,8 +324,8 @@ formula</p>
 class="statement-label">Proof</span>.</span><span
 class="statement-spah"> </span><strong>TODO</strong></p>
 </div>
-<h2 data-number="4.1" id="conservation-law"><span
-class="header-section-number">4.1</span> Conservation Law</h2>
+<h2 data-number="4.1" id="a-conservation-law"><span
+class="header-section-number">4.1</span> A Conservation Law</h2>
 <p>We now are moving toward a nonlinear entropy formula for this
 parabolic analog of the <span
 class="math inline">\(p\)</span>-Laplacian. First, we need to establish
@@ -341,14 +341,14 @@ Proposition 6.11)</span>.</span><span class="statement-spah"> </span>For
 class="math inline">\(u\)</span> is a positive solution to (<a
 href="#eq:parabolicpharmu">4.1</a>) above (hence <span
 class="math inline">\(v\)</span> is also positive), first observe that
-the quantity <span class="math inline">\(\int_M v^{p-1}\)</span> is
+the quantity <span class="math inline">\(\int_M v^{p-1}d\mu\)</span> is
 preserved under the equation (<a href="#eq:parabolicpharmv">4.2</a>).
 Then, for any smooth <span class="math inline">\(\psi\)</span>, we have
 the conservation law</p>
 <p><span class="math display">\[
-    \frac{d}{dt}\int_M \psi v^{p-1} =
+    \frac{d}{dt}\int_M \psi v^{p-1}d\mu =
 \int_M\left(\left(\frac{\partial}{\partial t} -
-\mathcal{L}\right)\psi\right)v^{p-1}.
+\mathcal{L}\right)\psi\right)v^{p-1}d\mu.
 \]</span></p>
 <p>In particular, if <span class="math inline">\(\psi\)</span>
 satisifies</p>
@@ -366,9 +366,9 @@ class="statement-spah"> </span>By “the quantity <span
 class="math inline">\(\int_M v^{p-1}\)</span> is preserved under the
 equation” we mean the following</p>
 <p><span class="math display">\[
-    \frac{d}{dt}\int_M v^{p-1} = \int_M \frac{\partial v^{p-1}}{\partial
-t} = \int_M (p-1)^{p-1}\text{div}(|\nabla
-    v|^{p-2}\nabla v).
+    \frac{d}{dt}\int_M v^{p-1}d\mu = \int_M \frac{\partial
+v^{p-1}}{\partial t}d\mu = \int_M (p-1)^{p-1}\text{div}(|\nabla
+    v|^{p-2}\nabla v)d\mu.
 \]</span></p>
 <p><strong>TODO: Proof of this claim</strong>.</p>
 <p>Now let <span class="math inline">\(\psi\)</span> be smooth. It is
@@ -388,8 +388,8 @@ class="math display">\[\begin{aligned}
 <p>Then we compute</p>
 <p><span id="eq:ddtint1" class="eqnos"><span
 class="math display">\[\begin{aligned}
-    \frac{d}{dt}\int_M \psi v^{p-1} &amp;= \int_M \psi_t v^{p-1} + \psi
-\left(v^{p-1}\right)_t \\
+    \frac{d}{dt}\int_M \psi v^{p-1}d\mu &amp;= \int_M \psi_t v^{p-1} +
+\psi \left(v^{p-1}\right)_t \\
     &amp;= \int_M \psi_t v^{p-1} - \mathcal{L}(\psi)v^{p-1} +
 \mathcal{L}(\psi)v^{p-1} + \psi\left(v^{p-1}\right)_t \\
     &amp;= \int_M \left(\left(\frac{\partial}{\partial t} -
@@ -406,8 +406,8 @@ class="math display">\[\begin{aligned}
 v^{p-1}\text{div}(|\nabla u|^{p-2}A(\nabla\psi)) - p\int_M |\nabla
     u|^{p-2}\langle\nabla u,\nabla\psi\rangle v^{p-1} \\
     &amp;= -\int_M \langle v^{p-1}, |\nabla u|^{p-2}A(\nabla
-\psi)\rangle + \int_{\partial M} v^{p-1}\langle |\nabla
-    u|^{p-2}A(\nabla \psi), \vec{N}\rangle \\
+\psi)\rangle d\mu + \int_{\partial M} v^{p-1}\langle |\nabla
+    u|^{p-2}A(\nabla \psi), \vec{N}\rangle dS\mu \\
         &amp;\qquad- p\int_M |\nabla u|^{p-2}\langle \nabla u, \nabla
 \psi \rangle v^{p-1}
     \\
@@ -427,8 +427,8 @@ class="math display">\[\begin{aligned}
 \text{div}\left((p-1)^{p-1}|\nabla u|^{p-2}\nabla u\right) \\
     &amp;= \int_M \psi \text{div}(-v^{p-1}|\nabla u|^{p-2}\nabla u) \\
     &amp;= -\int_M \langle \nabla\psi, -v^{p-1}|\nabla u|^{p-2}\nabla
-u\rangle + \int_{\partial M} \psi\langle
-    -v^{p-1}|\nabla u|^{p-2}\nabla u,\vec{N}\rangle \\
+u\rangle d\mu + \int_{\partial M} \psi\langle
+    -v^{p-1}|\nabla u|^{p-2}\nabla u,\vec{N}\rangle dS_\mu \\
     &amp;= \int_M |\nabla u|^{p-2}\langle \nabla\psi, \nabla u\rangle
 v^{p-1}.
 \end{aligned}\]</span><span class="eqnos-number">(4.8)</span></span>
@@ -484,14 +484,197 @@ class="math inline">\(\int_M v^{p-1} = 1\)</span>. Let <span
 class="math inline">\(u := -\log(v^{p-1})\)</span>. Then we define the
 following quantities</p>
 <p><span class="math display">\[\begin{aligned}
-    &amp;N(v,t) := \int_M v^{p-1} u \\
+    &amp;N(v,t) := \int_M v^{p-1} u d\mu \\
     &amp;\mathcal{N}_p(v,t) := N(v,t) - \frac{n}{p}\log{t} = \int_M
-v^{p-1} u - \frac{n}{p}\log{t} \\
+v^{p-1} u d\mu - \frac{n}{p}\log{t} \\
     &amp;\mathcal{F}_p(v,t) := \frac{d}{dt}\mathcal{N}_p(v,t) \\
     &amp;\mathcal{W}_p(v,t) :=
 \frac{d}{dt}\left(t\mathcal{N}_p(v,t)\right).
 \end{aligned}
 \]</span></p>
+<p>We first establish the following calculation.</p>
+<div id="prop:dNdt" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 4.4</span> <span
+class="statement-info">((6.17) of <span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span> Proposition 6.14)</span>.</span><span
+class="statement-spah"> </span>Let <span class="math inline">\(F_\alpha
+= |\nabla u|^p + \alpha u_t\)</span> for any <span
+class="math inline">\(\alpha &gt; 0\)</span>. In particular, <span
+class="math inline">\(F_1 = |\nabla u|^p + u_t\)</span>. Then</p>
+<p><span class="math display">\[
+    \frac{dN}{dt} = \int_M |\nabla u|^p v^{p-1}d\mu = \int_M F_1
+v^{p-1}d\mu.
+\]</span></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>By (<a href="#prop:conslaw"
+title="4.2">4.2</a>), we have that</p>
+<p><span id="eq:dNdt1" class="eqnos"><span class="math display">\[
+    \frac{dN}{dt} = \frac{d}{dt}\int_M v^{p-1} u d\mu = \int_M
+\left(\left(\frac{\partial}{\partial t} -
+    \mathcal{L}\right)u\right)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.9)</span></span> </p>
+<p>So we compute <span class="math inline">\(\frac{\partial u}{\partial
+t} - \mathcal{L}(u)\)</span>:</p>
+<p><span id="eq:partialupartialtminusLu" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial u}{\partial t} - \mathcal{L}(u) &amp;= \Lambda_p(u) -
+\mathcal{L}(u) \\
+    &amp;= \text{div}(|\nabla u|^{p-2}\nabla u) - |\nabla u|^p -
+\text{div}(|\nabla u|^{p-2}A(\nabla u)) + p|\nabla
+    u|^{p-2}\langle \nabla u, \nabla u \rangle \\
+    &amp;= \text{div}(|\nabla u|^{p-2}\nabla u) - \text{div}(|\nabla
+u|^{p-2}A(\nabla u)) + (p-1)|\nabla
+    u|^{p} \\
+    &amp;= \text{div}(|\nabla u|^{p-2}\nabla u) - \text{div}(|\nabla
+u|^{p-2}\nabla u) - (p-2)\text{div}(|\nabla
+    u|^{p-2}\nabla u) + (p-1)|\nabla u|^p \\
+    &amp;= (p-1)|\nabla u|^p - (p-2)\text{div}(|\nabla u|^{p-2}\nabla
+u).
+\end{aligned}\]</span><span class="eqnos-number">(4.10)</span></span>
+</p>
+<p>So substituting this into (<a href="#eq:dNdt1">4.9</a>) above and
+continuing, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{dN}{dt} &amp;= \int_M \left(\left(\frac{\partial}{\partial t}
+- \mathcal{L}\right)u\right)v^{p-1}d\mu \\
+    &amp;= (p-1)\int_M |\nabla u|^p v^{p-1} -
+(p-2)\int_M\text{div}(|\nabla u|^{p-2}\nabla u)v^{p-1} \\
+    &amp;= (p-1)\int_M |\nabla u|^p v^{p-1} - (p-2)\left[-\int_M |\nabla
+u|^{p-2} \langle \nabla v^{p-1}, \nabla u
+    \rangle d\mu \right. \\
+        &amp;\qquad + \left.\int_{\partial M} |\nabla
+u|^{p-3}v^{p-1}\langle \nabla u, \vec{N}\rangle dS\mu\right] \\
+    &amp;= (p-1)\int_M |\nabla u|^p v^{p-1} + (p-2)\int_M |\nabla
+u|^{p-2} \langle \nabla v^{p-1}, \nabla u \rangle \\
+    &amp;= (p-1)\int_M |\nabla u|^p v^{p-1} - (p-2)\int_M |\nabla
+u|^{p-2} v^{p-1}\langle\nabla u,\nabla u\rangle \\
+    &amp;= \int_M |\nabla u|^p v^{p-1}
+\end{aligned}\]</span></p>
+<p>again using integration by parts and the fact that <span
+class="math inline">\(\nabla v^{p-1} = -v^{p-1}\nabla u\)</span>.</p>
+<p>Now notice that</p>
+<p><span class="math display">\[
+    F_1 = |\nabla u|^p + \frac{\partial u}{\partial t} = |\nabla u|^p +
+\text{div}(|\nabla u|^{p-2}\nabla u) -
+    |\nabla u|^p = \text{div}(|\nabla u|^{p-2}\nabla u),
+\]</span></p>
+<p>so we have that</p>
+<p><span class="math display">\[
+    \int_M F_1 v^{p-1} = \int_M \text{div}(|\nabla u|^{p-2}\nabla
+u)v^{p-1} = -\int_m |\nabla u|^{p-2}\langle\nabla
+    v^{p-1},\nabla u\rangle = \int_M |\nabla u|^p v^{p-1},
+\]</span></p>
+<p>which completes the proof.</p>
+</div>
+<p>Using this, let’s expand out the definitions of <span
+class="math inline">\(\mathcal{F}_p\)</span> and <span
+class="math inline">\(\mathcal{W}_p\)</span>. For <span
+class="math inline">\(\mathcal{F}_p\)</span>, we have</p>
+<p><span class="math display">\[
+    \mathcal{F}_p(v,t) = \frac{d}{dt}\mathcal{N}_p(v,t) = \frac{dN}{dt}
+- \frac{d}{dt}\left(\frac{n}{p}\log{t}\right) =
+    \int_M|\nabla u|^p v^{p-1}d\mu - \frac{n}{pt}.
+\]</span></p>
+<p>and for <span class="math inline">\(\mathcal{W}_p\)</span>, using the
+assumption that <span class="math inline">\(\int_M v^{p-1}d\mu =
+1\)</span>, we have</p>
+<p><span id="eq:entropyexpandedvt" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \mathcal{W}_p(v,t) &amp;=
+\frac{d}{dt}\left(t\mathcal{N}_p(v,t)\right) \\
+    &amp;= \mathcal{N}_p(v,t) + t\frac{d}{dt}\mathcal{N}_p(v,t) \\
+    &amp;= \int_M v^{p-1} u d\mu - \frac{n}{p}\log{t} + t\left(\int_M
+|\nabla u|^p v^{p-1}d\mu - \frac{n}{pt}\right) \\
+    &amp;= \int_M (t|\nabla u|^p + u)v^{p-1}d\mu - \frac{n}{p}\log{t} -
+\frac{n}{p} \\
+    &amp;= \int_M (t|\nabla u|^p + u)v^{p-1}d\mu - \int_M
+\left(\frac{n}{p}\log{t} + \frac{n}{p}\right)v^{p-1}d\mu \\
+    &amp;= \int_M \left(t|\nabla u|^p + u - \frac{n}{p}\log{t} -
+\frac{n}{p}\right)v^{p-1}d\mu.
+\end{aligned}\]</span><span class="eqnos-number">(4.11)</span></span>
+</p>
+<p>Then, motivated by Equation (6.8) of <span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span>, we can write <span
+class="math inline">\(v^{p-1}\)</span> in the following form</p>
+<p><span class="math display">\[
+    v^{p-1} := \frac{1}{\pi^{n/2}(p^{\ast
+    p-1}p)^{n/p}}\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast +
+1)}\frac{e^{-\varphi}}{t^{n/p}},
+\]</span></p>
+<p>where <span class="math inline">\(p^\ast := \frac{p}{p-1}\)</span>.
+For the sake of convenience, let’s also collect all the terms in the
+first two factors into a single constant <span
+class="math inline">\(G\)</span>, so we write <span
+class="math inline">\(v^{p-1} = G\frac{e^{-\varphi}}{t^{n/p}}\)</span>.
+Then since <span class="math inline">\(u = -\log{v^{p-1}}\)</span>, we
+have</p>
+<p><span id="eq:uintermsofvarphi" class="eqnos"><span
+class="math display">\[
+    u = -\log{v^{p-1}} = -\log{G\frac{e^{-\varphi}}{t^{n/p}}} = -\log{G}
++ \varphi + \frac{n}{p}\log{t}.
+\]</span><span class="eqnos-number">(4.12)</span></span> </p>
+<p>So substituting this into our expanded expression for <span
+class="math inline">\(\mathcal{W}_p\)</span> in (<a
+href="#eq:entropyexpandedvt">4.11</a>), we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \mathcal{W}_p(v,t) &amp;= \int_M \left(t|\nabla u|^p + u -
+\frac{n}{p}\log{t} - \frac{n}{p}\right)v^{p-1}d\mu \\
+    &amp;= \int_M \left(t|\nabla\left(-\log{G} + \varphi +
+\frac{n}{p}\log{t}\right)|^p - \log{G} + \varphi + \frac{n}{p}\log{t} -
+    \frac{n}{p}\log{t} - \frac{n}{p}\right)v^{p-1}d\mu \\
+    &amp;= \int_M \left(t|\nabla \varphi|^p - \log{G} + \varphi -
+\frac{n}{p}\right)v^{p-1}d\mu.
+\end{aligned}\]</span></p>
+<p>There is a discrepancy here with the expression arrived at in <span
+class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni 2009</a>)</span> (middle of page
+26), where they have</p>
+<p><span id="eq:entropydefkn" class="eqnos"><span
+class="math display">\[
+    \mathcal{W}_p(\varphi,t) = \int_M (t|\nabla \varphi|^p + \varphi -
+n)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.13)</span></span> </p>
+<p>Although it could be that <span class="math inline">\(-\log{G} -
+\frac{n}{p} = -n\)</span>, and a quick calculation shows that that would
+require <span class="math inline">\(p^\ast\log{G} = n\)</span>, but I
+haven’t checked the value of <span
+class="math inline">\(\log(G)\)</span> yet. In any case, using the
+expression (<a href="#eq:entropydefkn">4.13</a>) and writing in terms of
+<span class="math inline">\(u\)</span> and not <span
+class="math inline">\(\varphi\)</span>, since <span
+class="math inline">\(v^{p-1} = e^{-u}\)</span>, <span
+class="math inline">\(\varphi = u - \frac{n}{p}\log{t} +
+\log{G}\)</span> and <span class="math inline">\(|\nabla u| = |\nabla
+\varphi|\)</span>, we have</p>
+<p><span class="math display">\[
+    \mathcal{W}_p(u,t) = \int_M \left(t|\nabla u|^p + u -
+\frac{n}{p}\log{t} + \log{G} - n\right)e^{-u}d\mu,
+\]</span></p>
+<p>which, when <span class="math inline">\(p = 1\)</span> simplifies
+to</p>
+<p><span class="math display">\[
+    \mathcal{W}_1(u,t) = \int_M\left(t|\nabla u| + u - n\log{t} +
+\log{\frac{\Gamma(n/2+1)}{\pi^{n/2}}} -
+    n\right)e^{-u}d\mu.
+\]</span></p>
+<p>When <span class="math inline">\(p = 2\)</span>, <span
+class="math inline">\(p^\ast = 2\)</span>, <span
+class="math inline">\(\Gamma(n/p^\ast + 1) = \Gamma(n/2+1)\)</span> and
+<span class="math inline">\((p^{\ast p-1}p)^{n/p} = 4^{n/2}\)</span>, so
+we have</p>
+<p><span class="math display">\[
+    \mathcal{W}_2(u,t) = \int_M\left(t|\nabla u|^2 + u -
+\frac{n}{2}\log{4\pi t} - n\right)e^{-u}d\mu,
+\]</span></p>
+<p>which coincides with the entropy formula defined in Equation (1.2) of
+<span class="citation" data-cites="Ni04">(<a href="#ref-Ni04"
+role="doc-biblioref">Ni 2004</a>)</span>.</p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
@@ -502,6 +685,11 @@ class="math inline">\(1/H\)</span>-Flow, and an Entropy Formula.”</span>
 <em>Annales Scientifiques de l’École Normale Supérieure</em> Ser. 4, 42
 (1): 1–36. <a
 href="https://doi.org/10.24033/asens.2089">https://doi.org/10.24033/asens.2089</a>.
+</div>
+<div id="ref-Ni04" class="csl-entry" role="doc-biblioentry">
+Ni, Lei. 2004. <span>“The Entropy Formula for Linear Heat
+Equation.”</span> <em>The Journal of Geometric Analysis</em> 14. <a
+href="https://doi.org/10.1007/BF02921867">https://doi.org/10.1007/BF02921867</a>.
 </div>
 </div>
 </body>
