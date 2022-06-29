@@ -300,8 +300,8 @@ class="math display">\[
     \frac{\partial v^{p-1}}{\partial t} = (p-1)^{p-1}\text{div}(|\nabla
 v|^{p-2}\nabla v).
 \]</span><span class="eqnos-number">(4.2)</span></span> </p>
-<p>Then we have an analog to Lemma (<a href="#lem:Lf"
-title="3.1">3.1</a>)</p>
+<p>Then we have the following analog to Lemma <a href="#lem:Lf"
+title="3.1">3.1</a> above,</p>
 <div id="lem:parabolicLf" class="statement lemma plain">
 <p><span class="statement-heading"><span class="statement-label">Lemma
 4.1</span> <span class="statement-info">(<span class="citation"
@@ -324,6 +324,39 @@ formula</p>
 class="statement-label">Proof</span>.</span><span
 class="statement-spah"> </span><strong>TODO</strong></p>
 </div>
+<p>For any <span class="math inline">\(\alpha &gt; 0\)</span>, define
+<span class="math inline">\(F_\alpha = |\nabla u|^p + \alpha
+\frac{\partial u}{\partial t}\)</span>. Then we have the following
+computational identities.</p>
+<div id="eq:complemma" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+4.2</span> <span class="statement-info">(Lemma 6.1 and Corollary 6.2 of
+<span class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>)</span>.</span><span class="statement-spah">
+</span>When <span class="math inline">\(f = |\nabla u|^2\)</span>,
+then</p>
+<p><span id="eq:6.4" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \mathcal{L}\right)u_t = 0,
+\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+<p><span id="eq:6.5" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \mathcal{L}\right)f =
+-2f^{p/2-1}(u_{ij}^2 + R_{ij}u_iu_j) -
+    \left(\frac{p}{2} - 1\right)f^{p/2-2}|\nabla f|^2,
+\]</span><span class="eqnos-number">(4.4)</span></span> </p>
+<p><span id="eq:6.6" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \mathcal{L}\right)F_\alpha =
+-pf^{p-2}(|\nabla\nabla u|^2_A + R_{ij}u_iu_j),
+\]</span><span class="eqnos-number">(4.5)</span></span> </p>
+<p><span id="eq:F1traceA" class="eqnos"><span class="math display">\[
+    F_1 = f^{p/2-1}\text{tr}_A(\nabla \nabla u).
+\]</span><span class="eqnos-number">(4.6)</span></span> </p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span><strong>TODO</strong>.</p>
+</div>
 <h2 data-number="4.1" id="a-conservation-law"><span
 class="header-section-number">4.1</span> A Conservation Law</h2>
 <p>We now are moving toward a nonlinear entropy formula for this
@@ -332,7 +365,7 @@ class="math inline">\(p\)</span>-Laplacian. First, we need to establish
 the following proposition.</p>
 <div id="prop:conslaw" class="statement proposition plain">
 <p><span class="statement-heading"><span
-class="statement-label">Proposition 4.2</span> <span
+class="statement-label">Proposition 4.3</span> <span
 class="statement-info">(<span class="citation" data-cites="KN09">(<a
 href="#ref-KN09" role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>,
 Proposition 6.11)</span>.</span><span class="statement-spah"> </span>For
@@ -354,10 +387,10 @@ the conservation law</p>
 satisifies</p>
 <p><span id="eq:oppsi" class="eqnos"><span class="math display">\[
     \left(\frac{\partial}{\partial t} - \mathcal{L}\right)\psi = 0,
-\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+\]</span><span class="eqnos-number">(4.7)</span></span> </p>
 <p>then <span class="math inline">\(\int_M \psi v^{p-1}\)</span> is
 constant along the equations (<a href="#eq:parabolicpharmv">4.2</a>) and
-(<a href="#eq:oppsi">4.3</a>).</p>
+(<a href="#eq:oppsi">4.7</a>).</p>
 </div>
 <div class="statement proof proof unnumbered">
 <p><span class="statement-heading"><span
@@ -370,12 +403,12 @@ equation” we mean the following</p>
 v^{p-1}}{\partial t}d\mu = \int_M (p-1)^{p-1}\text{div}(|\nabla
     v|^{p-2}\nabla v)d\mu.
 \]</span></p>
-<p><strong>TODO: Proof of this claim</strong>.</p>
+<p><strong>TODO: Prove this claim</strong>.</p>
 <p>Now let <span class="math inline">\(\psi\)</span> be smooth. It is
 easy enough to check that</p>
 <p><span id="eq:nablav" class="eqnos"><span class="math display">\[
     \nabla v = -\frac{v}{p-1}\nabla u,
-\]</span><span class="eqnos-number">(4.4)</span></span> </p>
+\]</span><span class="eqnos-number">(4.8)</span></span> </p>
 <p>and hence</p>
 <p><span id="eq:vp-1" class="eqnos"><span
 class="math display">\[\begin{aligned}
@@ -383,7 +416,7 @@ class="math display">\[\begin{aligned}
 (p-1)^{p-1}\left|\frac{-v}{p-1}\nabla
     u\right|^{p-2}\left(-\frac{v}{p-1}\nabla u\right) \\
     &amp;= -v^{p-1}|\nabla u|^{p-2}\nabla u.
-\end{aligned}\]</span><span class="eqnos-number">(4.5)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.9)</span></span>
 </p>
 <p>Then we compute</p>
 <p><span id="eq:ddtint1" class="eqnos"><span
@@ -396,7 +429,7 @@ class="math display">\[\begin{aligned}
 \mathcal{L}\right)\psi\right)v^{p-1} + \int_M \mathcal{L}(\psi)v^{p-1} +
 \int_M
     \psi \left(v^{p-1}\right)_t.
-\end{aligned}\]</span><span class="eqnos-number">(4.6)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.10)</span></span>
 </p>
 <p>By the definition of <span class="math inline">\(\mathcal{L}\)</span>
 and integration by parts, the second integral above becomes</p>
@@ -414,13 +447,13 @@ v^{p-1}\text{div}(|\nabla u|^{p-2}A(\nabla\psi)) - p\int_M |\nabla
     &amp;= -\int_M |\nabla u|^{p-2}\langle\nabla A(\nabla\psi),\nabla
 v^{p-1}\rangle - p\int_M |\nabla u|^{p-2}\langle\nabla
     u,\nabla\psi\rangle v^{p-1}.
-\end{aligned}\]</span><span class="eqnos-number">(4.7)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.11)</span></span>
 </p>
 <p>where we are assuming <span class="math inline">\(\partial M =
 0\)</span>.</p>
 <p>Similarly, by (<a href="#eq:parabolicpharmv">4.2</a>) and (<a
-href="#eq:vp-1">4.5</a>), and then using integration by parts, the third
-integral in (<a href="#eq:ddtint1">4.6</a>) becomes</p>
+href="#eq:vp-1">4.9</a>), and then using integration by parts, the third
+integral in (<a href="#eq:ddtint1">4.10</a>) becomes</p>
 <p><span id="eq:intpsivt" class="eqnos"><span
 class="math display">\[\begin{aligned}
     \int_M \psi\left(v^{p-1}\right)_t &amp;= \int_M \psi
@@ -431,10 +464,10 @@ u\rangle d\mu + \int_{\partial M} \psi\langle
     -v^{p-1}|\nabla u|^{p-2}\nabla u,\vec{N}\rangle dS_\mu \\
     &amp;= \int_M |\nabla u|^{p-2}\langle \nabla\psi, \nabla u\rangle
 v^{p-1}.
-\end{aligned}\]</span><span class="eqnos-number">(4.8)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.12)</span></span>
 </p>
-<p>So combining (<a href="#eq:intLpsiv">4.7</a>) and (<a
-href="#eq:intpsivt">4.8</a>) into (<a href="#eq:ddtint1">4.6</a>), we
+<p>So combining (<a href="#eq:intLpsiv">4.11</a>) and (<a
+href="#eq:intpsivt">4.12</a>) into (<a href="#eq:ddtint1">4.10</a>), we
 arrive at</p>
 <p><span class="math display">\[\begin{aligned}
     \frac{d}{dt}\int_M \psi v^{p-1} &amp;= \int_M
@@ -465,7 +498,7 @@ u|^{p-4}\langle\nabla\psi,\nabla u\rangle\langle\nabla u, \nabla
 </div>
 <div class="statement remark remark">
 <p><span class="statement-heading"><span class="statement-label">Remark
-4.3</span>.</span><span class="statement-spah"> </span>In the above,
+4.4</span>.</span><span class="statement-spah"> </span>In the above,
 <span class="math inline">\(\psi\)</span> doesn’t necessarily need to be
 smooth. The argument carries over assuming only the summability of the
 integrands.</p>
@@ -492,32 +525,42 @@ v^{p-1} u d\mu - \frac{n}{p}\log{t} \\
 \frac{d}{dt}\left(t\mathcal{N}_p(v,t)\right).
 \end{aligned}
 \]</span></p>
-<p>We first establish the following calculation.</p>
+<p>We first establish the following proposition.</p>
 <div id="prop:dNdt" class="statement proposition plain">
 <p><span class="statement-heading"><span
-class="statement-label">Proposition 4.4</span> <span
-class="statement-info">((6.17) of <span class="citation"
-data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
-and Ni 2009</a>)</span> Proposition 6.14)</span>.</span><span
-class="statement-spah"> </span>Let <span class="math inline">\(F_\alpha
-= |\nabla u|^p + \alpha u_t\)</span> for any <span
-class="math inline">\(\alpha &gt; 0\)</span>. In particular, <span
-class="math inline">\(F_1 = |\nabla u|^p + u_t\)</span>. Then</p>
-<p><span class="math display">\[
+class="statement-label">Proposition 4.5</span> <span
+class="statement-info">(<span class="citation" data-cites="KN09">(<a
+href="#ref-KN09" role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>,
+Proposition 6.14)</span>.</span><span class="statement-spah">
+</span>Recall that <span class="math inline">\(F_\alpha = |\nabla u|^p +
+\alpha u_t\)</span> for any <span class="math inline">\(\alpha &gt;
+0\)</span>. In particular, <span class="math inline">\(F_1 = |\nabla
+u|^p + u_t\)</span>. Then</p>
+<p><span id="eq:dNdtF1" class="eqnos"><span class="math display">\[
     \frac{dN}{dt} = \int_M |\nabla u|^p v^{p-1}d\mu = \int_M F_1
-v^{p-1}d\mu.
-\]</span></p>
+v^{p-1}d\mu = \int_M f^{p/2-1}\text{tr}_A(\nabla
+    \nabla u)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.13)</span></span> </p>
+<p>Moreover, we have</p>
+<p><span id="eq:ddtintF1vp-1" class="eqnos"><span
+class="math display">\[
+    \frac{d}{dt}\int_M F_1 v^{p-1}d\mu = -p\int_M f^{p-2}(|\nabla\nabla
+u|_A^2 + R_{ij}u_iu_j)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.14)</span></span> </p>
 </div>
 <div class="statement proof proof unnumbered">
 <p><span class="statement-heading"><span
 class="statement-label">Proof</span>.</span><span
-class="statement-spah"> </span>By (<a href="#prop:conslaw"
-title="4.2">4.2</a>), we have that</p>
+class="statement-spah"> </span>We first prove (<a
+href="#eq:dNdtF1">4.13</a>). Note that the last equality above follows
+directly from (<a href="#eq:F1traceA">4.6</a>), so it suffices to only
+show the first two equalities. By proposition <a href="#prop:conslaw"
+title="4.3">4.3</a>, we have that</p>
 <p><span id="eq:dNdt1" class="eqnos"><span class="math display">\[
     \frac{dN}{dt} = \frac{d}{dt}\int_M v^{p-1} u d\mu = \int_M
 \left(\left(\frac{\partial}{\partial t} -
     \mathcal{L}\right)u\right)v^{p-1}d\mu.
-\]</span><span class="eqnos-number">(4.9)</span></span> </p>
+\]</span><span class="eqnos-number">(4.15)</span></span> </p>
 <p>So we compute <span class="math inline">\(\frac{\partial u}{\partial
 t} - \mathcal{L}(u)\)</span>:</p>
 <p><span id="eq:partialupartialtminusLu" class="eqnos"><span
@@ -535,9 +578,9 @@ u|^{p-2}\nabla u) - (p-2)\text{div}(|\nabla
     u|^{p-2}\nabla u) + (p-1)|\nabla u|^p \\
     &amp;= (p-1)|\nabla u|^p - (p-2)\text{div}(|\nabla u|^{p-2}\nabla
 u).
-\end{aligned}\]</span><span class="eqnos-number">(4.10)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.16)</span></span>
 </p>
-<p>So substituting this into (<a href="#eq:dNdt1">4.9</a>) above and
+<p>So substituting this into (<a href="#eq:dNdt1">4.15</a>) above and
 continuing, we have</p>
 <p><span class="math display">\[\begin{aligned}
     \frac{dN}{dt} &amp;= \int_M \left(\left(\frac{\partial}{\partial t}
@@ -569,9 +612,24 @@ class="math inline">\(\nabla v^{p-1} = -v^{p-1}\nabla u\)</span>.</p>
 u)v^{p-1} = -\int_m |\nabla u|^{p-2}\langle\nabla
     v^{p-1},\nabla u\rangle = \int_M |\nabla u|^p v^{p-1},
 \]</span></p>
-<p>which completes the proof.</p>
+<p>which completes the proof of (<a href="#eq:dNdtF1">4.13</a>). The
+identity (<a href="#eq:ddtintF1vp-1">4.14</a>) follows directly from
+proposition <a href="#prop:conslaw" title="4.3">4.3</a> and the identity
+(<a href="#eq:6.6">4.5</a>).</p>
 </div>
-<p>Using this, let’s expand out the definitions of <span
+<p>Let us define the “energy” by</p>
+<p><span class="math display">\[
+    \overline{\mathcal{F}}(v,t) := \int_M |\nabla u|^p v^{p-1}d\mu =
+\int_M F_1 v^{p-1}d\mu.
+\]</span></p>
+<p>Then since we are assuming <span class="math inline">\(v\)</span> is
+a positive solution, if we further assume the Ricci curvature of <span
+class="math inline">\(M\)</span> is nonnegative, then (<a
+href="#eq:ddtintF1vp-1">4.14</a>) is telling us that <span
+class="math inline">\(\frac{d}{dt}\overline{\mathcal{F}}(v,t) \leq
+0\)</span>, i.e. that the energy is monotonically nonincreasing in <span
+class="math inline">\(t\)</span>.</p>
+<p>Now let’s expand out the definitions of <span
 class="math inline">\(\mathcal{F}_p\)</span> and <span
 class="math inline">\(\mathcal{W}_p\)</span>. For <span
 class="math inline">\(\mathcal{F}_p\)</span>, we have</p>
@@ -596,7 +654,7 @@ class="math display">\[\begin{aligned}
 \left(\frac{n}{p}\log{t} + \frac{n}{p}\right)v^{p-1}d\mu \\
     &amp;= \int_M \left(t|\nabla u|^p + u - \frac{n}{p}\log{t} -
 \frac{n}{p}\right)v^{p-1}d\mu.
-\end{aligned}\]</span><span class="eqnos-number">(4.11)</span></span>
+\end{aligned}\]</span><span class="eqnos-number">(4.17)</span></span>
 </p>
 <p>Then, motivated by Equation (6.8) of <span class="citation"
 data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
@@ -618,10 +676,10 @@ have</p>
 class="math display">\[
     u = -\log{v^{p-1}} = -\log{G\frac{e^{-\varphi}}{t^{n/p}}} = -\log{G}
 + \varphi + \frac{n}{p}\log{t}.
-\]</span><span class="eqnos-number">(4.12)</span></span> </p>
+\]</span><span class="eqnos-number">(4.18)</span></span> </p>
 <p>So substituting this into our expanded expression for <span
 class="math inline">\(\mathcal{W}_p\)</span> in (<a
-href="#eq:entropyexpandedvt">4.11</a>), we have</p>
+href="#eq:entropyexpandedvt">4.17</a>), we have</p>
 <p><span class="math display">\[\begin{aligned}
     \mathcal{W}_p(v,t) &amp;= \int_M \left(t|\nabla u|^p + u -
 \frac{n}{p}\log{t} - \frac{n}{p}\right)v^{p-1}d\mu \\
@@ -639,13 +697,13 @@ role="doc-biblioref">Kotschwar and Ni 2009</a>)</span> (middle of page
 class="math display">\[
     \mathcal{W}_p(\varphi,t) = \int_M (t|\nabla \varphi|^p + \varphi -
 n)v^{p-1}d\mu.
-\]</span><span class="eqnos-number">(4.13)</span></span> </p>
+\]</span><span class="eqnos-number">(4.19)</span></span> </p>
 <p>Although it could be that <span class="math inline">\(-\log{G} -
 \frac{n}{p} = -n\)</span>, and a quick calculation shows that that would
 require <span class="math inline">\(p^\ast\log{G} = n\)</span>, but I
 haven’t checked the value of <span
 class="math inline">\(\log(G)\)</span> yet. In any case, using the
-expression (<a href="#eq:entropydefkn">4.13</a>) and writing in terms of
+expression (<a href="#eq:entropydefkn">4.19</a>) and writing in terms of
 <span class="math inline">\(u\)</span> and not <span
 class="math inline">\(\varphi\)</span>, since <span
 class="math inline">\(v^{p-1} = e^{-u}\)</span>, <span
@@ -675,6 +733,117 @@ we have</p>
 <p>which coincides with the entropy formula defined in Equation (1.2) of
 <span class="citation" data-cites="Ni04">(<a href="#ref-Ni04"
 role="doc-biblioref">Ni 2004</a>)</span>.</p>
+<p>The preceeding proposition allows us to establish the following
+nonlinear entropy formula</p>
+<div id="thm:nonlinearentropyformula" class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+4.6</span> <span class="statement-info">(Theorem 6.13 of <span
+class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>)</span>.</span><span class="statement-spah"> </span>Let
+<span class="math inline">\(v\)</span> be a positive solution to (<a
+href="#eq:parabolicpharmv">4.2</a>) satisfying <span
+class="math inline">\(\int_M v^{p-1}d\mu = 1\)</span>. Then</p>
+<p><span id="eq:entropyformula" class="eqnos"><span
+class="math display">\[
+    \frac{d}{dt}\mathcal{W}_p(v,t) =
+-tp\int_M\left(\left|f^{p/2-1}\nabla_i\nabla_ju -
+\frac{1}{tp}a_{ij}\right|^2_A
+    + f^{p-2}R_{ij}u_iu_j\right)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.20)</span></span> </p>
+</div>
+<p>Note when <span class="math inline">\(p=2\)</span>, the entropy
+formula above coincides with the entropy formula arrived at in Theorem
+1.1 of <span class="citation" data-cites="Ni04">(<a href="#ref-Ni04"
+role="doc-biblioref">Ni 2004</a>)</span>.</p>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>In the paper, Kotschwar-Ni simply remark
+that the proof follows from proposition <a href="#prop:dNdt"
+title="4.5">4.5</a>, observing that <span
+class="math inline">\(\frac{d\mathcal{W}_p}{dt} =
+t\frac{d\mathcal{F}_p}{dt} + 2\mathcal{F}_p\)</span> and “completing the
+square”. So let’s do that.</p>
+<p>We first verify that <span
+class="math inline">\(\frac{d\mathcal{W}_p}{dt} =
+t\frac{d\mathcal{F}_p}{dt} + 2\mathcal{F}_p\)</span>. We have</p>
+<p><span class="math display">\[
+    \frac{d\mathcal{W}_p}{dt} =
+\frac{d}{dt}\left(\frac{d}{dt}(t\mathcal{N}_p)\right) =
+\frac{d\mathcal{N}_p}{dt} +
+    \frac{d}{dt}\left(t\frac{d\mathcal{N}_p}{dt}\right) = \mathcal{F}_p
++ \frac{d}{dt}\left(t\mathcal{F}_p\right) =
+    t\frac{d\mathcal{F}_p}{dt} + 2\mathcal{F}_p.
+\]</span></p>
+<p>Then we use proposition <a href="#prop:dNdt" title="4.5">4.5</a> to
+fill in the definitions of <span
+class="math inline">\(2\mathcal{F}_p\)</span> and <span
+class="math inline">\(t\frac{d\mathcal{F}_p}{dt}\)</span>. We have</p>
+<p><span class="math display">\[\begin{aligned}
+    2\mathcal{F}_p &amp;= 2\frac{d}{dt}\left(N -
+\frac{n}{p}\log{t}\right) \\
+    &amp;= 2\frac{dN}{dt} - 2\frac{n}{pt} \\
+    &amp;= \int_M \left(2f^{p/2-1}\text{tr}_A(\nabla \nabla
+A)\right)v^{p-1}d\mu - 2\frac{n}{pt}.
+\end{aligned}\]</span></p>
+<p>And also</p>
+<p><span class="math display">\[\begin{aligned}
+    t\frac{d\mathcal{F}_p}{dt} &amp;= t\frac{d}{dt}\left(\frac{dN}{dt} -
+\frac{n}{pt}\right) \\
+    &amp;= t\frac{d}{dt}\int_M F_1v^{p-1}d\mu -
+t\frac{d}{dt}\frac{n}{pt} \\
+    &amp;= t\frac{d}{dt}\int_M F_1v^{p-1}d\mu + \frac{n}{pt} \\
+    &amp;= -tp\int_M f^{p-2}(|\nabla\nabla u|_A^2 +
+R_{ij}u_iu_j)v^{p-1}d\mu + \frac{n}{pt}.
+\end{aligned}\]</span></p>
+<p>Then combining, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{d\mathcal{W}_p}{dt} &amp;= t\frac{d\mathcal{F}_p}{dt} +
+2\mathcal{F}_p \\
+    &amp;= -tp\int_M f^{p-2}(|\nabla\nabla u|_A^2 + R_{ij}u_iu_j)v^{p-1}
++ 2\int_M f^{p/2-1}\text{tr}_A(\nabla\nabla
+    u)v^{p-1} - \frac{n}{pt} \\
+    &amp;= \int_M \left[-tpf^{p-2}\left(|\nabla\nabla u|_A^2 +
+R_{ij}u_iu_j\right) + 2f^{p/2-1}\text{tr}_A(\nabla\nabla
+    u) - \frac{n}{pt}\right]v^{p-1}d\mu.
+\end{aligned}\]</span></p>
+<p>Now comes the “completing the square” step. Notice that <span
+class="math inline">\((f^{p/2-1})^2 = f^{p-2}\)</span>, so we can regard
+the <span class="math inline">\(-tpf^{p-2}|\nabla\nabla u|_A^2\)</span>
+as the “square” term and <span
+class="math inline">\(2f^{p/2-1}\text{tr}_A(\nabla\nabla u)\)</span> as
+the “linear” term. It is actually easier to “work backwards”. We
+have</p>
+<p><span class="math display">\[\begin{aligned}
+    \left|f^{p/2-1}\nabla_i\nabla_j u - \frac{1}{tp}a_{ij}\right|_A^2
+&amp;= \left\langle f^{p/2-1}\nabla_i\nabla_j
+    u,\nabla_i\nabla_j u \right\rangle_A + 2\left\langle
+f^{p/2-1}\nabla_i\nabla_j u, -\frac{1}{tp}a_{ij}\right\rangle_A \\
+        &amp;\qquad + \left\langle
+-\frac{1}{tp}a_{ij},-\frac{1}{tp}a_{ij}\right\rangle_A \\
+    &amp;= \left(f^{p/2-1}\right)^2\left\langle\nabla_i\nabla_j
+u,\nabla_i\nabla_j u\right\rangle_A - \frac{2f^{p/2-1}}{tp}\left\langle
+    \nabla_i\nabla_j u, a_{ij}\right\rangle_A \\
+        &amp;\qquad + \frac{1}{t^2p^2}\left\langle
+a_{ij},a_{ij}\right\rangle_A \\
+    &amp;= f^{p-2}|\nabla\nabla u|_A^2 -
+\frac{2f^{p/2-1}}{tp}\text{tr}_A(\nabla\nabla u) + \frac{n}{t^2p^2}.
+\end{aligned}\]</span></p>
+<p>So multiplying both sides by <span
+class="math inline">\(-tp\)</span>, and incorporating, we finally arrive
+at</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{d\mathcal{W}_p}{dt} &amp;= \int_M
+\left[-tpf^{p-2}\left(|\nabla\nabla u|_A^2 + R_{ij}u_iu_j\right) +
+2f^{p/2-1}\text{tr}_A(\nabla\nabla
+    u) - \frac{n}{pt}\right]v^{p-1}d\mu \\
+    &amp;= -tp\int_M \left(\left| f^{p/2-1}\nabla_i\nabla_j u -
+\frac{1}{tp}a_{ij}\right|_A^2 +
+    f^{p-2}R_{ij}u_iu_j\right)v^{p-1}d\mu,
+\end{aligned}\]</span></p>
+<p>as required.</p>
+</div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
