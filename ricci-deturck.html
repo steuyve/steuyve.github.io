@@ -18,6 +18,16 @@
 <ul>
 <li><a href="#introduction"><span class="toc-section-number">1</span>
 Introduction</a></li>
+<li><a href="#time-evolving-metrics"><span
+class="toc-section-number">2</span> Time-evolving Metrics</a></li>
+<li><a href="#existence-theory-for-parabolic-pdes"><span
+class="toc-section-number">3</span> Existence Theory for Parabolic
+PDEs</a></li>
+<li><a href="#the-linearization-of-the-ricci-tensor"><span
+class="toc-section-number">4</span> The Linearization of the Ricci
+Tensor</a></li>
+<li><a href="#the-deturck-trick"><span
+class="toc-section-number">5</span> The DeTurck Trick</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </nav>
@@ -26,7 +36,319 @@ class="header-section-number">1</span> Introduction</h1>
 <p>Introductory notes on the short time existence and uniqueness of the
 Ricci flow following Sheridan’s <span class="citation"
 data-cites="Sheridan06">(<a href="#ref-Sheridan06"
-role="doc-biblioref">Sheridan 2006</a>)</span> (mostly Chapter 5).</p>
+role="doc-biblioref">Sheridan 2006</a>)</span> (mostly Chapter 5 and
+Appendix A).</p>
+<h1 data-number="2" id="time-evolving-metrics"><span
+class="header-section-number">2</span> Time-evolving Metrics</h1>
+<p>Let <span class="math inline">\((M, g(t))\)</span> be a Riemannian
+metric with a general time-dependent metric <span
+class="math inline">\(g(t)\)</span>. We will denote by <span
+class="math inline">\(h_{ij}(t)\)</span> as</p>
+<p><span class="math display">\[
+    h_{ij}(t) := \frac{\partial}{\partial t} g_{ij}(t).
+\]</span></p>
+<p>We first establish the following lemma which contains some useful
+formulas.</p>
+<div id="lem:timeevolving" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+2.1</span>.</span><span class="statement-spah"> </span>Let <span
+class="math inline">\(g^{ij}\)</span> denote the metric inverse, then
+for the Christoffel symbols, we have</p>
+<p><span id="eq:christoffelsymbols" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t} \Gamma_{ij}^k =
+\frac{1}{2}g^{k\ell}(\nabla_ih_{j\ell} + \nabla_jh_{i\ell} - \nabla_\ell
+h_{ij}).
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p>For the Riemann curvature tensor, we have</p>
+<p><span id="eq:riemanncurvaturetensor" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial t}{R_{ijk}}^\ell &amp;= \frac{1}{2}g^{\ell
+p}\left(\nabla_i\nabla_j h_{kp} + \nabla_i\nabla_k
+    h_{jp} - \nabla_i\nabla_p h_{jk} \right. \\
+        &amp;\qquad\qquad \left. - \nabla_j\nabla_i h_{kp} -
+\nabla_j\nabla_k h_{ip} + \nabla_j\nabla_p h_{ik}\right).
+\end{aligned}\]</span><span class="eqnos-number">(2.2)</span></span>
+</p>
+<p>Finally, for the Ricci tensor, we have</p>
+<p><span id="eq:riccitensor" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t} R_{ij} =
+\frac{1}{2}g^{pq}(\nabla_q\nabla_i h_{jp} + \nabla_q\nabla_j h_{ip} -
+    \nabla_q\nabla_p h_{ij} - \nabla_i\nabla_j h_{qp}).
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>To prove (<a
+href="#eq:christoffelsymbols">2.1</a>), recall that</p>
+<p><span class="math display">\[
+    \Gamma^k_{ij} = \frac{1}{2}g^{k\ell}(\partial_i g_{j\ell} +
+\partial_j g_{i\ell} - \partial_\ell g_{ij})
+\]</span></p>
+<p>so differentiating with respect to <span
+class="math inline">\(t\)</span>, by the product rule, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t \Gamma^k_{ij} &amp;= \frac{1}{2}\left(\partial_t
+g^{k\ell}\right)(\partial_i g_{j\ell} + \partial_j g_{i\ell} -
+    \partial_\ell g_{ij}) \\
+        &amp;\qquad + \frac{1}{2}g^{k\ell}(\partial_i\partial_t
+g_{j\ell} + \partial_j\partial_t g_{i\ell} - \partial_\ell\partial_t
+        g_{ij})
+\end{aligned}\]</span></p>
+<p>Now we specialize to normal coordinates at a point <span
+class="math inline">\(p \in M\)</span>. In particular, in normal
+coordinates, we have that <span class="math inline">\(\partial_i g_{jk}
+= 0\)</span> and <span class="math inline">\(\partial_i A = \nabla_i
+A\)</span> for any tensor <span class="math inline">\(A\)</span> at
+<span class="math inline">\(p\)</span>. So the first term above vanishes
+since each of the three summands in the first term vanishes, and we
+have</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t \Gamma^k_{ij}(p) &amp;= \frac{1}{2}g^{k\ell}(\partial_i
+h_{j\ell} + \partial_j h_{i\ell} - \partial_\ell h_{ij})(p)
+    \\
+    &amp;= \frac{1}{2}g^{k\ell}(\nabla_i h_{j\ell} + \nabla_j h_{i\ell}
+- \nabla_\ell h_{ij})(p)
+\end{aligned}\]</span></p>
+<p>Even though the Christoffel symbols themselves are not tensorial,
+their derivatives are, so both sides are coordinates of tenrosial
+quantities, and hence the formula above is valid in any coordinates. To
+see why the derivative of the Christoffel symbols are tensorial, recall
+that the difference of Christoffel symbols are tensorial, so we take a
+fixed (meaning time-<em>independent</em>) connection with associated
+Christoffel symbols <span
+class="math inline">\(\tilde{\Gamma}^k_{ij}\)</span>, we have that <span
+class="math inline">\(\partial_t \tilde{\Gamma}^k_{ij} = 0\)</span> and
+so we have</p>
+<p><span class="math display">\[
+    \partial_t\left(\Gamma^k_{ij} - \tilde{\Gamma}^k_{ij}\right) =
+\partial_t \Gamma^k_{ij} - \partial_t
+    \tilde{\Gamma}^k_{ij} = \partial_t \Gamma^k_{ij}.
+\]</span></p>
+<p>and since the left hand side is a tensorial quantity (since the
+derivative of a tensor is a tensor), so is the right hand side
+above.</p>
+<p>To prove (<a href="#eq:riemanncurvaturetensor">2.2</a>), recall that
+the Riemann curvature tensor can be explicitly written as</p>
+<p><span class="math display">\[
+    {R_{ijk}}^\ell = \partial_i\Gamma^\ell_{jk} -
+\partial_j\Gamma^\ell_{ik} + \Gamma^p_{jk}\Gamma^\ell_{ip} -
+    \Gamma^p_{ik}\Gamma^\ell_{jp}.
+\]</span></p>
+<p>Then differentiating by <span class="math inline">\(t\)</span>, we
+have</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t {R_{ijk}}^\ell &amp;=
+\partial_i(\partial_t\Gamma^\ell_{jk}) -
+\partial_j(\partial_t\Gamma^\ell_{ik}) +
+    (\partial_t\Gamma^p_{jk})\Gamma^\ell_{ip} +
+\Gamma^p_{jk}(\partial_t\Gamma^\ell_{ip}) \\
+        &amp;\qquad - (\partial_t\Gamma^p_{ik})\Gamma^\ell_{jp} -
+\Gamma^p_{ik}(\partial_t\Gamma^\ell_{jp}) \\
+\end{aligned}\]</span></p>
+<p>Then we again specialize to normal coordinates about a point <span
+class="math inline">\(p\)</span> so that <span
+class="math inline">\(\Gamma^k_{ij}(p) = 0\)</span>. Then evaluating the
+above at <span class="math inline">\(p\)</span>, the last four terms on
+the right hand side vanish and we have</p>
+<p><span class="math display">\[
+    \partial_t {R_{ijk}}^\ell(p) =
+\nabla_i(\partial_t\Gamma^\ell_{jk})(p) -
+\nabla_j(\partial_t\Gamma^\ell_{ik})(p).
+\]</span></p>
+<p>Clearly both sides are tensorial expressions, so we actually have</p>
+<p><span class="math display">\[
+    \partial_t {R_{ijk}}^\ell = \nabla_i(\partial_t \Gamma^\ell_{jk}) -
+\nabla_j(\partial_t \Gamma^\ell_{ik}).
+\]</span></p>
+<p>Then by (<a href="#eq:christoffelsymbols">2.1</a>), we can substitute
+expressions for <span
+class="math inline">\(\partial_t\Gamma^\ell_{jk}\)</span> and
+continue</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t {R_{ijk}}^\ell &amp;= \nabla_i(\partial_t
+\Gamma^\ell_{jk}) - \nabla_j(\partial_t \Gamma^\ell_{ik}) \\
+    &amp;= \nabla_i\left(\frac{1}{2}g^{\ell p}\left(\nabla_j h_{kp} +
+\nabla_k h_{jp} - \nabla_p h_{jk}\right)\right) \\
+        &amp;\qquad - \nabla_j\left(\frac{1}{2}g^{\ell p}\left(\nabla_i
+h_{kp} + \nabla_k h_{ip} - \nabla_p
+        h_{ik}\right)\right) \\
+    &amp;= \frac{1}{2}(\nabla_i g^{\ell p})(\nabla_j h_{kp} + \nabla_k
+h_{jp} - \nabla_p h_{jk}) \\
+        &amp;\qquad + \frac{1}{2}g^{\ell p}(\nabla_i\nabla_j h_{kp} +
+\nabla_i\nabla_k h_{jp} - \nabla_i\nabla_p h_{jk})
+        \\
+        &amp;\qquad - \frac{1}{2}(\nabla_j g^{\ell p})(\nabla_i h_{kp} +
+\nabla_k h_{ip} - \nabla_p h_{ik}) \\
+        &amp;\qquad - \frac{1}{2}g^{\ell p}(\nabla_i\nabla_i h_{kp} +
+\nabla_j\nabla_k h_{ip} - \nabla_j\nabla_p
+        h_{ik}).
+\end{aligned}\]</span></p>
+<p>By metric compatibility of <span
+class="math inline">\(\nabla\)</span>, we have that <span
+class="math inline">\(\nabla_i g^{\ell p} = 0 = \nabla_j g^{\ell
+p}\)</span> we the first and third term above vanish and we are left
+with</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t {R_{ijk}}^\ell &amp;= \frac{1}{2}g^{\ell
+p}(\nabla_i\nabla_j h_{kp} + \nabla_i\nabla_k h_{jp} - \nabla_i\nabla_p
+h_{jk}) \\
+        &amp;\qquad - \frac{1}{2}g^{\ell p}(\nabla_i\nabla_i h_{kp} +
+\nabla_j\nabla_k h_{ip} - \nabla_j\nabla_p h_{ik})
+        \\
+    &amp;= \frac{1}{2}g^{\ell p}\left(\nabla_i\nabla_j h_{kp} +
+\nabla_i\nabla_k h_{jp} - \nabla_i\nabla_p h_{jk} -
+    \nabla_j\nabla_i h_{kp} - \nabla_j\nabla_k h_{ip} + \nabla_j\nabla_p
+h_{ik}\right)
+\end{aligned}\]</span></p>
+<p>which matches (<a href="#eq:riemanncurvaturetensor">2.2</a>).</p>
+<p><strong>TODO: Prove (<a href="#eq:riccitensor">2.3</a>)</strong></p>
+</div>
+<h1 data-number="3" id="existence-theory-for-parabolic-pdes"><span
+class="header-section-number">3</span> Existence Theory for Parabolic
+PDEs</h1>
+<p>We first quote some basic definitions related to parabolic PDEs and
+quote an existence and uniqueness result. Let <span
+class="math inline">\(M\)</span> be a Riemannian manifold and consider a
+vector bundle <span class="math inline">\(\pi:\mathcal{E}\to M\)</span>
+along with some bundle metric <span class="math inline">\(h\)</span>.
+Let <span class="math inline">\(u:M\times[0,T) \to \mathcal{E}\)</span>
+be some time-dependent section of <span
+class="math inline">\(\mathcal{E}\)</span>. Then we are interested in
+the system</p>
+<p><span id="eq:pdesystem" class="eqnos"><span class="math display">\[
+    \begin{cases} &amp;\frac{\partial u}{\partial t} = L(u) \\
+        &amp; u(x,0) = u_0(x) \end{cases}
+\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p>where <span class="math inline">\(L:C^\infty(\mathcal{E}) \to
+C^\infty(\mathcal{E})\)</span> is some differential operator. Let us
+first consider the case where <span class="math inline">\(L\)</span> is
+a linear differential operator, that is, let <span
+class="math inline">\(\alpha\)</span> denote a multi-index, then we can
+write <span class="math inline">\(L(u)\)</span> as</p>
+<p><span class="math display">\[
+    L(u) = \sum\limits_{|\alpha|\leq k} L_\alpha \partial^\alpha u,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+    \partial^\alpha f := \frac{\partial^{|\alpha|}f}{\partial
+x_1^{\alpha_1}\partial x_2^{\alpha_2}\cdots\partial
+    x_n^{\alpha_n}},
+\]</span></p>
+<p>and <span class="math inline">\(L_\alpha \in
+\text{Hom}(\mathcal{E},\mathcal{E})\)</span>. Here, we say <span
+class="math inline">\(k\)</span> is the order of <span
+class="math inline">\(L\)</span>. More concretely, suppose <span
+class="math inline">\(L\)</span> is a second-order linear differential
+operator acting on scalar functions on <span
+class="math inline">\(\mathbb{R}^n\)</span>, then we can write</p>
+<p><span class="math display">\[
+    \overline{L}(u) = \sum\limits_{i,j} a_{ij}\partial^i\partial^j u +
+\sum\limits_{i} b_i \partial^i u + cu.
+\]</span></p>
+<p>If <span class="math inline">\(\varphi\)</span> is some covector
+field, then the <em>total symbol</em> of <span
+class="math inline">\(L\)</span> in the direction <span
+class="math inline">\(\varphi\)</span> is the bundle homomorphism <span
+class="math inline">\(\sigma[L](\varphi):\mathcal{E} \to
+\mathcal{E}\)</span> defined by</p>
+<p><span class="math display">\[
+    \sigma[L](\varphi)(u) = \sum\limits_{|\alpha|\leq k}
+L_\alpha(u)\prod\limits_{j}\varphi^{\alpha_j}.
+\]</span></p>
+<p>So in the example of the second-order linear differential operator
+<span class="math inline">\(\overline{L}\)</span> above, we would
+have</p>
+<p><span class="math display">\[
+    \sigma[\overline{L}](\varphi)(u) = \sum\limits_{i,j}
+a_{ij}\varphi^i\varphi^j u + \sum\limits_{i} b_i\varphi^i u +
+    cu.
+\]</span></p>
+<p>We obtain the <em>principal symbol</em> by only taking the highest
+order derivative terms of the total symbol, i.e.</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;\hat{\sigma}[L](\varphi)(u) := \sum\limits_{|\alpha| =
+k}L_\alpha(u)\prod_j\varphi^{\alpha_j} \\
+    &amp;\hat{\sigma}[\overline{L}](\varphi)(u) = \sum\limits_{i,j}
+a_{ij}\varphi^i\varphi^j u.
+\end{aligned}\]</span></p>
+<p>Then <span class="math inline">\(L\)</span> is <em>elliptic</em> if
+its principal symbol <span
+class="math inline">\(\hat{\sigma}[L](\varphi)\)</span> is a vector
+bundle isomorphism whenever <span class="math inline">\(\varphi \neq
+0\)</span>. For <span class="math inline">\(\overline{L}\)</span>, this
+translates to the condition that</p>
+<p><span class="math display">\[
+    \sum\limits_{i,j} a_{ij}\varphi^i\varphi^j \neq 0
+\]</span></p>
+<p>whenever <span class="math inline">\(\varphi \neq 0\)</span>,
+i.e. that the matrix <span class="math inline">\(a_{ij}\)</span> is
+non-singular. Similarly, <span class="math inline">\(L\)</span> is
+<em>strongly parabolic/parabolic</em> if there exists some <span
+class="math inline">\(\delta &gt; 0\)</span> such that at each point of
+<span class="math inline">\(M\)</span>, for all covectors <span
+class="math inline">\(\varphi \neq 0\)</span> and elements <span
+class="math inline">\(u \neq 0\)</span> of <span
+class="math inline">\(\mathcal{E}\)</span>, we have</p>
+<p><span class="math display">\[
+    \langle \hat{\sigma}[\overline{L}](\varphi)(u), u\rangle &gt; \delta
+|\varphi|^2|u|^2.
+\]</span></p>
+<p>For <span class="math inline">\(\overline{L}\)</span>, this
+translates to the condition that</p>
+<p><span class="math display">\[
+    \sum\limits_{i,j} a_{ij}\varphi^i\varphi^j &gt; \delta |\varphi|^2
+\]</span></p>
+<p>for all <span class="math inline">\(\varphi \neq 0\)</span>,
+i.e. that the matrix <span class="math inline">\(a_{ij}\)</span> is
+strictly positive-definite.</p>
+<p>Note that the above definitions apply to the case where <span
+class="math inline">\(L\)</span> is a linear differential operator. We
+now define analogous terms for when <span
+class="math inline">\(L\)</span> is non-linear, which is the case for
+the Ricci flow. First we need to define what we mean by the
+<em>linearization</em> of a non-linear operator. For a non-linear
+operator <span class="math inline">\(L\)</span>, if <span
+class="math inline">\(u:[0,1] \to C^\infty(\mathcal{E})\)</span> is a
+time-dependent section of <span
+class="math inline">\(\mathcal{E}\)</span> such that</p>
+<p><span class="math display">\[\begin{aligned}
+    u(0) &amp;= u_0 \\
+    u&#39;(0) &amp;= v,
+\end{aligned}\]</span></p>
+<p>then we define the linearization of <span
+class="math inline">\(L\)</span> at <span
+class="math inline">\(u_0\)</span> to be the linear map <span
+class="math inline">\(D[L]:C^\infty(\mathcal{E})\to
+C^\infty(\mathcal{E})\)</span> so that</p>
+<p><span class="math display">\[
+    D[L](v) = \frac{d}{dt}L(u(t))\Big|_{t=0}.
+\]</span></p>
+<p>Then we say the non-linear operator <span
+class="math inline">\(L\)</span> is <em>strongly parabolic</em> at <span
+class="math inline">\(u_0\)</span>, if the linear system</p>
+<p><span class="math display">\[
+    \begin{cases} \frac{\partial u}{\partial t} &amp;= D[L](u) \\
+        u(x,0) &amp;= u_0(x) \end{cases}
+\]</span></p>
+<p>is strongly parabolic in the sense for linear operators above. Then
+we have the following short-time existence and uniqueness result for
+strongly parabolic systems.</p>
+<div class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+3.1</span> <span class="statement-info">(Short-time existence and
+uniqueness of strongly parabolic PDEs)</span>.</span><span
+class="statement-spah"> </span>If the system (<a
+href="#eq:pdesystem">3.1</a>) is strongly parabolic at <span
+class="math inline">\(u_0\)</span>, then there exists a unique solution
+on some time interval <span class="math inline">\([0,T)\)</span>.</p>
+</div>
+<h1 data-number="4" id="the-linearization-of-the-ricci-tensor"><span
+class="header-section-number">4</span> The Linearization of the Ricci
+Tensor</h1>
+<h1 data-number="5" id="the-deturck-trick"><span
+class="header-section-number">5</span> The DeTurck Trick</h1>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
