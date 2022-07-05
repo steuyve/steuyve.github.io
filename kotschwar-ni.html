@@ -880,7 +880,7 @@ class="header-section-number">4.3</span> Entropy and the <span
 class="math inline">\(L^p\)</span>-logarithmic Sobolev Inequality</h2>
 <p>Now we introduce the sharp <span
 class="math inline">\(L^p\)</span>-logarithmic Sobolev inequality.</p>
-<div id="thm:logSoboleineq" class="statement theorem plain">
+<div id="thm:LplogSobolevineq" class="statement theorem plain">
 <p><span class="statement-heading"><span class="statement-label">Theorem
 4.7</span> <span class="statement-info">(Theorem 6.17 of <span
 class="citation" data-cites="KN09">(<a href="#ref-KN09"
@@ -891,7 +891,7 @@ class="math inline">\(\mathbb{R}^n\)</span>. Then for any <span
 class="math inline">\(p &gt; 1\)</span>, and any <span
 class="math inline">\(w\in W^{1,p}(\mathbb{R}^n)\)</span> with <span
 class="math inline">\(\int |w|^pdx = 1\)</span>, we have</p>
-<p><span id="eq:logSoboleineq" class="eqnos"><span
+<p><span id="eq:LplogSobolevineq" class="eqnos"><span
 class="math display">\[
     \int |w|^p\log{|w|^p}dx \leq
 \frac{n}{p}\log{\left(\mathcal{C}_{p,n}\int|\nabla w|^p dx\right)}
@@ -904,9 +904,360 @@ class="math display">\[
     1)}\right)^{p/n}.
 \]</span></p>
 </div>
+<p>Provided we are on a manifold where (<a
+href="#eq:LplogSobolevineq">4.21</a>) holds, then we have the following
+important result.</p>
+<div id="prop:entropynonneg" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 4.8</span> <span
+class="statement-info">(Proposition 6.18 of <span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span>)</span>.</span><span class="statement-spah">
+</span>If on <span class="math inline">\((M,g)\)</span>, (<a
+href="#eq:LplogSobolevineq">4.21</a>) holds, then for</p>
+<p><span class="math display">\[
+    v^{p-1} = \frac{1}{\pi^{n/2}(p^{\ast
+p-1}p)^{n/p}}\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}
+\]</span></p>
+<p>where <span class="math inline">\(t\)</span> is a scaling factor and
+<span class="math inline">\(\int_M v^{p-1} = 1\)</span>, we have
+that</p>
+<p><span class="math display">\[
+    \mathcal{W}_p(\varphi, t) = \int_M (t|\nabla\varphi|^p + \varphi -
+n)v^{p-1}d\mu \geq 0.
+\]</span></p>
+</div>
+<p>Somewhat unhelpfully, Kotscwhar-Ni say that this is just a more
+technically complicated version of the <span
+class="math inline">\(p=2\)</span> case, which they cite in <span
+class="citation" data-cites="Chow07">(<a href="#ref-Chow07"
+role="doc-biblioref">Chow et al. 2007</a>)</span>, pages 247-249, and
+don’t give any further details. So we have to make a detour to
+demonstrate the <span class="math inline">\(p=2\)</span> case and then
+think about how to adapt it for more general <span
+class="math inline">\(p &gt; 1\)</span> (in particular, the constants
+will be more complicated to deal with).</p>
+<div id="prop:chowprop" class="statement proposition plain">
+<p><span class="statement-heading"><span
+class="statement-label">Proposition 4.9</span> <span
+class="statement-info">(Proposition 6.43 of <span class="citation"
+data-cites="Chow07">(<a href="#ref-Chow07" role="doc-biblioref">Chow et
+al. 2007</a>)</span> Implies Non-negativity of Perelman’s <span
+class="math inline">\(\mathcal{W}\)</span>-functional (Corollary 6.40 of
+<span class="citation" data-cites="Chow07">(<a href="#ref-Chow07"
+role="doc-biblioref">Chow et al. 2007</a>)</span>))</span>.</span><span
+class="statement-spah"> </span>If whenever <span
+class="math inline">\(\int_{\mathbb{R}^n}\psi(x)^2dx = 1\)</span> we
+have the following logarithmic-Sobolev inequality:</p>
+<p><span id="eq:logSobolevineq" class="eqnos"><span
+class="math display">\[
+    \frac{n}{4}\log\left(\frac{2}{\pi
+en}\int_{\mathbb{R}^n}|\nabla\psi(x)|^2dx\right) \geq
+    \int_{\mathbb{R}^n}(\log{|\psi(x)|})\psi(x)^2dx.
+\]</span><span class="eqnos-number">(4.22)</span></span> </p>
+<p>Then if <span
+class="math inline">\(\int_{\mathbb{R}^n}(4\pi\tau)^{-n/2}e^{-f}dx =
+1\)</span>, we have</p>
+<p><span class="math display">\[
+    \int_{\mathbb{R}^n}\left(\tau|\nabla f|^2 + f -
+n\right)(4\pi\tau)^{-n/2}e^{-f}dx \geq 0.
+\]</span></p>
+<p>In particular, taking <span class="math inline">\(\tau =
+\frac{1}{2}\)</span>, we have</p>
+<p><span class="math display">\[
+    \int_{\mathbb{R}^n}\left(\frac{1}{2}|\nabla f|^2 + f -
+n\right)(2\pi)^{-n/2}e^{-f}dx \geq 0.
+\]</span></p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>It suffices to show that (<a
+href="#eq:logSobolevineq">4.22</a>) implies the case where <span
+class="math inline">\(\tau = \frac{1}{2}\)</span> since the general case
+follows from making a change of variables <span
+class="math inline">\(\tilde{x}:= (2\tau)^{-1/2}x\)</span>. Given <span
+class="math inline">\(f\)</span> such that <span
+class="math inline">\(\int_{\mathbb{R}^n}(4\pi\tau)^{-n/2}e^{-f}dx =
+1\)</span>, take <span class="math inline">\(\psi\)</span> to be given
+by</p>
+<p><span class="math display">\[
+    \psi = (2\pi)^{-n/4}e^{-f/2}.
+\]</span></p>
+<p>Then <span class="math inline">\(\int_{\mathbb{R}^n}\psi^2 dx =
+1\)</span> and we have</p>
+<p><span class="math display">\[
+    \log{\psi} = -\frac{f}{2} - \frac{n}{4}\log{2\pi},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+    \nabla\psi = -\frac{1}{2}(2\pi)^{-n/4}e^{-f/2}\nabla f,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+    |\nabla \psi|^2 = \frac{1}{4}(2\pi)^{-n/2}e^{-f}|\nabla f|^2.
+\]</span></p>
+<p>Then inserting these into (<a href="#eq:logSobolevineq">4.22</a>), we
+have</p>
+<p><span class="math display">\[
+    \frac{n}{4}\log\left(\frac{2}{\pi
+en}\int_{\mathbb{R}^n}\frac{1}{4}(2\pi)^{-n/2}e^{-f}|\nabla f|^2
+dx\right)
+    \geq -\int_{\mathbb{R}^n}\left(\frac{f}{2} +
+\frac{n}{4}\log{2\pi}\right)e^{-f}(2\pi)^{-n/2}dx.
+\]</span></p>
+<p>Multipliying both sides by <span
+class="math inline">\(\frac{4}{n}\)</span>, we get</p>
+<p><span class="math display">\[\begin{aligned}
+    \log{\left(\frac{1}{2\pi en}\int_{\mathbb{R}^n}|\nabla f|^2
+e^{-f}(2\pi)^{-n/2}dx\right)} &amp;\geq
+    -\int_{\mathbb{R}^n}\left(\frac{2}{n} f +
+\log{2\pi}\right)e^{-f}(2\pi)^{-n/2}dx \\
+    &amp; = \int_{\mathbb{R}^n} -\frac{2}{n}fe^{-f}(2\pi)^{-n/2}dx -
+\log{2\pi}\int_{\mathbb{R}^n}e^{-f}(2\pi)^{-n/2}dx
+    \\
+    &amp;= \int_{\mathbb{R}^n} -\frac{2}{n}fe^{-f}(2\pi)^{-n/2}dx +
+\log{\frac{1}{2\pi}}.
+\end{aligned}\]</span></p>
+<p>So then taking the exponential of both sides and then multiplying
+both sides by <span class="math inline">\(\pi e n\)</span>, we
+obtain</p>
+<p><span id="eq:geqexpineq" class="eqnos"><span class="math display">\[
+    \frac{1}{2}\int_{\mathbb{R}^n}|\nabla f|^2e^{-f}(2\pi)^{-n/2}dx \geq
+    \frac{en}{2}\exp{\left(-\frac{2}{n}\int_{\mathbb{R}^n}
+fe^{-f}(2\pi)^{-n/2}dx\right)}.
+\]</span><span class="eqnos-number">(4.23)</span></span> </p>
+<p>We now claim that</p>
+<p><span id="eq:nminusfineq" class="eqnos"><span class="math display">\[
+    \frac{en}{2}\exp{\left(-\frac{2}{n}\int_{\mathbb{R}^n}
+fe^{-f}(2\pi)^{-n/2}dx\right)} \geq
+    \int_{\mathbb{R}^n}(n-f)e^{-f}(2\pi)^{-n/2}dx.
+\]</span><span class="eqnos-number">(4.24)</span></span> </p>
+<p>This inequality is equivalent to the inequality</p>
+<p><span class="math display">\[
+    \frac{n}{2}\exp{\left(\frac{2}{n}\int_{\mathbb{R}^n}\left(\frac{n}{2}-f\right)e^{-f}(2\pi)^{-n/2}dx\right)}
+\geq
+    \frac{n}{2} +
+\int_{\mathbb{R}^n}\left(\frac{n}{2}-f\right)e^{-f}(2\pi)^{-n/2}dx
+\]</span></p>
+<p>using the fact that <span
+class="math inline">\(\int_{\mathbb{R}^n}e^{-f}(2\pi)^{-n/2}dx =
+1\)</span>. Then taking <span class="math inline">\(du =
+e^{-f}(2\pi)^{-n/2}dx\)</span> and <span class="math inline">\(g =
+\frac{n}{2} - f\)</span> the above inequality becomes</p>
+<p><span class="math display">\[
+    \exp{\left(\frac{2}{n}\int_{\mathbb{R}^n}gdu\right)} \geq 1 +
+\frac{2}{n}\int_{\mathbb{R}^n} gdu
+\]</span></p>
+<p>which follows from the fact that <span class="math inline">\(e^a \geq
+1 + a\)</span> for any <span class="math inline">\(a \in
+\mathbb{R}\)</span>.</p>
+<p>Finally chaining (<a href="#eq:geqexpineq">4.23</a>) and (<a
+href="#eq:nminusfineq">4.24</a>) together and rearranging yields desired
+result.</p>
+</div>
+<p>Now we present the details for the proof of the general <span
+class="math inline">\(p &gt; 1\)</span> case. It actually is essentially
+the same proof, we just have to mangle the more complicated constants a
+little more.</p>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>(Of proposition (<a
+href="#prop:entropynonneg" title="4.8">4.8</a>). Given <span
+class="math inline">\(v^{p-1}\)</span> defined in the proposition, we
+first define <span class="math inline">\(w\)</span> such that <span
+class="math inline">\(w^p = v^{p-1}\)</span>, that is, we define</p>
+<p><span id="eq:wdef" class="eqnos"><span class="math display">\[
+    w = v^{\frac{p-1}{p}} = \left(\pi^{-n/2}(p^{\ast
+p-1}p)^{-n/p}\frac{\Gamma(n/2 + 1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}\right)^{\frac{1}{p}}.
+\]</span><span class="eqnos-number">(4.25)</span></span> </p>
+<p>Then clearly we have <span class="math inline">\(\int_M w^p d\mu =
+1\)</span>. Then with this definition of <span
+class="math inline">\(w\)</span>, we have</p>
+<p><span id="eq:logwp" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \log{w^p} &amp;= \log{\left(\pi^{-n/2}(p^{\ast
+p-1}p)^{-n/p}\frac{\Gamma(n/2 + 1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}\right)} \\
+    &amp;= -\frac{n}{2}\log\pi - \frac{n}{p}\log{\left(p^{\ast
+p-1}p\right)} +
+    \log{\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}} - \varphi -
+\frac{n}{p}\log{t},
+\end{aligned}\]</span><span class="eqnos-number">(4.26)</span></span>
+</p>
+<p>and we also have</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla w &amp;= \nabla\left(\left(\pi^{-n/2}(p^{\ast
+p-1}p)^{-n/p}\frac{\Gamma(n/2 + 1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}\right)^{\frac{1}{p}}\right) \\
+    &amp;= \frac{1}{p}\left(\pi^{-n/2}(p^{\ast
+p-1}p)^{-n/p}\frac{\Gamma(n/2 + 1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}\right)^{\frac{1}{p} - 1} \\
+        &amp;\qquad\times\nabla\left(\pi^{-n/2}(p^{\ast
+p-1}p)^{-n/p}\frac{\Gamma(n/2 + 1)}{\Gamma(n/p^\ast +
+    1)}\frac{e^{-\varphi}}{t^{n/p}}\right) \\
+    &amp;=
+\frac{1}{p}\left(v^{p-1}\right)^{\frac{1}{p}-1}v^{p-1}(-\nabla\varphi)
+\\
+    &amp;= -\frac{1}{p}\left(v^{p-1}\right)^{\frac{1}{p}}\nabla\varphi.
+\end{aligned}\]</span></p>
+<p>(Note that the <span class="math inline">\(\times\)</span> above and
+later on below just means normal multiplication because otherwise the
+line will be too long). So that means</p>
+<p><span id="eq:nablawp" class="eqnos"><span class="math display">\[
+    |\nabla w|^p = \left(\frac{1}{p}\right)^pv^{p-1}|\nabla\varphi|^p.
+\]</span><span class="eqnos-number">(4.27)</span></span> </p>
+<p>Then inserting (<a href="#eq:logwp">4.26</a>) and (<a
+href="#eq:nablawp">4.27</a>) into the <span
+class="math inline">\(L^p\)</span>-logarithmic Sobolev inequality (<a
+href="#eq:LplogSobolevineq">4.21</a>), we obtain</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;\frac{n}{p}\log{\left(\frac{p}{n}\left(\frac{p-1}{e}\right)^{p-1}\pi^{-p/2}\left(\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}\right)^{p/n}\int_M\left(\frac{1}{p}\right)^p|\nabla\varphi|^pv^{p-1}d\mu\right)}
+\\
+        &amp;\qquad\geq \int_M\left(-\frac{n}{2}\log\pi -
+\frac{n}{p}\log{\left(p^{\ast p-1}p\right)} +
+\log{\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}} - \varphi -
+\frac{n}{p}\log{t}\right)v^{p-1}d\mu \\
+        &amp;\qquad = \int_M \left(-\varphi -
+\frac{n}{p}\log{t}\right)v^{p-1}d\mu - \frac{n}{2}\log\pi -
+        \frac{n}{p}\log{\left(p^{\ast p-1}p\right)} +
+\log{\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}}.
+\end{aligned}\]</span></p>
+<p>Where in the equality we have used the fact that <span
+class="math inline">\(\int_M v^{p-1} d\mu = 1\)</span> to pull out the
+constants. Then multiplying both sides by <span
+class="math inline">\(\frac{p}{n}\)</span>, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;\log{\left(\frac{p}{n}\left(\frac{p-1}{e}\right)^{p-1}\pi^{-p/2}\left(\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}\right)^{p/n}\int_M\left(\frac{1}{p}\right)^p|\nabla\varphi|^pv^{p-1}d\mu\right)}
+\\
+        &amp;\qquad \geq \int_M \left(-\frac{p}{n}\varphi -
+\log{t}\right)v^{p-1}d\mu - \frac{p}{2}\log\pi - \log{\left(p^{\ast
+p-1}p\right)} +
+\frac{p}{n}\log{\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}}.
+\end{aligned}\]</span></p>
+<p>Taking the exponential of both sides we obtain</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;\frac{p}{n}\left(\frac{p-1}{e}\right)^{p-1}\pi^{-p/2}\left(\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}\right)^{p/n}\int_M\left(\frac{1}{p}\right)^p|\nabla\varphi|^pv^{p-1}d\mu
+\\
+        &amp;\qquad \geq
+\exp{\left(-\frac{p}{2}\log\pi\right)}\exp{\left(-\log{\left(p^{\ast
+p-1}p\right)}\right)} \\
+            &amp;\qquad\qquad\times\exp{\left(\frac{p}{n}\log{\left(\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}\right)}\right)}\exp{\left(\int_M
+\left(-\frac{p}{n}\varphi - \log{t}\right)v^{p-1}d\mu\right)} \\
+        &amp;\qquad = \pi^{-p/2}\left(p^{\ast
+        p-1}p\right)^{-1}\left(\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast+1)}\right)^{p/n}\exp{\left(\int_M
+\left(-\frac{p}{n}\varphi - \log{t}\right)v^{p-1}d\mu\right)}.
+\end{aligned}\]</span></p>
+<p>Then bringing constants to the right-hand side and canceling some of
+them out we arrive at</p>
+<p><span id="eq:intgeqexpint1" class="eqnos"><span
+class="math display">\[
+    \left(\frac{1}{p}\right)^p\int_M |\nabla\varphi|^pv^{p-1}d\mu \geq
+    \frac{n}{p}\left(\frac{p-1}{e}\right)^{-(p-1)}\left(p^{\ast
+p-1}p\right)^{-1}\exp{\left(\int_M \left(-\frac{p}{n}\varphi -
+\log{t}\right)v^{p-1}d\mu\right)}.
+\]</span><span class="eqnos-number">(4.28)</span></span> </p>
+<p>Let’s try to simplify the constants on the right hand side a bit.
+Writing out the definition of <span class="math inline">\(p^\ast =
+\frac{p}{p-1}\)</span>, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{n}{p}\left(\frac{p-1}{e}\right)^{-(p-1)}\left(p^{\ast
+p-1}p\right)^{-1} &amp;=
+\frac{n}{p}\left(\frac{p-1}{e}\right)^{-(p-1)}\left(\left(\frac{p}{p-1}\right)^{p-1}p\right)^{-1}
+\\
+    &amp;=
+\frac{n}{p}\left(\frac{p-1}{e}\right)^{-(p-1)}\left(\frac{p}{p-1}\right)^{-(p-1)}p^{-1}
+\\
+    &amp;= \frac{n}{p}\frac{p^{-(p-1)}p^{-1}}{e^{-(p-1)}} \\
+    &amp;= \frac{n}{p}\left(\frac{1}{p}\right)^p e^{p-1}.
+\end{aligned}\]</span></p>
+<p>So the <span
+class="math inline">\(\left(\frac{1}{p}\right)^p\)</span>’s cancel out
+on both sides of (<a href="#eq:intgeqexpint1">4.28</a>) above and we are
+left with</p>
+<p><span id="eq:intgeqexpint2" class="eqnos"><span
+class="math display">\[
+    \int_M |\nabla\varphi|^pv^{p-1}d\mu \geq
+\frac{ne^{p-1}}{p}\exp{\left(\int_M \left(-\frac{p}{n}\varphi -
+\log{t}\right)v^{p-1}d\mu\right)}.
+\]</span><span class="eqnos-number">(4.29)</span></span> </p>
+<p>Again, using that <span class="math inline">\(\int_M v^{p-1}d\mu =
+1\)</span>, we see that the <span
+class="math inline">\(-\log{t}\)</span> term becomes a factor of <span
+class="math inline">\(\frac{1}{t}\)</span> on the right hand side. Then,
+assuming that <span class="math inline">\(t &gt; 0\)</span>, we can
+multiply both sides by <span class="math inline">\(t\)</span> and
+obtain</p>
+<p><span id="eq:intgeqexpint3" class="eqnos"><span
+class="math display">\[
+    \int_M t|\nabla\varphi|^p v^{p-1}d\mu \geq
+\frac{ne^{p-1}}{p}\exp{\left(\int_M -\frac{p}{n}\varphi
+v^{p-1}d\mu\right)}.
+\]</span><span class="eqnos-number">(4.30)</span></span> </p>
+<p>We now claim that the inequality</p>
+<p><span id="eq:expintgeqintnminusvarphi" class="eqnos"><span
+class="math display">\[
+    \frac{ne^{p-1}}{p}\exp{\left(\int_M -\frac{p}{n}\varphi
+v^{p-1}d\mu\right)} \geq \int_M (n-\varphi)v^{p-1}d\mu,
+\]</span><span class="eqnos-number">(4.31)</span></span> </p>
+<p>holds.</p>
+<p>Again by using <span class="math inline">\(\int_M v^{p-1}d\mu =
+1\)</span>, note that the left hand side can be rewritten as</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{ne^{p-1}}{p}\exp{\left(\int_M -\frac{p}{n}\varphi
+v^{p-1}d\mu\right)} &amp;= \frac{n}{p}\exp{\left((p-1)\int_M
+    v^{p-1}d\mu - \frac{p}{n}\int_M \varphi v^{p-1}d\mu\right)} \\
+    &amp;= \frac{n}{p}\exp{\left(\frac{p}{n}\left(\frac{(p-1)n}{p}\int_M
+v^{p-1}d\mu - \int_M \varphi v^{p-1}d\mu\right)\right)} \\
+    &amp;= \frac{n}{p}\exp{\left(\frac{p}{n}\int_M
+\left(\frac{(p-1)n}{p} - \varphi\right)v^{p-1}d\mu\right)}.
+\end{aligned}\]</span></p>
+<p>Meanwhile, the right hand side can be rewritten as</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M (n-\varphi)v^{p-1}d\mu &amp;= \int_M \left(\frac{n}{p} +
+\frac{(p-1)n}{p} - \varphi\right)v^{p-1}d\mu \\
+    &amp;= \frac{n}{p} + \int_M \left(\frac{(p-1)n}{p} -
+\varphi\right)v^{p-1}d\mu.
+\end{aligned}\]</span></p>
+<p>Then multiplying by <span class="math inline">\(\frac{p}{n}\)</span>
+on both sides we arrive at the inequality</p>
+<p><span id="eq:equivexpintgeqintnminusvarphi" class="eqnos"><span
+class="math display">\[
+    \exp{\left(\frac{p}{n}\int_M \left(\frac{(p-1)n}{p} -
+\varphi\right)v^{p-1}d\mu\right)} \geq 1 + \frac{p}{n}\int_M
+\left(\frac{(p-1)n}{p} - \varphi\right)v^{p-1}d\mu.
+\]</span><span class="eqnos-number">(4.32)</span></span> </p>
+<p>Then taking <span class="math inline">\(dv = v^{p-1}d\mu\)</span> and
+<span class="math inline">\(g = \frac{(p-1)n}{p}-\varphi\)</span>, (<a
+href="#eq:equivexpintgeqintnminusvarphi">4.32</a>) reduces to the
+inequality <span class="math inline">\(\exp{\left(\frac{p}{n}\int_M
+gdv\right)} \geq 1 + \frac{p}{n}\int_M gdv\)</span> which holds since
+<span class="math inline">\(e^a \geq 1 + a\)</span> for all <span
+class="math inline">\(a \in \mathbb{R}\)</span>.</p>
+<p>Finally, since (<a href="#eq:expintgeqintnminusvarphi">4.31</a>)
+holds, chaining it together with (<a href="#eq:intgeqexpint3">4.30</a>)
+we arrive at</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M t|\nabla\varphi|^pv^{p-1}d\mu &amp;\geq
+\frac{ne^{p-1}}{p}\exp{\left(\int_M \left(-\frac{p}{n}\varphi -
+\log{t}\right)v^{p-1}d\mu\right)} \\
+    &amp;\geq \int_M (n-\varphi)v^{p-1}d\mu,
+\end{aligned}\]</span></p>
+<p>which implies that <span class="math inline">\(\mathcal{W}_p(\varphi,
+t) \geq 0\)</span> as required.</p>
+</div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
+<div id="ref-Chow07" class="csl-entry" role="doc-biblioentry">
+Chow, Bennet, Sun-Chin Chu, David Glickenstein, Christine Guenther,
+James Isenberg, Tom Ivey, Dan Knopf, Peng Lu, Feng Luo, and Lei Ni.
+2007. <em>The Ricci Flow: Techniques and Applications Part i: Geometric
+Aspects</em>. American Mathematical Society.
+</div>
 <div id="ref-KN09" class="csl-entry" role="doc-biblioentry">
 Kotschwar, Brett, and Lei Ni. 2009. <span>“Local Gradient Estimates of
 <span class="math inline">\(p\)</span>-Harmonic Functions, <span
