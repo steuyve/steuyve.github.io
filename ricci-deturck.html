@@ -16,27 +16,35 @@
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table of Contents</h2>
 <ul>
-<li><a href="#introduction"><span class="toc-section-number">1</span>
-Introduction</a></li>
-<li><a href="#time-evolving-metrics"><span
-class="toc-section-number">2</span> Time-evolving Metrics</a></li>
-<li><a href="#existence-theory-for-parabolic-pdes"><span
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#time-evolving-metrics"
+id="toc-time-evolving-metrics"><span class="toc-section-number">2</span>
+Time-evolving Metrics</a></li>
+<li><a href="#existence-theory-for-parabolic-pdes"
+id="toc-existence-theory-for-parabolic-pdes"><span
 class="toc-section-number">3</span> Existence Theory for Parabolic
 PDEs</a></li>
-<li><a href="#the-linearization-of-the-ricci-tensor"><span
-class="toc-section-number">4</span> The Linearization of the Ricci
-Tensor</a></li>
-<li><a href="#the-deturck-trick"><span
-class="toc-section-number">5</span> The DeTurck Trick</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#existence-of-solutions-to-the-ricci-flow"
+id="toc-existence-of-solutions-to-the-ricci-flow"><span
+class="toc-section-number">4</span> Existence of Solutions to the Ricci
+Flow</a>
+<ul>
+<li><a href="#the-deturck-trick" id="toc-the-deturck-trick"><span
+class="toc-section-number">4.1</span> The DeTurck Trick</a></li>
+</ul></li>
+<li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </nav>
 <h1 data-number="1" id="introduction"><span
 class="header-section-number">1</span> Introduction</h1>
-<p>Introductory notes on the short time existence and uniqueness of the
+<p>Introductory notes on the short-time existence and uniqueness of the
 Ricci flow following Sheridan’s <span class="citation"
 data-cites="Sheridan06">(<a href="#ref-Sheridan06"
-role="doc-biblioref">Sheridan 2006</a>)</span>.</p>
+role="doc-biblioref">Sheridan 2006</a>)</span>. We will see that the
+Ricci flow is not strongly parabolic and therefore need to introduce a
+modification to the Ricci flow called the “DeTurck trick” and the
+Ricci-DeTurck flow to obtain existence results.</p>
 <h1 data-number="2" id="time-evolving-metrics"><span
 class="header-section-number">2</span> Time-evolving Metrics</h1>
 <p>Let <span class="math inline">\((M, g(t))\)</span> be a Riemannian
@@ -418,11 +426,75 @@ href="#eq:pdesystem">3.1</a>) is strongly parabolic at <span
 class="math inline">\(u_0\)</span>, then there exists a unique solution
 on some time interval <span class="math inline">\([0,T)\)</span>.</p>
 </div>
-<h1 data-number="4" id="the-linearization-of-the-ricci-tensor"><span
-class="header-section-number">4</span> The Linearization of the Ricci
-Tensor</h1>
-<h1 data-number="5" id="the-deturck-trick"><span
-class="header-section-number">5</span> The DeTurck Trick</h1>
+<h1 data-number="4" id="existence-of-solutions-to-the-ricci-flow"><span
+class="header-section-number">4</span> Existence of Solutions to the
+Ricci Flow</h1>
+<p>Given a Riemannian manifold <span class="math inline">\(M\)</span>
+and a time-dependent metric <span class="math inline">\(g(t)\)</span>
+with initial metric <span class="math inline">\(g_0\)</span>, the Ricci
+flow is the following PDE that evolves metric tensor</p>
+<p><span class="math display">\[
+    \begin{cases} \frac{\partial g}{\partial_t} &amp;=
+-2\text{Rc}(g(t)), \\
+    g(0) &amp;= g_0. \end{cases}
+\]</span></p>
+<p>Where <span class="math inline">\(\text{Rc}(g(t))\)</span> denotes
+the Ricci curvature of the metric <span
+class="math inline">\(g(t)\)</span>. The idea is that if we can show
+this system to be strongly parabolic, then the existence theory for
+strongly parabolic PDE will give us a short-time existence result for
+the Ricci flow. To do this, our first step is to linearize the Ricci
+tensor. By (<a href="#eq:riccitensor">2.3</a>) above, we have</p>
+<p><span class="math display">\[
+    D[\text{Rc}](h)_{ij} = \frac{1}{2}g^{pq}\left(-\nabla_p\nabla_q
+h_{ij} - \nabla_i\nabla_j h_{pq} + \nabla_q\nabla_i
+    h_{jp} + \nabla_q\nabla_j h_{ip}\right),
+\]</span></p>
+<p>where we have interchanged the indices <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span> in the last two terms which we can do
+because <span class="math inline">\(g^{pq}\)</span> is symmetric.</p>
+<p>Then the principal symbol of the Ricci flow operator is given by</p>
+<p><span class="math display">\[
+    \hat{\sigma}[-2\text{Rc}](\varphi)(h)_{ij} =
+g^{pq}\left(\varphi_p\varphi_q h_{ij} + \varphi_i\varphi_j h_{pq} -
+    \varphi_q\varphi_i h_{jp} + \varphi_q\varphi_j h_{ip}\right).
+\]</span></p>
+<p>Note that this is strongly parabolic if there is some <span
+class="math inline">\(\delta &gt; 0\)</span> such that for all <span
+class="math inline">\(\varphi \neq 0\)</span> and symmetric <span
+class="math inline">\(h_{ij} \neq 0\)</span>, then we need</p>
+<p><span class="math display">\[
+    g^{pq}\left(\varphi_p\varphi_q h_{ij} + \varphi_i\varphi_j h_{pq} -
+\varphi_q\varphi_i h_{jp} + \varphi_q\varphi_j h_{ip}\right)h^{ij} &gt;
+\delta\varphi_k\varphi^kh_{rs}h^{rs}.
+\]</span></p>
+<p>However, choosing <span class="math inline">\(h_{ij} =
+\varphi_i\varphi_j\)</span>, we get on the left hand side that</p>
+<p><span class="math display">\[
+     g^{pq}\left(\varphi_p\varphi_q\varphi_i\varphi_j +
+\varphi_i\varphi_j\varphi_p\varphi_q -
+\varphi_q\varphi_i\varphi_j\varphi_p +
+\varphi_q\varphi_j\varphi_i\varphi_p\right)\varphi^i\varphi^j = 0.
+\]</span></p>
+<p>So we see that the Ricci flow is actually not strongly parabolic.</p>
+<h2 data-number="4.1" id="the-deturck-trick"><span
+class="header-section-number">4.1</span> The DeTurck Trick</h2>
+<p>In this section we demonstrate “DeTurck’s trick” for turning the
+Ricci flow system into one that is strongly parabolic, from which we can
+obtain a short-time existence result. Let</p>
+<p><span class="math display">\[
+    V_i = g^{pq}\left(\frac{1}{2}\nabla_i h_{pq} - \nabla_q
+h_{pi}\right),
+\]</span></p>
+<p>then the linearization of the <span
+class="math inline">\(-2\text{Rc}\)</span> operator can be rewritten
+as</p>
+<p><span id="eq:linearizationinV" class="eqnos"><span
+class="math display">\[
+    D[-2\text{Rc}](h)_{ij} = g^{pq}\nabla_p\nabla_q h_{ij} + \nabla_i
+V_j + \nabla_j V_i + l.o.t.(h).
+\]</span><span class="eqnos-number">(4.1)</span></span> </p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">

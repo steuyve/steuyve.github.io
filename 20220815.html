@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>20220815 Notes on p-entropy and Ricci flow</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">20220815 Notes on p-entropy and Ricci flow</h1>
+<p class="author">Stephen Shang Yi Liu</p>
+<p class="date">15 August 2022</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of Contents</h2>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#the-heat-equation-case"
+id="toc-the-heat-equation-case"><span
+class="toc-section-number">2</span> The heat equation case</a></li>
+<li><a href="#kotschwar-nis-work" id="toc-kotschwar-nis-work"><span
+class="toc-section-number">3</span> Kotschwar-Ni’s work</a></li>
+<li><a href="#the-p-harmonic-equation-coupled-with-ricci-flow"
+id="toc-the-p-harmonic-equation-coupled-with-ricci-flow"><span
+class="toc-section-number">4</span> The <span
+class="math inline">\(p\)</span>-harmonic equation coupled with Ricci
+flow</a></li>
+<li><a href="#refernces" id="toc-refernces">Refernces</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>These are some rough notes as we try to see if we can arrive at a
+monotonic entropy formula for the parabolic <span
+class="math inline">\(p\)</span>-harmonic equation coupled with Ricci
+flow similar to the one shown by Perelman for the heat equation.</p>
+<h1 data-number="2" id="the-heat-equation-case"><span
+class="header-section-number">2</span> The heat equation case</h1>
+<p>First we review the set up and the results for the heat equation
+case. My main references for this are <span class="citation"
+data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> and <span
+class="citation" data-cites="Chowetal">(<a href="#ref-Chowetal"
+role="doc-biblioref">Chow et al. 2007</a>)</span>. The setup is as
+follows. Let <span class="math inline">\((M,g)\)</span> be a closed
+<span class="math inline">\(n\)</span>-dimensional Riemmanian manifold,
+<span class="math inline">\(f\)</span> be a function on <span
+class="math inline">\(M\)</span> and <span class="math inline">\(\tau
+&gt; 0\)</span>. Let <span class="math inline">\(u =
+(4\pi\tau)^{-n/2}e^{-f}\)</span>. Then we define the
+<strong>entropy</strong> by</p>
+<p><span class="math display">\[\mathcal{W}(g,f,\tau) := \int_M
+\left(\tau\left(R + |\nabla f|^2\right) +
+(f-n)\right)ud\mu.\]</span></p>
+<p>Consider the following system of equations</p>
+<p><span id="eq:ricciflow" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t} g_{ij} = -2R_{ij},
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p><span id="eq:heateq" class="eqnos"><span class="math display">\[
+    \frac{\partial f}{\partial t} = -\Delta f - R + |\nabla f|^2 +
+\frac{n}{2\tau},
+\]</span><span class="eqnos-number">(2.2)</span></span> </p>
+<p><span id="eq:backwardtau" class="eqnos"><span class="math display">\[
+    \frac{\partial \tau}{\partial t} = -1.
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+<p>That is, we have <span class="math inline">\(f(t)\)</span> satisfying
+a backward heat-type equation coupled with the Ricci flow. Then when
+this system is satisfied, we have the following entropy monotonicity
+result.</p>
+<div id="theorem-1" class="statement sta_theorem_1 plain unnumbered">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+1</span> <span class="statement-info">(Theorem 5.23 of <span
+class="citation" data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> or Theorem 6.4 of
+<span class="citation" data-cites="Chowetal">(<a href="#ref-Chowetal"
+role="doc-biblioref">Chow et al. 2007</a>)</span>)</span>.</span><span
+class="statement-spah"> </span><em>If <span
+class="math inline">\((M,g(t))\)</span> and <span
+class="math inline">\(f(t)\)</span> satisfy (<a
+href="#eq:ricciflow">2.1</a>), (<a href="#eq:heateq">2.2</a>), and (<a
+href="#eq:backwardtau">2.3</a>), then</em></p>
+<p><span id="eq:entropymonotonicity" class="eqnos"><span
+class="math display">\[
+        \frac{d}{dt}\mathcal{W}(g(t),f(t),\tau(t)) = 2\tau\int_M \left|
+R_{ij} + \nabla_i\nabla_j f - \frac{1}{2\tau}g_{ij}\right|^2 ud\mu \geq
+0.
+\]</span><span class="eqnos-number">(2.4)</span></span> </p>
+</div>
+<p>There are two proofs of this result. The first is to derive it from a
+similar monotonicity formula for the energy <span
+class="math inline">\(\mathcal{F}:= \int_M (R + |\nabla
+f|^2)e^{-f}d\mu\)</span> under a gradient flow (that differs from the
+Ricci flow by diffeomorphisms, see Chapter 2.4 of <span class="citation"
+data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> and subsequently
+Exercise 6.7 of <span class="citation" data-cites="Chowetal">(<a
+href="#ref-Chowetal" role="doc-biblioref">Chow et al. 2007</a>)</span>),
+and the second is to use an evolution equation for the adjoint operator
+to the heat equation (Proposition 5.24 of <span class="citation"
+data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> and/or Pages
+227-229 of <span class="citation" data-cites="Chowetal">(<a
+href="#ref-Chowetal" role="doc-biblioref">Chow et al.
+2007</a>)</span>).</p>
+<h1 data-number="3" id="kotschwar-nis-work"><span
+class="header-section-number">3</span> Kotschwar-Ni’s work</h1>
+<p>In <span class="citation" data-cites="KotschwarNi">(<a
+href="#ref-KotschwarNi" role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>, an entropy monotonicity formula is shown for the <span
+class="math inline">\(p\)</span>-harmonic equation in the static case
+(that is, not coupled to the Ricci flow). Let <span
+class="math inline">\(p &gt; 1\)</span></p>
+<p><span class="math display">\[v^{p-1} = \left(\pi p^{\ast p
+-1}p\right)^{-n/p}\frac{\Gamma(n/2+1)}{\Gamma(n/p^\ast +
+1}e^{-\varphi}t^{-n/p},\]</span></p>
+<p>where <span class="math inline">\(p^\ast =
+\frac{p}{p-1}\)</span>.</p>
+<p>We define the <strong>static <span
+class="math inline">\(p\)</span>-entropy</strong> as</p>
+<p><span class="math display">\[\mathcal{W}_p(\varphi, t) := \int_M
+(t|\nabla\varphi|^2 + \varphi - n)v^{p-1}d\mu.\]</span></p>
+<p>Then when <span class="math inline">\(v^{p-1}\)</span> satisfies the
+following parabolic <span class="math inline">\(p\)</span>-harmonic
+equation,</p>
+<p><span id="eq:p-heateqnv" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t}v^{p-1} = (p-1)^{p-1}\text{div}(|\nabla
+v|^{p-2}\nabla v),
+\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p>we have the following entropy monotonicity formula.</p>
+<div id="theorem-2" class="statement sta_theorem_2 plain unnumbered">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+2</span> <span class="statement-info">(Theorem 6.13 of <span
+class="citation" data-cites="KotschwarNi">(<a href="#ref-KotschwarNi"
+role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>)</span>.</span><span class="statement-spah">
+</span><em>Let <span class="math inline">\(v\)</span> be a positive
+solution to (<a href="#eq:p-heateqnv">3.1</a>) above normalized so that
+<span class="math inline">\(\int_M v^{p-1}d\mu = 1\)</span>.
+Then</em></p>
+<p><span id="eq:staticp-entropyformula" class="eqnos"><span
+class="math display">\[
+        \frac{d}{dt}\mathcal{W}_p(\varphi, t) = -tp \int_M
+\left(\left||\nabla\varphi|^{p-2}\nabla_i\nabla_j\varphi -
+\frac{1}{tp}a_{ij}\right|_A^2 + |\nabla
+\varphi|^{2p-4}R_{ij}\varphi_i\varphi_j\right)v^{p-1}d\mu,
+\]</span><span class="eqnos-number">(3.2)</span></span> </p>
+<p><em>where <span class="math inline">\(A^{ij} = g^{ij} +
+\frac{p-2}{|\nabla \varphi|^2}\varphi^i\varphi^j\)</span> and <span
+class="math inline">\(a_{ij} = g_{ij} -
+\frac{p-2}{p-1}\frac{\varphi_i\varphi_j}{|\nabla\varphi|^2}\)</span> is
+the matrix inverse of <span
+class="math inline">\(A^{ij}\)</span>.</em></p>
+</div>
+<p>Note that in terms of <span class="math inline">\(\varphi\)</span>,
+it is easy enough to show that</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla v^{p-1} &amp;= -v^{p-1}\nabla\varphi, \\
+    \frac{\partial v^{p-1}}{\partial t} &amp;=
+-v^{p-1}\frac{\partial\varphi}{\partial t} -
+v^{p-1}\frac{n}{pt},\end{aligned}\]</span></p>
+<p>So using this, (<a href="#eq:p-heateqnv">3.1</a>) above becomes</p>
+<p><span id="eq:p-heateqnvarphi" class="eqnos"><span
+class="math display">\[
+    \frac{\partial\varphi}{\partial t} =
+|\nabla\varphi|^{p-2}\Delta\varphi - |\nabla\varphi|^p +
+(p-2)|\nabla\varphi|^{p-4}\left\langle\nabla|\nabla\varphi|^2,\nabla\varphi\right\rangle
+- \frac{n}{pt}.
+\]</span><span class="eqnos-number">(3.3)</span></span> </p>
+<p>So when <span class="math inline">\(p = 2\)</span>, this reduces to
+the <em>forward</em> version of the heat equation considered in (<a
+href="#eq:heateq">2.2</a>) above, which also explains the change in sign
+for the static <span class="math inline">\(p\)</span>-entropy
+monotonicity formula above in (<a
+href="#eq:staticp-entropyformula">3.2</a>).</p>
+<h1 data-number="4"
+id="the-p-harmonic-equation-coupled-with-ricci-flow"><span
+class="header-section-number">4</span> The <span
+class="math inline">\(p\)</span>-harmonic equation coupled with Ricci
+flow</h1>
+<p>Because we want to be able to invoke the static <span
+class="math inline">\(p\)</span>-entropy monotonicity formula (<a
+href="#eq:staticp-entropyformula">3.2</a>) above, we’ll couple (<a
+href="#eq:p-heateqnvarphi">3.3</a>) with the <em>backward</em> Ricci
+flow</p>
+<p><span id="eq:backwardricciflow" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t} g_{ij} = 2R_{ij}.
+\]</span><span class="eqnos-number">(4.1)</span></span> </p>
+<p>Also, for convenience, we denote the right hand side of (<a
+href="#eq:p-heateqnvarphi">3.3</a>) by <span
+class="math inline">\(\Lambda_p(\varphi)\)</span>. Then we consider the
+backward Ricci flow coupled with the following <span
+class="math inline">\(p\)</span>-heat type equation</p>
+<p><span id="eq:p-heattypeeqn" class="eqnos"><span
+class="math display">\[
+    \frac{\partial\varphi}{\partial t} = \Lambda_p(\varphi) +
+R|\nabla\varphi|^{p-2}.
+\]</span><span class="eqnos-number">(4.2)</span></span> </p>
+<p>Then we want to see if we can arrive at a monotonicity formula for
+the <em>moving</em> <strong><span
+class="math inline">\(p\)</span>-entropy</strong></p>
+<p><span class="math display">\[\tilde{\mathcal{W}_p}(\varphi, t) :=
+\int_M \left(t\left(R + |\nabla\varphi|^p\right) + \varphi -
+n\right)v^{p-1}d\mu.\]</span></p>
+<p>Note that I’m using the <span class="math inline">\(\tilde{}\)</span>
+symbol to differentiate it from the static <span
+class="math inline">\(p\)</span>-entropy just to keep things clear.</p>
+<p>First, we have the following formulas for the variation of the metric
+inverse, the volume form and the scalar curvature under the backward
+Ricci flow respectively.</p>
+<p><span id="eq:ddtginverse" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t}g^{ij} = -2g^{ik}g^{j\ell}R_{k\ell},
+\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+<p><span id="eq:ddtR" class="eqnos"><span class="math display">\[
+    \frac{\partial R}{\partial t} = -\Delta R - 2|\text{Rc}|^2,
+\]</span><span class="eqnos-number">(4.4)</span></span> </p>
+<p><span id="eq:ddtdmu" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t}d\mu = Rd\mu.
+\]</span><span class="eqnos-number">(4.5)</span></span> </p>
+<p>Then, instead of requiring that <span class="math inline">\(\int_M
+v^{p-1}d\mu = 1\)</span>, we introduce the constraint that <span
+class="math inline">\(\frac{d}{dt}\int_M v^{p-1}d\mu = 0\)</span>. This
+means</p>
+<p><span class="math display">\[\begin{aligned}
+    0 &amp;= \frac{d}{dt}\int_M v^{p-1}d\mu \\
+    &amp;= \int_M \partial_t (v^{p-1}) d\mu + \int_M v^{p-1}\partial_t
+(d\mu) \\
+    &amp;= \int_M v^{p-1}\left(-\frac{\partial\varphi}{\partial t} -
+\frac{n}{pt}\right)d\mu + \int_M Rv^{p-1}d\mu.\end{aligned}\]</span></p>
+<p>Which implies that</p>
+<p><span class="math display">\[\frac{\partial\varphi}{\partial t} +
+\frac{n}{pt} = R.\]</span></p>
+<p>Now we proceed with the main calculation.</p>
+<p><span id="eq:maincalc1" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{dt}\tilde{\mathcal{W}_p} &amp;= \int_M
+\partial_t\left(t\left(R + |\nabla\varphi|^p\right) + \varphi -
+n\right)v^{p-1}d\mu + \int_M \left(t\left(R + |\nabla\varphi|^p\right) +
+\varphi - n\right)\partial_t\left(v^{p-1}d\mu\right) \\
+    &amp;= \int_M \partial_t\left(t\left(R + |\nabla\varphi|^p\right) +
+\varphi - n\right)v^{p-1}d\mu \\
+    &amp;= \int_M\left(R + \partial_tR + |\nabla\varphi|^p +
+t\partial_t(|\nabla\varphi|^p) + \partial_t\varphi\right)v^{p-1}d\mu
+\end{aligned}\]</span><span class="eqnos-number">(4.6)</span></span>
+</p>
+<p>where the second equality is because we have the constraint <span
+class="math inline">\(\frac{d}{dt}\int_Mv^{p-1}d\mu = 0\)</span>.</p>
+<p>Then note that</p>
+<p><span id="eq:partialpnorm" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \partial_t(|\nabla\varphi|^p) &amp;=
+\frac{p}{2}|\nabla\varphi|^{p-2}\partial_t(g^{ij}\nabla_i\varphi\nabla_j\varphi)
+\\
+    &amp;=
+\frac{p}{2}|\nabla\varphi|^{p-2}\partial_t(g^{ij})\nabla_i\varphi\nabla_j\varphi
++
+p|\nabla\varphi|^{p-2}\langle\nabla\partial_t\varphi,\nabla\varphi\rangle
+\\
+    &amp;=
+-p|\nabla\varphi|^{p-2}g^{ik}g^{j\ell}R_{k\ell}\nabla_i\varphi\nabla_j\varphi
++
+p|\nabla\varphi|^{p-2}\langle\nabla\Lambda_p(\varphi),\nabla\varphi\rangle
++
+p|\nabla\varphi|^{p-2}\langle\nabla(R|\nabla\varphi|^{p-2}),\nabla\varphi\rangle
+\\
+    &amp;= -p|\nabla\varphi|^{p-2}\varphi^k\varphi^{\ell}R_{k\ell} +
+p|\nabla\varphi|^p\langle\nabla\Lambda_p(\varphi),\nabla\varphi\rangle
+\\
+        &amp;\qquad + p|\nabla\varphi|^{2p-4}\langle\nabla
+R,\nabla\varphi\rangle +
+p(p-2)|\nabla\varphi|^{2p-6}R\langle\nabla|\nabla\varphi|^2,\nabla\varphi\rangle
+\end{aligned}\]</span><span class="eqnos-number">(4.7)</span></span>
+</p>
+<p>where we have used (<a href="#eq:ddtginverse">4.3</a>) and (<a
+href="#eq:p-heattypeeqn">4.2</a>) in the third equality above. So
+substituting this into the end of (<a href="#eq:maincalc1">4.6</a>) and
+continuing, we have</p>
+<p><span id="eq:maincalc2" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{dt}\tilde{\mathcal{W}_p} &amp;= \int_M\left(R + \partial_tR
++ |\nabla\varphi|^p + t\partial_t(|\nabla\varphi|^p) +
+\partial_t\varphi\right)v^{p-1}d\mu \\
+    &amp;= \int_M \left(|\nabla\varphi|^p +
+tp|\nabla\varphi|^p\langle\nabla\Lambda_p(\varphi),\nabla\varphi\rangle
++ \Lambda_p(\varphi)\right)v^{p-1}d\mu \\
+        &amp;\qquad + \int_M \left(R - t\Delta R - 2t|\text{Rc}|^2
+-tp|\nabla\varphi|^{p-2}\varphi^k\varphi^{\ell}R_{k\ell} \right. \\
+        &amp;\qquad\qquad \left. + tp|\nabla\varphi|^{2p-4}\langle\nabla
+R,\nabla\varphi\rangle +
+tp(p-2)|\nabla\varphi|^{2p-6}R\langle\nabla|\nabla\varphi|^2,\nabla\varphi\rangle
++ R|\nabla\varphi|^{p-2}\right)v^{p-1}d\mu \\
+    &amp;= -tp \int_M
+\left(\left||\nabla\varphi|^{p-2}\nabla_i\nabla_j\varphi -
+\frac{1}{tp}a_{ij}\right|_A^2 + |\nabla
+\varphi|^{2p-4}R_{ij}\varphi_i\varphi_j\right)v^{p-1}d\mu \\
+        &amp;\qquad -tp\int_M\left(-\frac{1}{tp}R + \frac{1}{p}\Delta R
++ \frac{2}{p}|\text{Rc}|^2 +
+|\nabla\varphi|^{p-2}\varphi^k\varphi^{\ell}R_{k\ell} \right. \\
+        &amp;\qquad\qquad \left. - |\nabla\varphi|^{2p-4}\langle\nabla
+R,\nabla\varphi\rangle -
+(p-2)|\nabla\varphi|^{2p-6}R\langle\nabla|\nabla\varphi|^2,\nabla\varphi\rangle
+- \frac{1}{tp}R|\nabla\varphi|^{p-2}\right)v^{p-1}d\mu
+\end{aligned}\]</span><span class="eqnos-number">(4.8)</span></span>
+</p>
+<p>where we have used Kotschwar-Ni’s result in the last equality
+above.</p>
+<p>When <span class="math inline">\(p=2\)</span>, (<a
+href="#eq:maincalc2">4.8</a>) above reduces to</p>
+<p><span id="eq:maincalcpequals2" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{dt}\tilde{\mathcal{W}_2} &amp;= -2t \int_M
+\left(\left|\nabla_i\nabla_j\varphi - \frac{1}{2t}g_{ij}\right|^2 +
+R_{ij}\varphi_i\varphi_j -\frac{1}{t}R + \frac{1}{2}\Delta R +
+|\text{Rc}|^2 + \varphi^k\varphi^{\ell}R_{k\ell} - \langle\nabla
+R,\nabla\varphi\rangle\right)ud\mu \\
+    &amp;= -2t\int_M\left(|\text{Rc}|^2 + R_{ij}\varphi_i\varphi_j +
+\varphi^k\varphi^{\ell}R_{k\ell} -\frac{1}{t}R + \frac{1}{2}\Delta R -
+\langle\nabla R,\nabla\varphi\rangle + |\nabla\nabla\varphi|^2 -
+\frac{1}{t}\Delta\varphi + \frac{n}{4t^2}\right)ud\mu.
+\end{aligned}\]</span><span class="eqnos-number">(4.9)</span></span>
+</p>
+<p>where here <span class="math inline">\(u =
+(4\pi\tau)^{-n/2}e^{-\varphi}\)</span>. Assuming <span
+class="math inline">\(M\)</span> is closed so we can apply integration
+by parts, and using <span class="math inline">\(\nabla u =
+-u\nabla\varphi\)</span>, we have</p>
+<p><span class="math display">\[-\int_M \langle\nabla
+R,\nabla\varphi\rangle ud\mu = \int_M \langle \nabla R,\nabla u\rangle
+d\mu \\
+    = -\int_M \Delta R ud\mu,\]</span></p>
+<p>so (<a href="#eq:maincalcpequals2">4.9</a>) becomes</p>
+<p><span id="eq:maincalcpequals2closed" class="eqnos"><span
+class="math display">\[\frac{d}{dt}\tilde{\mathcal{W}_2} =
+-2t\int_M\left(|\text{Rc}|^2 + R_{ij}\varphi_i\varphi_j +
+\varphi^k\varphi^{\ell}R_{k\ell} -\frac{1}{t}R - \frac{1}{2}\Delta R +
+|\nabla\nabla\varphi|^2 - \frac{1}{t}\Delta\varphi +
+\frac{n}{4t^2}\right)ud\mu.
+\]</span><span class="eqnos-number">(4.10)</span></span> </p>
+<p>which unfortunately differs from the expected formula of</p>
+<p><span class="math display">\[\int_M\left|R_{ij} + \nabla_i\nabla_j
+\varphi - \frac{1}{2t}g_{ij}\right|^2ud\mu = \int_M\left(|\text{Rc}|^2 +
+2g^{ik}g^{j\ell}R_{k\ell}\nabla_i\nabla_j\varphi - \frac{1}{t}R +
+|\nabla\nabla\varphi|^2 - \frac{1}{t}\Delta\varphi +
+\frac{n}{4t^2}\right)ud\mu.\]</span></p>
+<p>Note that if instead we chose</p>
+<p><span class="math display">\[\frac{\partial\varphi}{\partial t} =
+\Lambda_p(\varphi) + R,\]</span></p>
+<p>then (<a href="#eq:maincalc2">4.8</a>) would instead become</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{d}{dt}\tilde{\mathcal{W}_p} &amp;= -tp \int_M
+\left(\left||\nabla\varphi|^{p-2}\nabla_i\nabla_j\varphi -
+\frac{1}{tp}a_{ij}\right|_A^2 + |\nabla
+\varphi|^{2p-4}R_{ij}\varphi_i\varphi_j\right)v^{p-1}d\mu \\
+        &amp;\qquad -tp\int_M\left(-\frac{2}{tp}R + \frac{1}{p}\Delta R
++ \frac{2}{p}|\text{Rc}|^2 +
+|\nabla\varphi|^{p-2}\varphi^k\varphi^{\ell}R_{k\ell} -
+|\nabla\varphi|^{p-2}\langle\nabla
+R,\nabla\varphi\rangle\right)v^{p-1}d\mu\end{aligned}\]</span></p>
+<p>which still reduces to (<a
+href="#eq:maincalcpequals2closed">4.10</a>) when taking <span
+class="math inline">\(p = 2\)</span>.</p>
+<h1 class="unnumbered" id="refernces">Refernces</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-Chowetal" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Sun-Chin Chu, David Glickenstein, Christine Guenther,
+James Isenberg, Tom Ivey, Dan Knopf, Peng Lu, Feng Luo, and Lei Ni.
+2007. <em>The Ricci Flow: Techniques and Applications: Part i: Geometric
+Aspects</em>. American Mathematical Society.
+</div>
+<div id="ref-ChowHamilton" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Peng Lu, and Lei Ni. 2006. <em>Hamilton’s Ricci
+Flow</em>. Lectures in Contemporary Mathematics. Science Press.
+</div>
+<div id="ref-KotschwarNi" class="csl-entry" role="doc-biblioentry">
+Kotschwar, Brett, and Lei Ni. 2009. <span>“Local Gradient Estimates of
+<span class="math inline">\(p\)</span>-Harmonic Functions, <span
+class="math inline">\(1/H\)</span>-Flow, and an Entropy Formula.”</span>
+<em>Annales Scientifiques de l’École Normale Supérieure</em>, 4th
+series, 42 (1): 1–36. https://doi.org/<a
+href="https://doi.org/10.24033/asens.2089">https://doi.org/10.24033/asens.2089</a>.
+</div>
+</div>
+</body>
+</html>

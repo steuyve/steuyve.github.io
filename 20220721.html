@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>20220721 Update Notes</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">20220721 Update Notes</h1>
+<p class="author">Stephen Shang Yi Liu</p>
+<p class="date">21 July 2022</p>
+</header>
+<p>When <span class="math inline">\(v\)</span> is a positive solution
+to</p>
+<p><span id="eq:parabolicplaplaceeqn" class="eqnos"><span
+class="math display">\[
+    \frac{\partial v^{p-1}}{\partial t} = (p-1)^{p-1}\text{div}(|\nabla
+v|^{p-2}\nabla v),
+\]</span><span class="eqnos-number">(0.1)</span></span> </p>
+<p>and <span class="math inline">\(\varphi\)</span> is defined such
+that</p>
+<p><span class="math display">\[
+    v^{p-1} = C \frac{e^{-\varphi}}{t^{n/p}},
+\]</span></p>
+<p>Where <span class="math inline">\(C\)</span> is some constant
+depending on the dimension <span class="math inline">\(n\)</span> and
+<span class="math inline">\(p\)</span>. When the entropy is defined
+as</p>
+<p><span class="math display">\[
+    \mathcal{W}_p(\varphi,t) = \int_M (t|\nabla\varphi|^p + \varphi -
+n)v^{p-1}d\mu,
+\]</span></p>
+<p>after some calculation, we have that</p>
+<p><span id="eq:expression" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{dt}\mathcal{W}_p(\varphi,t) &amp;= \int_M
+\left[|\nabla\varphi|^p v^{p-1} - tp|\nabla\varphi|^p\frac{\partial
+    v^{p-1}}{\partial t} - tp \left\langle \nabla \frac{\partial
+v^{p-1}}{\partial t}, \nabla\varphi\right\rangle\right] d\mu \\
+        &amp;\qquad + \int_M \left[ -\frac{n}{pt}v^{p-1} - (n+1 -
+\varphi)\frac{\partial v^{p-1}}{\partial t}\right]d\mu.
+\end{aligned}\]</span><span class="eqnos-number">(0.2)</span></span>
+</p>
+<p>where we have worked out that</p>
+<p><span class="math display">\[
+    \frac{\partial v^{p-1}}{\partial t} = -v^{p-1}|\nabla
+\varphi|^{p-2}\Delta\varphi + v^{p-1}|\nabla\varphi|^p -
+    v^{p-1}\langle\nabla|\nabla\varphi|^{p-2},\nabla\varphi\rangle,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+    \frac{\partial\varphi}{\partial t} =
+-\frac{1}{v^{p-1}}\frac{\partial v^{p-1}}{\partial t} - \frac{n}{pt}.
+\]</span></p>
+</body>
+</html>
