@@ -36,8 +36,7 @@ class="header-section-number">1</span> Introduction</h1>
 <p>Introductory notes on the short time existence and uniqueness of the
 Ricci flow following Sheridan’s <span class="citation"
 data-cites="Sheridan06">(<a href="#ref-Sheridan06"
-role="doc-biblioref">Sheridan 2006</a>)</span> (mostly Chapter 5 and
-Appendix A).</p>
+role="doc-biblioref">Sheridan 2006</a>)</span>.</p>
 <h1 data-number="2" id="time-evolving-metrics"><span
 class="header-section-number">2</span> Time-evolving Metrics</h1>
 <p>Let <span class="math inline">\((M, g(t))\)</span> be a Riemannian
@@ -158,10 +157,11 @@ the right hand side vanish and we have</p>
 \nabla_j(\partial_t\Gamma^\ell_{ik})(p).
 \]</span></p>
 <p>Clearly both sides are tensorial expressions, so we actually have</p>
-<p><span class="math display">\[
+<p><span id="eq:riemanncurvaturetensordifference" class="eqnos"><span
+class="math display">\[
     \partial_t {R_{ijk}}^\ell = \nabla_i(\partial_t \Gamma^\ell_{jk}) -
 \nabla_j(\partial_t \Gamma^\ell_{ik}).
-\]</span></p>
+\]</span><span class="eqnos-number">(2.4)</span></span> </p>
 <p>Then by (<a href="#eq:christoffelsymbols">2.1</a>), we can substitute
 expressions for <span
 class="math inline">\(\partial_t\Gamma^\ell_{jk}\)</span> and
@@ -203,12 +203,86 @@ h_{jk}) \\
 h_{ik}\right)
 \end{aligned}\]</span></p>
 <p>which matches (<a href="#eq:riemanncurvaturetensor">2.2</a>).</p>
-<p><strong>TODO: Prove (<a href="#eq:riccitensor">2.3</a>)</strong></p>
+<p>Finally, to prove (<a href="#eq:riccitensor">2.3</a>), we trace over
+the indices <span class="math inline">\(i\)</span> and <span
+class="math inline">\(\ell\)</span>. From (<a
+href="#eq:riemanncurvaturetensordifference">2.4</a>), we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial_t} R_{jk} &amp;=
+\text{tr}_{i\ell}\left(\frac{\partial}{\partial_t}{R_{ijk}}^\ell\right)
+\\
+    &amp;=
+\text{tr}_{i\ell}\left(\nabla_i\left(\partial_t\Gamma_{jk}^\ell\right) -
+    \nabla_j\left(\partial_t\Gamma_{ik}^\ell\right)\right) \\
+    &amp;= \nabla_m\left(\partial_t\Gamma_{jk}^m\right) -
+\nabla_j\left(\partial_t\Gamma_{mk}^m\right).
+\end{aligned}\]</span></p>
+<p>Then using (<a href="#eq:christoffelsymbols">2.1</a>) we compute</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla_m\partial_t\Gamma_{jk}^m &amp;=
+\nabla_m\left(\frac{1}{2}g^{mp}\left(\nabla_j h_{kp} + \nabla_k h_{jp} -
+    \nabla_p h_{jk}\right)\right) \\
+    &amp;= \frac{1}{2}g^{mp}\left(\nabla_m\nabla_j h_{kp} +
+\nabla_m\nabla_k h_{jp} - \nabla_m\nabla_p h_{jk}\right),
+\end{aligned}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla_j\partial_t\Gamma_{mk}^m &amp;=
+\nabla_j\left(\frac{1}{2}g^{mp}\left(\nabla_m h_{kp} + \nabla_k h_{mp} -
+    \nabla_p h_{mk}\right)\right) \\
+    &amp;= \frac{1}{2}g^{mp}\left(\nabla_j\nabla_m h_{kp} +
+\nabla_j\nabla_k h_{mp} - \nabla_j\nabla_p h_{mk}\right),
+\end{aligned}\]</span></p>
+<p>where we have used the metric compatibility of <span
+class="math inline">\(\nabla\)</span> with <span
+class="math inline">\(g\)</span> in the second equalities above.</p>
+<p>So we get that the difference is</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial_t} R_{jk} &amp;=
+\frac{1}{2}g^{mp}\left(\nabla_m\nabla_j h_{kp} + \nabla_m\nabla_k h_{jp}
+-
+    \nabla_m\nabla_p h_{jk} \right. \\
+    &amp;\qquad \left. - \nabla_j\nabla_m h_{kp} - \nabla_j\nabla_k
+h_{mp} + \nabla_j\nabla_p h_{mk}\right).
+\end{aligned}\]</span></p>
+<p>which, after renaming indices <span
+class="math inline">\(j,k\)</span> to <span
+class="math inline">\(i,j\)</span> and the dummy indices <span
+class="math inline">\(m,p\)</span> to <span
+class="math inline">\(k,\ell\)</span>, becomes</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial_t} R_{ij} &amp;=
+\frac{1}{2}g^{k\ell}\left(\nabla_k\nabla_i h_{j\ell} + \nabla_k\nabla_j
+h_{i\ell} -
+    \nabla_k\nabla_\ell h_{ij} \right. \\
+    &amp;\qquad \left. - \nabla_i\nabla_k h_{j\ell} - \nabla_i\nabla_j
+h_{k\ell} + \nabla_i\nabla_\ell h_{kj}\right).
+\end{aligned}\]</span></p>
+<p>which matches the formula shown on page 261 of <span class="citation"
+data-cites="Fong18">(<a href="#ref-Fong18" role="doc-biblioref">Fong
+2018</a>)</span>. To match (<a href="#eq:riccitensor">2.3</a>), note
+that since <span class="math inline">\(g^{k\ell}\)</span> is symmetric,
+we can interchange <span class="math inline">\(k,\ell\)</span> above and
+see that</p>
+<p><span class="math display">\[
+    -\nabla_i\nabla_\ell h_{jk} + \nabla_i\nabla_\ell h_{kj} =
+-\nabla_i\nabla_\ell h_{jk} + \nabla_i\nabla_\ell
+    h_{jk} = 0,
+\]</span></p>
+<p>so the last and second-to-last term above cancels and we finally
+arrive at</p>
+<p><span class="math display">\[
+    \frac{\partial}{\partial_t}R_{ij} =
+\frac{1}{2}g^{k\ell}\left(\nabla_k\nabla_i h_{j\ell} + \nabla_k\nabla_j
+h_{i\ell} -
+    \nabla_k\nabla_\ell h_{ij} - \nabla_i\nabla_j h_{k\ell}\right),
+\]</span></p>
+<p>and we are done.</p>
 </div>
 <h1 data-number="3" id="existence-theory-for-parabolic-pdes"><span
 class="header-section-number">3</span> Existence Theory for Parabolic
 PDEs</h1>
-<p>We first quote some basic definitions related to parabolic PDEs and
+<p>Now we quote some basic definitions related to parabolic PDEs and
 quote an existence and uniqueness result. Let <span
 class="math inline">\(M\)</span> be a Riemannian manifold and consider a
 vector bundle <span class="math inline">\(\pi:\mathcal{E}\to M\)</span>
@@ -352,6 +426,11 @@ class="header-section-number">5</span> The DeTurck Trick</h1>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
+<div id="ref-Fong18" class="csl-entry" role="doc-biblioentry">
+Fong, Frederick Tsz-Ho. 2018. <span>“Differentiable Manifolds &amp;
+Riemannian Geometry, Lecture Notes for MATH 4033 and MATH 6250i.”</span>
+Hong Kong University of Science; Technology.
+</div>
 <div id="ref-Sheridan06" class="csl-entry" role="doc-biblioentry">
 Sheridan, Nick. 2006. <span>“Hamilton’s Ricci Flow.”</span> Honour's
 Thesis, The University of Melbourne.
