@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bochner Formula Notes</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Bochner Formula Notes</h1>
+<p class="author">Stephen Shang Yi Liu</p>
+<p class="date">22 August 2022</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of Contents</h2>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#the-bochner-formula" id="toc-the-bochner-formula"><span
+class="toc-section-number">2</span> The Bochner Formula</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>Notes on the Bochner formula. Section 3 of <span class="citation"
+data-cites="li">(<a href="#ref-li" role="doc-biblioref">Li
+2012</a>)</span> provides a more general account of the Bochner formula
+for differential forms, while a few exercises and facts found in <span
+class="citation" data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> provide a shorter
+account for the Bochner formula for functions.</p>
+<h1 data-number="2" id="the-bochner-formula"><span
+class="header-section-number">2</span> The Bochner Formula</h1>
+<p>Let <span class="math inline">\((M,g)\)</span> be a Riemannian
+manifold. Recall that for a function <span
+class="math inline">\(f\)</span>, the Hessian in local coordinates is
+given by</p>
+<p><span class="math display">\[
+    \nabla_i\nabla_j f := (\nabla\nabla f)\left(\partial_i,
+\partial_j\right) = \frac{\partial^2
+    f}{\partial_i\partial_j} - \Gamma^k_{ij}\partial_k f.
+\]</span></p>
+<p>Then we define the Laplacian (also called the Laplace-Beltrami
+operator) as the divergence of the gradient</p>
+<p><span class="math display">\[
+    \Delta = \text{div}\nabla = \text{trace}_g\nabla^2 =
+g^{ij}\nabla_i\nabla_j =: \nabla_i\nabla_i,
+\]</span></p>
+<p>where for the last “equality” it is understood that we are summing
+over repeated indices.</p>
+<p>Also recall the commutation formulas (Ricci identities) for a 1-form
+<span class="math inline">\(\alpha\)</span>, then</p>
+<p><span class="math display">\[
+    \left(\nabla_i\nabla_j - \nabla_j\nabla_i\right)\alpha_k =
+-{R_{ijk}}^\ell \alpha_{\ell}.
+\]</span></p>
+<p>Then note that we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \Delta\nabla_i f &amp;= \nabla_j\nabla_j\nabla_i f \\
+    &amp;= \nabla_j\nabla_i\nabla_j f \\
+    &amp;= \nabla_i\nabla_j\nabla_j f - {R_{jij}}^\ell \nabla_j f
+\end{aligned}\]</span></p>
+<p>where we have used the symmetricity of the Hessian in the second
+equality. Then tracing over indices, we have</p>
+<p><span class="math display">\[
+    \Delta\nabla_i f = \nabla_i \Delta f + R_{ij}\nabla_j f.
+\]</span></p>
+<p>Now we are in a position to prove the Bochner formula for <span
+class="math inline">\(f\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+    \Delta|\nabla f|^2 &amp;= \nabla_i\nabla_i|\nabla_j f|^2 \\
+    &amp;= 2\nabla_i(\nabla_i\nabla_j f \nabla_j f) \\
+    &amp;= 2\nabla_i\nabla_j f \nabla_i\nabla_j f + 2 \Delta \nabla_j f
+\nabla_j f \\
+    &amp;= 2 |\nabla\nabla f|^2 + 2\Delta \nabla_j f \nabla_j f \\
+    &amp;= 2 |\nabla\nabla f|^2 + 2(\nabla_j \Delta f + R_{ji}\nabla_i
+f)\nabla_j f,
+\end{aligned}\]</span></p>
+<p>and interchanging <span class="math inline">\(i,j\)</span>, we
+obtain</p>
+<p><span class="math display">\[
+    \Delta|\nabla f|^2 = 2|\nabla\nabla f|^2 + 2 \nabla_i f \nabla_i
+\Delta f + 2 R_{ij}\nabla_i f \nabla_j f.
+\]</span></p>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-ChowHamilton" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Peng Lu, and Lei Ni. 2006. <em>Hamilton’s Ricci
+Flow</em>. Lectures in Contemporary Mathematics. Science Press.
+</div>
+<div id="ref-li" class="csl-entry" role="doc-biblioentry">
+Li, Peter. 2012. <em><span>G</span>eometric <span>A</span>nalysis</em>.
+<span>C</span>ambridge <span>S</span>tudies in <span>A</span>dvanced
+<span>M</span>athematics 134. Cambridge University Press.
+</div>
+</div>
+</body>
+</html>
