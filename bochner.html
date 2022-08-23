@@ -18,8 +18,16 @@
 <ul>
 <li><a href="#introduction" id="toc-introduction"><span
 class="toc-section-number">1</span> Introduction</a></li>
-<li><a href="#the-bochner-formula" id="toc-the-bochner-formula"><span
-class="toc-section-number">2</span> The Bochner Formula</a></li>
+<li><a href="#the-laplace-beltrami-operator"
+id="toc-the-laplace-beltrami-operator"><span
+class="toc-section-number">2</span> The Laplace-Beltrami
+Operator</a></li>
+<li><a href="#the-ricci-identity" id="toc-the-ricci-identity"><span
+class="toc-section-number">3</span> The Ricci Identity</a></li>
+<li><a href="#the-bochner-formula-for-functions"
+id="toc-the-bochner-formula-for-functions"><span
+class="toc-section-number">4</span> The Bochner Formula for
+Functions</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </nav>
@@ -31,66 +39,159 @@ data-cites="li">(<a href="#ref-li" role="doc-biblioref">Li
 for differential forms, while a few exercises and facts found in <span
 class="citation" data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
 role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> provide a shorter
-account for the Bochner formula for functions.</p>
-<h1 data-number="2" id="the-bochner-formula"><span
-class="header-section-number">2</span> The Bochner Formula</h1>
-<p>Let <span class="math inline">\((M,g)\)</span> be a Riemannian
-manifold. Recall that for a function <span
-class="math inline">\(f\)</span>, the Hessian in local coordinates is
-given by</p>
+account for the Bochner formula for functions. For now, we only give the
+account of the Bochner formula for functions and may add in the account
+of the Bochner formula for differential forms at a later date.</p>
+<h1 data-number="2" id="the-laplace-beltrami-operator"><span
+class="header-section-number">2</span> The Laplace-Beltrami
+Operator</h1>
+<p>Let <span class="math inline">\((M, g)\)</span> be a Riemannian
+manifold. First recall that for a smooth function <span
+class="math inline">\(f \in C^{\infty}(M)\)</span>, smooth vector fields
+<span class="math inline">\(X, Y\)</span> on <span
+class="math inline">\(M\)</span>, the covariant Hessian of <span
+class="math inline">\(f\)</span>, is given by (See Exercise 4.5 of <span
+class="citation" data-cites="Lee97">(<a href="#ref-Lee97"
+role="doc-biblioref">Lee 1997</a>)</span>)</p>
 <p><span class="math display">\[
-    \nabla_i\nabla_j f := (\nabla\nabla f)\left(\partial_i,
-\partial_j\right) = \frac{\partial^2
-    f}{\partial_i\partial_j} - \Gamma^k_{ij}\partial_k f.
+    \nabla^2f(X,Y) = Y(Xf) - (\nabla_YX)f.
 \]</span></p>
-<p>Then we define the Laplacian (also called the Laplace-Beltrami
-operator) as the divergence of the gradient</p>
-<p><span class="math display">\[
-    \Delta = \text{div}\nabla = \text{trace}_g\nabla^2 =
-g^{ij}\nabla_i\nabla_j =: \nabla_i\nabla_i,
-\]</span></p>
-<p>where for the last “equality” it is understood that we are summing
-over repeated indices.</p>
-<p>Also recall the commutation formulas (Ricci identities) for a 1-form
-<span class="math inline">\(\alpha\)</span>, then</p>
-<p><span class="math display">\[
-    \left(\nabla_i\nabla_j - \nabla_j\nabla_i\right)\alpha_k =
--{R_{ijk}}^\ell \alpha_{\ell}.
-\]</span></p>
-<p>Then note that we have</p>
+<p>Then taking coordinate vector fields <span
+class="math inline">\(\{\partial_i\}\)</span>, we have that in local
+coordinates, the covariant Hessian of <span
+class="math inline">\(f\)</span> is given by</p>
 <p><span class="math display">\[\begin{aligned}
-    \Delta\nabla_i f &amp;= \nabla_j\nabla_j\nabla_i f \\
-    &amp;= \nabla_j\nabla_i\nabla_j f \\
-    &amp;= \nabla_i\nabla_j\nabla_j f - {R_{jij}}^\ell \nabla_j f
+    \nabla^2f(\partial_i, \partial_j) &amp;= \partial_j\partial_i f -
+\nabla_{\partial_j}\partial_i f \\
+    &amp;= \frac{\partial^2 f}{\partial_j \partial_i} -
+\Gamma^k_{ji}\frac{\partial f}{\partial_k} \\
+    &amp;= \frac{\partial^2 f}{\partial_i\partial_j} -
+\Gamma^k_{ij}\frac{\partial f}{\partial_k},
 \end{aligned}\]</span></p>
-<p>where we have used the symmetricity of the Hessian in the second
-equality. Then tracing over indices, we have</p>
+<p>Where we used the symmetry of mixed partial derivatives and the
+Christoffel symbols in the last equality above. This is also Exercise
+1.14 of <span class="citation" data-cites="ChowHamilton">(<a
+href="#ref-ChowHamilton" role="doc-biblioref">Chow, Lu, and Ni
+2006</a>)</span>.</p>
+<p>Then we define the also called as the trace of the covariant Hessian
+(equivalently as the divergence of the covariant derivative). In other
+words, we have</p>
 <p><span class="math display">\[
-    \Delta\nabla_i f = \nabla_i \Delta f + R_{ij}\nabla_j f.
+    \Delta := \text{trace}_g\nabla^2 = g^{ij}\nabla_i\nabla_j.
 \]</span></p>
+<p>Note that this definition of the Laplacian is not just restricted to
+functions, but can also be extended to more general tensors.</p>
+<h1 data-number="3" id="the-ricci-identity"><span
+class="header-section-number">3</span> The Ricci Identity</h1>
+<p>Next we want to establish the Ricci identity for a 1-form ((1.30) of
+<span class="citation" data-cites="ChowHamilton">(<a
+href="#ref-ChowHamilton" role="doc-biblioref">Chow, Lu, and Ni
+2006</a>)</span>), which shows how commuting covariant derivatives can
+be expressed in terms of the curvature. Recall that the Riemann
+curvature <span class="math inline">\((3,1)\)</span>-tensor is given
+by</p>
+<p><span class="math display">\[
+    R(X,Y)Z = \nabla_X\nabla_Y Z - \nabla_Y\nabla_X Z - \nabla_{[X,Y]} Z
+\]</span></p>
+<p>and the components of the Riemann curvature tensor are given by</p>
+<p><span class="math display">\[
+    R(\partial_i,\partial_j)\partial_k =:
+{R_{ijk}}^{\ell}\partial_\ell,\qquad R_{ijk\ell} = g_{\ell
+m}{R_{ijk}}^m.
+\]</span></p>
+<p>Then we wish to show that for a 1-form <span
+class="math inline">\(\alpha: TM\to\mathbb{R}\)</span>$, we have</p>
+<p><span class="math display">\[
+    (\nabla_i\nabla_j - \nabla_j\nabla_i)\alpha_k =
+-{R_{ijk}}^\ell\alpha_\ell.
+\]</span></p>
+<p>Note we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla^2\alpha(Z,X,Y) &amp;= \nabla_Y(\nabla \alpha)(Z,X) \\
+    &amp;= \nabla_Y(\nabla \alpha(Z,X)) - \nabla\alpha(\nabla_YZ,X) -
+\nabla\alpha(Z,\nabla_YX) \\
+    &amp;= \nabla_Y\left(\nabla_X\alpha\right)(Z) -
+(\nabla_X\alpha)(\nabla_YZ) - \nabla_{\nabla_YX}\alpha(Z) \\
+    &amp;= \nabla_Y\nabla_X\alpha(Z) + (\nabla_X\alpha)(\nabla_YZ) -
+(\nabla_X\alpha)(\nabla_YZ) - \nabla_{\nabla_YX}\alpha(Z) \\
+    &amp;= \nabla_Y\nabla_X \alpha(Z) - \nabla_{\nabla_YX}\alpha(Z).
+\end{aligned}\]</span></p>
+<p>So we see that</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla^2\alpha(Z,X,Y) - \nabla^2\alpha(Z,Y,X) &amp;=
+\nabla_Y\nabla_X\alpha(Z) - \nabla_{\nabla_YX}\alpha(Z) -
+    \nabla_X\nabla_Y\alpha(Z) + \nabla_{\nabla_XY}\alpha(Z) \\
+    &amp;= -\left(\nabla_X\nabla_Y - \nabla_Y\nabla_X -
+\nabla_{[X,Y]}\right)\alpha(Z) \\
+    &amp;= -R(X,Y)\alpha(Z)
+\end{aligned}\]</span></p>
+<p>which in local coordinates becomes</p>
+<p><span class="math display">\[
+    \nabla_i\nabla_j\alpha_k - \nabla_j\nabla_i\alpha_k =
+-{R_{ijk}}^\ell\alpha_\ell
+\]</span></p>
+<p>as required. Here we used the fact that <span
+class="math inline">\(\nabla\)</span> is torsion free in the first
+equality above to get that <span
+class="math inline">\(\nabla_{\nabla_XY} - \nabla_{\nabla_YX} =
+\nabla_{[X,Y]}\)</span>.</p>
+<h1 data-number="4" id="the-bochner-formula-for-functions"><span
+class="header-section-number">4</span> The Bochner Formula for
+Functions</h1>
 <p>Now we are in a position to prove the Bochner formula for <span
-class="math inline">\(f\)</span></p>
-<p><span class="math display">\[\begin{aligned}
-    \Delta|\nabla f|^2 &amp;= \nabla_i\nabla_i|\nabla_j f|^2 \\
-    &amp;= 2\nabla_i(\nabla_i\nabla_j f \nabla_j f) \\
-    &amp;= 2\nabla_i\nabla_j f \nabla_i\nabla_j f + 2 \Delta \nabla_j f
-\nabla_j f \\
-    &amp;= 2 |\nabla\nabla f|^2 + 2\Delta \nabla_j f \nabla_j f \\
-    &amp;= 2 |\nabla\nabla f|^2 + 2(\nabla_j \Delta f + R_{ji}\nabla_i
-f)\nabla_j f,
-\end{aligned}\]</span></p>
-<p>and interchanging <span class="math inline">\(i,j\)</span>, we
-obtain</p>
+class="math inline">\(f\)</span>, which states that</p>
 <p><span class="math display">\[
-    \Delta|\nabla f|^2 = 2|\nabla\nabla f|^2 + 2 \nabla_i f \nabla_i
-\Delta f + 2 R_{ij}\nabla_i f \nabla_j f.
+    \Delta|\nabla f|^2 = 2|\nabla^2f|^2 + 2\langle\nabla\Delta f,\nabla
+f\rangle + 2\text{Rc}(\nabla f,\nabla f).
 \]</span></p>
+<p>We compute directly</p>
+<p><span class="math display">\[\begin{aligned}
+    \Delta|\nabla f|^2 &amp;= \Delta g^{k\ell}\nabla_k f \nabla_\ell f
+\\
+    &amp;= g^{ij}\nabla_i\nabla_j\left(g^{k\ell}\nabla_k f \nabla_\ell
+f\right) \\
+    &amp;= g^{ij}g^{k\ell}\nabla_i\left(\nabla_j\nabla_k f \nabla_\ell f
++ \nabla_k f \nabla_j\nabla_\ell f\right) \\
+    &amp;= g^{ij}g^{k\ell}\nabla_i\nabla_j\nabla_k f \nabla_\ell f +
+g^{ij}g^{k\ell}\nabla_j\nabla_k f \nabla_i\nabla_\ell f \\
+    &amp;\qquad + g^{ij}g^{k\ell}\nabla_i\nabla_k f \nabla_j\nabla_\ell
+f + g^{ij}g^{k\ell}\nabla_k f \nabla_i\nabla_j\nabla_\ell f \\
+    &amp;= 2|\nabla^2 f|^2 + 2 g^{ij}g^{k\ell} \nabla_i\nabla_j\nabla_k
+f \nabla_\ell f,
+\end{aligned}\]</span></p>
+<p>where the last equality is by symmetry of the metric inverse and
+remembering that <span class="math inline">\(|\nabla^2 f|^2 =
+g^{ik}g^{j\ell}\nabla_i\nabla_j f \nabla_k\nabla_\ell f\)</span>. Then
+by symmetry of the Hessian followed by using the Ricci identity
+established above, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \Delta|\nabla f|^2 &amp;=  2|\nabla^2 f|^2 + 2 g^{ij}g^{k\ell}
+\nabla_i\nabla_j\nabla_k f \nabla_\ell f \\
+    &amp;= 2|\nabla^2f|^2 + 2g^{ij}g^{k\ell}\nabla_i\nabla_k\nabla_j f
+\nabla_\ell f \\
+    &amp;= 2|\nabla^2f|^2 + 2g^{ij}g^{k\ell}\nabla_k\nabla_i\nabla_j f
+\nabla_\ell f - 2g^{ij}g^{k\ell}{R_{ikj}}^m\nabla_m
+    f\nabla_\ell f \\
+    &amp;= 2|\nabla^2f|^2 + 2g^{k\ell}\nabla_kg^{ij}\nabla_i\nabla_j f
+\nabla_\ell f + 2g^{ij}g^{k\ell}{R_{kij}}^m\nabla_m f \nabla_\ell f \\
+    &amp;= 2|\nabla^2f|^2 + 2\langle\nabla\Delta f,\nabla f\rangle +
+2g^{k\ell}{R_k}^m\nabla_m f \nabla_\ell f \\
+    &amp;= 2|\nabla^2f|^2 + 2\langle\nabla\Delta f,\nabla f\rangle +
+2\text{Rc}(\nabla f,\nabla f),
+\end{aligned}\]</span></p>
+<p>as required.</p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
 <div id="ref-ChowHamilton" class="csl-entry" role="doc-biblioentry">
 Chow, Bennett, Peng Lu, and Lei Ni. 2006. <em>Hamilton’s Ricci
 Flow</em>. Lectures in Contemporary Mathematics. Science Press.
+</div>
+<div id="ref-Lee97" class="csl-entry" role="doc-biblioentry">
+Lee, John M. 1997. <em><span>R</span>iemannian <span>M</span>anifolds:
+<span>A</span>n <span>I</span>ntroduction to
+<span>C</span>urvature</em>. <span>G</span>raduate <span>T</span>exts in
+<span>M</span>athematics. Springer.
 </div>
 <div id="ref-li" class="csl-entry" role="doc-biblioentry">
 Li, Peter. 2012. <em><span>G</span>eometric <span>A</span>nalysis</em>.
