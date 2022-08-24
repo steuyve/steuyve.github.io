@@ -11,7 +11,7 @@
 <header id="title-block-header">
 <h1 class="title">Notes on Ricci-DeTurck Flow</h1>
 <p class="author">Stephen Shang Yi Liu</p>
-<p class="date">June 2022</p>
+<p class="date">24 August 2022</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table of Contents</h2>
@@ -39,12 +39,15 @@ class="toc-section-number">4.1</span> The DeTurck Trick</a></li>
 <h1 data-number="1" id="introduction"><span
 class="header-section-number">1</span> Introduction</h1>
 <p>Introductory notes on the short-time existence and uniqueness of the
-Ricci flow following Sheridan’s <span class="citation"
+Ricci flow following Sheridan’s notes <span class="citation"
 data-cites="Sheridan06">(<a href="#ref-Sheridan06"
 role="doc-biblioref">Sheridan 2006</a>)</span>. We will see that the
 Ricci flow is not strongly parabolic and therefore need to introduce a
 modification to the Ricci flow called the “DeTurck trick” and the
-Ricci-DeTurck flow to obtain existence results.</p>
+Ricci-DeTurck flow to obtain existence results. Note that <span
+class="citation" data-cites="ChowHamilton">(<a href="#ref-ChowHamilton"
+role="doc-biblioref">Chow, Lu, and Ni 2006</a>)</span> Sections 2.2,
+2.5-2.6 also provide an account of the Ricci-DeTurck flow.</p>
 <h1 data-number="2" id="time-evolving-metrics"><span
 class="header-section-number">2</span> Time-evolving Metrics</h1>
 <p>Let <span class="math inline">\((M, g(t))\)</span> be a Riemannian
@@ -299,10 +302,12 @@ Let <span class="math inline">\(u:M\times[0,T) \to \mathcal{E}\)</span>
 be some time-dependent section of <span
 class="math inline">\(\mathcal{E}\)</span>. Then we are interested in
 the system</p>
-<p><span id="eq:pdesystem" class="eqnos"><span class="math display">\[
-    \begin{cases} &amp;\frac{\partial u}{\partial t} = L(u) \\
-        &amp; u(x,0) = u_0(x) \end{cases}
-\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p><span id="eq:pdesystem" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial u}{\partial t} &amp;= L(u), \\
+    u(x,0) &amp;= u_0(x),
+\end{aligned}\]</span><span class="eqnos-number">(3.1)</span></span>
+</p>
 <p>where <span class="math inline">\(L:C^\infty(\mathcal{E}) \to
 C^\infty(\mathcal{E})\)</span> is some differential operator. Let us
 first consider the case where <span class="math inline">\(L\)</span> is
@@ -351,7 +356,7 @@ a_{ij}\varphi^i\varphi^j u + \sum\limits_{i} b_i\varphi^i u +
 order derivative terms of the total symbol, i.e.</p>
 <p><span class="math display">\[\begin{aligned}
     &amp;\hat{\sigma}[L](\varphi)(u) := \sum\limits_{|\alpha| =
-k}L_\alpha(u)\prod_j\varphi^{\alpha_j} \\
+k}L_\alpha(u)\prod_j\varphi^{\alpha_j}, \\
     &amp;\hat{\sigma}[\overline{L}](\varphi)(u) = \sum\limits_{i,j}
 a_{ij}\varphi^i\varphi^j u.
 \end{aligned}\]</span></p>
@@ -396,7 +401,7 @@ class="math inline">\(u:[0,1] \to C^\infty(\mathcal{E})\)</span> is a
 time-dependent section of <span
 class="math inline">\(\mathcal{E}\)</span> such that</p>
 <p><span class="math display">\[\begin{aligned}
-    u(0) &amp;= u_0 \\
+    u(0) &amp;= u_0, \\
     u&#39;(0) &amp;= v,
 \end{aligned}\]</span></p>
 <p>then we define the linearization of <span
@@ -410,14 +415,14 @@ C^\infty(\mathcal{E})\)</span> so that</p>
 <p>Then we say the non-linear operator <span
 class="math inline">\(L\)</span> is <em>strongly parabolic</em> at <span
 class="math inline">\(u_0\)</span>, if the linear system</p>
-<p><span class="math display">\[
-    \begin{cases} \frac{\partial u}{\partial t} &amp;= D[L](u) \\
-        u(x,0) &amp;= u_0(x) \end{cases}
-\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial u}{\partial t} &amp;= D[L](u), \\
+    u(x,0) &amp;= u_0(x),
+\end{aligned}\]</span></p>
 <p>is strongly parabolic in the sense for linear operators above. Then
 we have the following short-time existence and uniqueness result for
 strongly parabolic systems.</p>
-<div class="statement theorem plain">
+<div id="thm:parabolicexistence" class="statement theorem plain">
 <p><span class="statement-heading"><span class="statement-label">Theorem
 3.1</span> <span class="statement-info">(Short-time existence and
 uniqueness of strongly parabolic PDEs)</span>.</span><span
@@ -433,11 +438,10 @@ Ricci Flow</h1>
 and a time-dependent metric <span class="math inline">\(g(t)\)</span>
 with initial metric <span class="math inline">\(g_0\)</span>, the Ricci
 flow is the following PDE that evolves metric tensor</p>
-<p><span class="math display">\[
-    \begin{cases} \frac{\partial g}{\partial_t} &amp;=
--2\text{Rc}(g(t)), \\
-    g(0) &amp;= g_0. \end{cases}
-\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t g(t) &amp;= -2\text{Rc}(g(t)), \\
+    g(0) &amp;= g_0.
+\end{aligned}\]</span></p>
 <p>Where <span class="math inline">\(\text{Rc}(g(t))\)</span> denotes
 the Ricci curvature of the metric <span
 class="math inline">\(g(t)\)</span>. The idea is that if we can show
@@ -445,11 +449,11 @@ this system to be strongly parabolic, then the existence theory for
 strongly parabolic PDE will give us a short-time existence result for
 the Ricci flow. To do this, our first step is to linearize the Ricci
 tensor. By (<a href="#eq:riccitensor">2.3</a>) above, we have</p>
-<p><span class="math display">\[
+<p><span id="eq:linRF" class="eqnos"><span class="math display">\[
     D[\text{Rc}](h)_{ij} = \frac{1}{2}g^{pq}\left(-\nabla_p\nabla_q
 h_{ij} - \nabla_i\nabla_j h_{pq} + \nabla_q\nabla_i
     h_{jp} + \nabla_q\nabla_j h_{ip}\right),
-\]</span></p>
+\]</span><span class="eqnos-number">(4.1)</span></span> </p>
 <p>where we have interchanged the indices <span
 class="math inline">\(p\)</span> and <span
 class="math inline">\(q\)</span> in the last two terms which we can do
@@ -482,7 +486,14 @@ class="math inline">\(h_{ij} \neq 0\)</span>, then we need</p>
 class="header-section-number">4.1</span> The DeTurck Trick</h2>
 <p>In this section we demonstrate “DeTurck’s trick” for turning the
 Ricci flow system into one that is strongly parabolic, from which we can
-obtain a short-time existence result. Let</p>
+obtain a short-time existence result. We start with the following
+lemma.</p>
+<div id="lem:V" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+4.1</span> <span class="statement-info">(<span class="citation"
+data-cites="Sheridan06">(<a href="#ref-Sheridan06"
+role="doc-biblioref">Sheridan 2006</a>)</span>, Lemma
+5.3)</span>.</span><span class="statement-spah"> </span>Let</p>
 <p><span class="math display">\[
     V_i = g^{pq}\left(\frac{1}{2}\nabla_i h_{pq} - \nabla_q
 h_{pi}\right),
@@ -494,10 +505,223 @@ as</p>
 class="math display">\[
     D[-2\text{Rc}](h)_{ij} = g^{pq}\nabla_p\nabla_q h_{ij} + \nabla_i
 V_j + \nabla_j V_i + l.o.t.(h).
-\]</span><span class="eqnos-number">(4.1)</span></span> </p>
+\]</span><span class="eqnos-number">(4.2)</span></span> </p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>By the Ricci identity, commuting
+covariant derivatives, we have</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla_q\nabla_i h_{jp} &amp;= \nabla_i\nabla_q h_{jp} -
+R^r_{qij}h_{rp} - R^r_{qip}h_{jr} \\
+    &amp;= \nabla_i\nabla_qh_{jp} - l.o.t.(h).
+\end{aligned}\]</span></p>
+<p>So for in the principal symbol for the Ricci flow operator, which
+only contains the highest order term, we can rearrange (<a
+href="#eq:linRF">4.1</a>) by commuting covariant derivatives to
+obtain</p>
+<p><span class="math display">\[\begin{aligned}
+    D[-2\text{Rc}](h)_{ij} &amp;= g^{pq}\nabla_p\nabla_qh_{ij} +
+g^{pq}\nabla_i\left(\frac{1}{2}\nabla_jh_{pq}-\nabla_qh_{jp}\right) \\
+        &amp;\qquad + g^{pq}\nabla_j\left(\frac{1}{2}\nabla_ih_{pq} -
+\nabla_qh_{ip}\right) + l.o.t.(h) \\
+    &amp;= g^{pq}\nabla_p\nabla_qh_{ij} + \nabla_iV_j + \nabla_jV_i +
+l.o.t.(h),
+\end{aligned}\]</span></p>
+<p>where we used the metric compatibility of the connection with <span
+class="math inline">\(g\)</span> to commute <span
+class="math inline">\(g^{pq}\)</span> with <span
+class="math inline">\(\nabla_i\)</span> and with <span
+class="math inline">\(\nabla_j\)</span> above.</p>
+</div>
+<p>The first term above <span
+class="math inline">\(g^{pq}\nabla_p\nabla_q h_{ij} = \Delta
+h_{ij}\)</span> is good since the Laplacian has a strictly positive
+principal symbol, so it is not the term contributing to
+non-parabolicity. Rather, the terms involving <span
+class="math inline">\(V\)</span> are the ones contributing to
+non-parabolicity, so we need to deal with those terms.</p>
+<div id="thm:ricciflowexistence" class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+4.2</span>.</span><span class="statement-spah"> </span>Given a closed
+Riemannian manifold <span class="math inline">\(M\)</span> with initial
+metric <span class="math inline">\(g_0\)</span>, there exists a <span
+class="math inline">\(T &gt; 0\)</span> such that a unique <span
+class="math inline">\(g(t)\)</span> that satisfies</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t g(t) &amp;= -2\text{Rc}(g(t)), \\
+    g(0) &amp;= g_0,
+\end{aligned}\]</span></p>
+<p>exists and is smooth on <span
+class="math inline">\([0,T)\)</span>.</p>
+</div>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span>.</span><span
+class="statement-spah"> </span>Our strategy to force a parabolic system
+is to introduce a time-dependent reparametrization of the manifold. We
+seek a differential operator <span class="math inline">\(P\)</span> such
+that the system</p>
+<p><span class="math display">\[
+    \partial_t \bar{g}(t) = P(\bar{g}(t))
+\]</span></p>
+<p>is parabolic, and a time-dependent diffeomorphism <span
+class="math inline">\(\varphi_t: M\to M\)</span> which has <span
+class="math inline">\(\varphi_0 = \text{id}\)</span> and so that</p>
+<p><span id="eq:diffeorel" class="eqnos"><span class="math display">\[
+    g(t) = \varphi_t^\ast\bar{g}(t)
+\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+<p>is a solution to the Ricci flow. By the relationship (<a
+href="#eq:diffeorel">4.3</a>), we have that</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t g_t &amp;= \partial_t(\varphi_t^\ast\bar{g}_t) \\
+    &amp;= \partial_s(\varphi_{t+s}^\ast\bar{g}_{t+s})|_{s=0} \\
+    &amp;= \left(\varphi_t^\ast\partial_s\bar{g}_{t+s}\right)|_{s=0} +
+    \left(\partial_s(\varphi_{t+s}\bar{g}_t)\right)|_{s=0} \\
+    &amp;= \varphi_t^\ast P(\bar{g}_t) +
+\varphi_t^\ast\mathcal{L}_{\partial_t\varphi_t}\bar{g}_t,
+\end{aligned}\]</span></p>
+<p>by the product rule in the third equality and the rule for the Lie
+derivative on tensors in the last equality above. Choosing <span
+class="math inline">\(\varphi_t\)</span> to take the form</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t \varphi_t &amp;= W(t), \\
+    \varphi_0 &amp;= \text{id},
+\end{aligned}\]</span></p>
+<p>for some time-dependent vector field <span
+class="math inline">\(W(t)\)</span>, reduces the problem to finding a
+differential operator <span class="math inline">\(P\)</span> that is
+strongly parabolic, and a time-dependent vector field <span
+class="math inline">\(W(t)\)</span> such that if <span
+class="math inline">\(\varphi_t\)</span> satisfies (<a
+href="#eq:diffeorel">4.3</a>), then</p>
+<p><span class="math display">\[
+    \varphi_t^\ast P(\bar{g}_t) + \varphi_t^\ast
+\mathcal{L}_{W(t)}\bar{g}_t = -2\text{Rc}(\varphi_t^\ast\bar{g}_t) =
+    -2\varphi_t^\ast\text{Rc}(\bar{g}_t),
+\]</span></p>
+<p>where we have used the diffeomorphism invariance of the Ricci tensor.
+The above is then equivalent to</p>
+<p><span class="math display">\[
+    P(\bar{g}_t) = -2\text{Rc}(\bar{g}_t) - \mathcal{L}_{W(t)}\bar{g}_t.
+\]</span></p>
+<p>Recall on <span class="math inline">\((M,g)\)</span> that for a
+vector field <span class="math inline">\(X\)</span>, the Lie derivative
+with respect to <span class="math inline">\(X\)</span> of the metric is
+given in coordinates by</p>
+<p><span class="math display">\[
+    \left(\mathcal{L}_Xg\right)_{ij} = \nabla_iX_j + \nabla_jX_i,
+\]</span></p>
+<p>so we have</p>
+<p><span class="math display">\[
+    \left(\mathcal{L}_{W(t)}\bar{g}_t\right)_{ij} = \nabla_iW_j +
+\nabla_jW_i.
+\]</span></p>
+<p>We can use lemma <a href="#lem:V" title="4.1">4.1</a> to write the
+linearization of <span class="math inline">\(P\)</span> as</p>
+<p><span class="math display">\[\begin{aligned}
+    D[P](h)_{ij} &amp;= g^{pq}\nabla_p\nabla_qh_{ij} + \nabla_iV_j +
+\nabla)jV)i \\
+        &amp;\qquad + l.o.t.(h) - D[\nabla_iW_j + \nabla_jW_i](h)_{ij}.
+\end{aligned}\]</span></p>
+<p>Our goal is to do away with the terms involving <span
+class="math inline">\(V\)</span>, that is, we want to choose <span
+class="math inline">\(W\)</span> so that the expression <span
+class="math inline">\(\nabla_iV_j + \nabla_jV_i - D[\nabla_iW_j +
+\nabla_jW_i](h)\)</span> cancels out. Since for vector field <span
+class="math inline">\(Y\)</span> we have that</p>
+<p><span class="math display">\[
+    \nabla_i Y = \partial_i Y + \Gamma^k_{ij}Y^j,
+\]</span></p>
+<p>the highest order term is <span class="math inline">\(\partial_i
+Y\)</span>, so to a principal symbol, <span
+class="math inline">\(\nabla_i\)</span> can be replaced by <span
+class="math inline">\(\partial_i\)</span>. In that case, the principal
+part of <span class="math inline">\(D[\nabla_iW_j](h)\)</span> is given
+by</p>
+<p><span class="math display">\[
+    \partial_t\partial_iW_j(g(t)) = \partial_i\partial_tW_j(g(t)) =
+\partial_iD[W_j](h)
+\]</span></p>
+<p>So the requirement that</p>
+<p><span class="math display">\[\begin{aligned}
+    \nabla_iV_j + \nabla_jV_i &amp;= D[\nabla_iW_j + \nabla_jW_i](h) \\
+    &amp;= D[\nabla_iW_j](h) + D[\nabla_jW_i](h) \\
+    &amp;= \nabla_iD[W_j](h) + \nabla_jD[W_i](h)
+\end{aligned}\]</span></p>
+<p>up to highest order term is equivalent to the requirement that</p>
+<p><span class="math display">\[
+    V_i = D[W_i](h)
+\]</span></p>
+<p>up to highest order term.</p>
+<p>Remember that <span class="math inline">\(V_i\)</span> is given
+by</p>
+<p><span class="math display">\[\begin{aligned}
+    V_i &amp;= g^{pq}\left(\frac{1}{2}\nabla_ih_{pq} -
+\nabla_ph_{qi}\right) \\
+    &amp;= -\frac{1}{2}g^{pq}\left(\nabla_ph_{qi} + \nabla_qh_{pi} -
+\nabla_ih_{pq}\right),
+\end{aligned}\]</span></p>
+<p>and that by (<a href="#eq:christoffelsymbols">2.1</a>), we have</p>
+<p><span class="math display">\[
+    D[\Gamma^k_{ij}](h) = \partial_t\left(\Gamma^k_{ij}(g(t))\right) =
+\frac{1}{2}g^{k\ell}\left(\nabla_ih_{j\ell} +
+    \nabla_jh_{i\ell} - \nabla_\ell h_{ij}\right).
+\]</span></p>
+<p>This suggests we try defining <span class="math inline">\(W\)</span>
+by</p>
+<p><span class="math display">\[
+    W_i = -g^{pq}g_{ij}\Gamma^j_{pq},
+\]</span></p>
+<p>however, this is not tensorial since Christoffel symbols are not
+tensors. We can amend this by remembering that the difference of
+Christoffel symbols is a tensor, so we introduce <span
+class="math inline">\(\tilde{\Gamma}^j_{pq}\)</span> the Christoffel
+symbols associated with a fixed constant connection independent of the
+metric, and we instead define <span class="math inline">\(W\)</span>
+by</p>
+<p><span class="math display">\[
+    W_i = -g^{pq}g_{ij}\left(\Gamma^j_{pq} -
+\tilde{\Gamma}^j_{pq}\right),
+\]</span></p>
+<p>which produces the vector field <span
+class="math inline">\(W(t)\)</span> as required. Then by engineering
+<span class="math inline">\(W(t)\)</span>, we have that</p>
+<p><span class="math display">\[
+    \hat{\sigma}(D[P])(\varphi)(h)_{ij} = g^{pq}\varphi_p\varphi_qh_{ij}
+\Rightarrow
+    \langle\hat{\sigma}(D[P])(\varphi)(h),h\rangle = |\varphi|^2|h|^2
+&gt; 0
+\]</span></p>
+<p>Then the Ricci-DeTurck flow defined by</p>
+<p><span class="math display">\[
+    \partial_t \bar{g}_{ij} = P(\bar{g}) = -2\bar{R}_{ij} + \nabla_iW_j
++ \nabla_jW_i
+\]</span></p>
+<p>is strictly parabolic and therefore a short-time solution exists by
+Theorem <a href="#thm:parabolicexistence" title="3.1">3.1</a>.</p>
+<p>Then as long as the unique short-time solution <span
+class="math inline">\(\bar{g}_t\)</span> to the Ricci-DeTurck flow
+exists, <span class="math inline">\(W(t)\)</span> will exist and we can
+obtain the diffeomorphisms <span
+class="math inline">\(\varphi_t\)</span> by solving the ODE</p>
+<p><span class="math display">\[\begin{aligned}
+    \partial_t \varphi_t &amp;= W(t) \\
+    \varphi_0 &amp;= \text{id}.
+\end{aligned}\]</span></p>
+<p>Then we can obtain the metrics <span class="math inline">\(g_t =
+\varphi_t^\ast\bar{g}_t\)</span> by pulling back by <span
+class="math inline">\(\varphi_t\)</span> to obtain a unique solution to
+the Ricci flow as required.</p>
+</div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">
+<div id="ref-ChowHamilton" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Peng Lu, and Lei Ni. 2006. <em>Hamilton’s Ricci
+Flow</em>. Lectures in Contemporary Mathematics. Science Press.
+</div>
 <div id="ref-Fong18" class="csl-entry" role="doc-biblioentry">
 Fong, Frederick Tsz-Ho. 2018. <span>“Differentiable Manifolds &amp;
 Riemannian Geometry, Lecture Notes for MATH 4033 and MATH 6250i.”</span>
