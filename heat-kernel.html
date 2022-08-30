@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Notes on the Heat Kernel</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Notes on the Heat Kernel</h1>
+<p class="author">Stephen Shang Yi Liu</p>
+<p class="date">30 August 2022</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of Contents</h2>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#the-heat-equation" id="toc-the-heat-equation"><span
+class="toc-section-number">2</span> The Heat Equation</a></li>
+<li><a href="#the-maximum-principle-for-the-heat-equation"
+id="toc-the-maximum-principle-for-the-heat-equation"><span
+class="toc-section-number">3</span> The Maximum Principle for the Heat
+Equation</a></li>
+<li><a href="#existence-of-the-heat-kernel"
+id="toc-existence-of-the-heat-kernel"><span
+class="toc-section-number">4</span> Existence of the Heat
+Kernel</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>Notes on the existence and uniqueness of the heat kernel on a
+Riemannian manifold subject to Dirichlet and Neumann boundary
+conditions. Again, we are mostly following the treatment in Chapter 10
+of <span class="citation" data-cites="Li">(<a href="#ref-Li"
+role="doc-biblioref">Li 2012</a>)</span>.</p>
+<h1 data-number="2" id="the-heat-equation"><span
+class="header-section-number">2</span> The Heat Equation</h1>
+<p>Given <span class="math inline">\(0 &lt; T \leq \infty\)</span>, on
+<span class="math inline">\(M \times (0,T)\)</span> the heat equation is
+given by</p>
+<p><span id="eq:heateq" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \Delta\right)f(x,t) = 0,
+\]</span><span class="eqnos-number">(2.1)</span></span> </p>
+<p>with the initial data</p>
+<p><span id="eq:initialdata" class="eqnos"><span class="math display">\[
+    \lim\limits_{t\to0} f(x,t) = f_0(x).
+\]</span><span class="eqnos-number">(2.2)</span></span> </p>
+<p>Note that the heat operator <span class="math inline">\(\partial_t -
+\Delta\)</span> is often denoted by <span
+class="math inline">\(\square\)</span>. When <span
+class="math inline">\(M\)</span> is compact with boundary, we can
+consider the following boundary conditions:</p>
+<ol type="1">
+<li>Dirichlet boundary condition</li>
+</ol>
+<p><span id="eq:Dirichlet" class="eqnos"><span class="math display">\[
+    f(x,t) = 0 \text{ on } \partial M \times (0,\infty),
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+<ol start="2" type="1">
+<li>Neumann boundary condition</li>
+</ol>
+<p><span id="eq:Neumann" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial\nu}f(x,t) = 0 \text{ on } \partial M \times
+(0,\infty),
+\]</span><span class="eqnos-number">(2.4)</span></span> </p>
+<p>where <span class="math inline">\(\nu\)</span> denotes the outward
+pointing normal to <span class="math inline">\(\partial M\)</span>. Note
+that the parabolic boundary <span class="math inline">\(\Gamma :=
+\partial(M\times(0,T))\)</span> is given by <span
+class="math inline">\(\left(\partial M \times (0,T)\right) \cup \left(M
+\times \{0\}\right)\)</span>.</p>
+<h1 data-number="3"
+id="the-maximum-principle-for-the-heat-equation"><span
+class="header-section-number">3</span> The Maximum Principle for the
+Heat Equation</h1>
+<p>We now quote (without proof) the maximum principle for the heat
+equation.</p>
+<div id="thm:MP" class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+3.1</span> <span class="statement-info">(Theorem 4, Section 2.4 of <span
+class="citation" data-cites="Evans">(<a href="#ref-Evans"
+role="doc-biblioref">Evans 2010</a>)</span>)</span>.</span><span
+class="statement-spah"> </span>Suppose <span
+class="math inline">\(f\)</span> solves the heat equation. Then</p>
+<ol type="1">
+<li>Maximum Principle: Then</li>
+</ol>
+<p><span class="math display">\[
+    \sup\limits_{\bar{M}\times(0,T)} f(x,t) = \sup\limits_{\Gamma}
+f(x,t).
+\]</span></p>
+<ol start="2" type="1">
+<li>Strong Maximum Principle: If <span class="math inline">\(M\)</span>
+is connected and there exists a point <span class="math inline">\((x_0,
+t_0) \in M\times(0,T)\)</span>, such that</li>
+</ol>
+<p><span class="math display">\[
+    f(x_0,t_0) = \sup\limits_{\bar{M}\times(0,T)} f(x,t),
+\]</span></p>
+<p>then <span class="math inline">\(f\)</span> is constant in <span
+class="math inline">\(\bar{M}\times(0,t_0)\)</span>.</p>
+</div>
+<p>Evans proves this by establishing a mean value property for the heat
+equation. See Theorem 4 of Section 2.3 of <span class="citation"
+data-cites="Evans">(<a href="#ref-Evans" role="doc-biblioref">Evans
+2010</a>)</span> for details. There, <span
+class="math inline">\(M\)</span> is replaced by open domains <span
+class="math inline">\(U \subset \mathbb{R}^n\)</span>, but this is fine
+for our purposes since we can embed <span
+class="math inline">\(M\)</span> in <span
+class="math inline">\(\mathbb{R}^N\)</span> for some large enough <span
+class="math inline">\(N\)</span>.</p>
+<h1 data-number="4" id="existence-of-the-heat-kernel"><span
+class="header-section-number">4</span> Existence of the Heat Kernel</h1>
+<p>The fundamental solution of the heat equation is a kernel function
+<span class="math inline">\(H(x,y,t)\)</span> defined on <span
+class="math inline">\(M \times M \times (0,\infty)\)</span> such that
+<span class="math inline">\(f(x,t)\)</span> defined by</p>
+<p><span class="math display">\[
+    f(x,t) = \int_M H(x,y,t)f_0(y)dy
+\]</span></p>
+<p>satisfies (<a href="#eq:heateq">2.1</a>) and (<a
+href="#eq:initialdata">2.2</a>). When additionally <span
+class="math inline">\(f(x,t)\)</span> satisfied the Dirichlet boundary
+condition, we call <span class="math inline">\(H\)</span> the Dirichlet
+heat kernel and likewise for the Neumann boundary condition. We have the
+following theorem establishing the existence of a unique Dirichlet heat
+kernel.</p>
+<div id="thm:DirichletHeatKernel" class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+4.1</span> <span class="statement-info">(Theorem 10.1 of <span
+class="citation" data-cites="Li">(<a href="#ref-Li"
+role="doc-biblioref">Li 2012</a>)</span>)</span>.</span><span
+class="statement-spah"> </span>Let <span
+class="math inline">\(M\)</span> be a compact manifold with boundary.
+There exists a unique kernel function <span
+class="math inline">\(H(x,y,t)\)</span> defined on <span
+class="math inline">\(M \times M \times (0,\infty)\)</span> such that
+for any <span class="math inline">\(f_0 \in L^2(M)\)</span>, the
+function defined by</p>
+<p><span class="math display">\[
+    f(x,t) = \int_M H(x,y,t)f_0(y)dy,
+\]</span></p>
+<p>satisfies (<a href="#eq:heateq">2.1</a>), (<a
+href="#eq:initialdata">2.2</a>) and the Dirichlet boundary condition (<a
+href="#eq:Dirichlet">2.3</a>). Moreover, <span
+class="math inline">\(H(x,y,t)\)</span> is positive on <span
+class="math inline">\((M\setminus\partial M) \times (M\setminus\partial
+M) \times (0,\infty)\)</span> and satisfies</p>
+<p><span class="math display">\[
+    \int_M H(x,y,t) \leq 1.
+\]</span></p>
+</div>
+<p>Before moving to the proof, we first state the following lemma about
+estimating the dimension of a linear space.</p>
+<div id="lem:dimlinearspace" class="statement lemma plain">
+<p><span class="statement-heading"><span class="statement-label">Lemma
+4.2</span> <span class="statement-info">(Lemma 7.3 of <span
+class="citation" data-cites="Li">(<a href="#ref-Li"
+role="doc-biblioref">Li 2012</a>)</span>)</span>.</span><span
+class="statement-spah"> </span>Let <span
+class="math inline">\(E\)</span> be a finite dimensional space of <span
+class="math inline">\(L^2\)</span> functions defined over a set <span
+class="math inline">\(D\)</span>. Then there exists a <span
+class="math inline">\(g \in E\)</span> such that</p>
+<p><span class="math display">\[
+    \dim E\int_D g^2 \leq V(D)\sup\limits_Dg^2.
+\]</span></p>
+</div>
+<p>Now we move on to the proof of the above theorem.</p>
+<div class="statement proof proof unnumbered">
+<p><span class="statement-heading"><span
+class="statement-label">Proof</span> <span class="statement-info">(Proof
+of theorem <a href="#thm:DirichletHeatKernel"
+title="4.1">4.1</a>)</span>.</span><span class="statement-spah">
+</span>By the elliptic theory, there exists a discrete, countably
+infinity set of eigenvalues <span
+class="math inline">\(\{\mu_1\leq\mu_2\leq\dots\}\)</span> with
+associated eigenfunctions <span
+class="math inline">\(\{\phi_i\}\)</span> for the Laplacian, that is,
+for each <span class="math inline">\(i\)</span>, we have</p>
+<p><span class="math display">\[
+    \Delta\phi_i = -\mu_i\phi_i
+\]</span></p>
+<p>such that the <span class="math inline">\(\phi_i\)</span>’s form an
+orthonormal basis with respect to the <span
+class="math inline">\(L^2\)</span> norm. See Section 8.12 of <span
+class="citation" data-cites="GT">(<a href="#ref-GT"
+role="doc-biblioref">Gilbarg and Trudinger 2001</a>)</span>. Let <span
+class="math inline">\(f_0 \in L^2(M)\)</span>. Since the <span
+class="math inline">\(\phi_i\)</span>’s are an orthonormal basis for
+<span class="math inline">\(L^2(M\)</span>), we can write</p>
+<p><span class="math display">\[
+    f_0(x) = \sum\limits_{i=1}^\infty a_i\phi_i(x), \text{ with } a_i =
+\int_M f_0\phi_i dx.
+\]</span></p>
+<p>This is because</p>
+<p><span class="math display">\[
+    a_i = \int_M a_i \phi_i^2 dx = \int_M \left(\sum\limits_{j=1}^\infty
+a_j\phi_j\right)\phi_i dx = \int_M
+    f_0\phi_idx,
+\]</span></p>
+<p>since</p>
+<p><span class="math display">\[
+    \int_M \phi_i\phi_j dx = \begin{cases} &amp;0, \text{ if } i \neq j,
+\\
+    &amp;1, \text{ if } i = j. \end{cases}
+\]</span></p>
+<p>Then we can see that defining <span class="math inline">\(H(x,y,t) =
+\sum\limits_{i=1}^\infty e^{-\mu_i t}\phi_i(x)\phi_i(y)\)</span> and in
+turn defining <span class="math inline">\(f(x,t)\)</span> by</p>
+<p><span class="math display">\[\begin{aligned}
+    f(x,t) &amp;= \int_M H(x,y,t)f_0(y)dy = \int_M
+\sum\limits_{i=1}^\infty e^{-\mu_i t}\phi_i(x)\phi_i(y)f_0(y)dy \\
+    &amp;= \sum\limits_{i=1}^\infty e^{-\mu_i t}\left(\int_M
+f_0(y)\phi_i(y)dy\right)\phi_i(x) = \sum\limits_{i=1}^\infty e^{-\mu_i
+t}a_i\phi_i(x)
+\end{aligned}\]</span></p>
+<p>formally satisfies (<a href="#eq:heateq">2.1</a>) - (<a
+href="#eq:Dirichlet">2.3</a>). We check this below.</p>
+<p>For each <span class="math inline">\(x \in \partial M\)</span>, <span
+class="math inline">\(\phi_i(x) = 0\)</span>, so <span
+class="math inline">\(f\)</span> formally satisifies the Dirichlet
+boundary condition. Also note that</p>
+<p><span class="math display">\[
+    \lim\limits_{t\to0}f(x,t) =
+\lim\limits_{t\to0}\sum\limits_{i=1}^\infty e^{-\mu_i t}a_i\phi_i(x) =
+    \sum\limits_{i=1}^\infty\lim\limits_{t\to0}e^{-\mu_i t}a_i\phi_i(x)
+= \sum\limits_{i=1}^\infty a_i\phi_i(x) = f_0(x),
+\]</span></p>
+<p>so <span class="math inline">\(f\)</span> formally satisfies the
+initial data condition. Finally, we compute</p>
+<p><span class="math display">\[
+    \frac{\partial}{\partial_t}\left(\sum\limits_{i=1}^\infty e^{-\mu_i
+t}a_i\phi_i\right) =
+    \sum\limits_{i=1}^\infty \frac{\partial}{\partial_t}\left(e^{-\mu_i
+t}a_i\phi_i\right) =
+    \sum\limits_{i=1}^\infty -e^{-\mu_i t}a_i\mu_i\phi_i =
+\sum\limits_{i=1}^\infty e^{-\mu_i
+    t}a_i\Delta\phi_i,
+\]</span></p>
+<p>so we can see that <span class="math inline">\(f\)</span> formally
+satisfies the heat equation.</p>
+<p>It remains to justify these computations by showing that <span
+class="math inline">\(H\)</span> as defined above is well-defined,
+i.e. that the sum converges uniformly, and also to show uniqueness,
+positivity and the final condition in the statement of the theorem.</p>
+<p>First we show uniqueness using the maximum principle. Suppose <span
+class="math inline">\(f, \bar{f} \in L^2(M)\)</span> both solve the heat
+equation arising from heat kernels <span class="math inline">\(H,
+\bar{H}\)</span> respectively, such that <span
+class="math inline">\(\lim\limits_{t\to0}f(x,t) = f_0(x) =
+\lim\limits_{t\to0}\bar{f}(x,t)\)</span> and that both satisfy the
+Dirichlet boundary condition. Then consider <span
+class="math inline">\(f(x,t) - \bar{f}(x,t)\)</span> on <span
+class="math inline">\(\Gamma = M\times\{0\} \times \partial M \times
+(0,\infty))\)</span>. On <span class="math inline">\(M\times
+\{0\}\)</span>, we have that</p>
+<p><span class="math display">\[
+    f(x,0) - \bar{f}(x,0) = f_0(x) - f_0(x) = 0,
+\]</span></p>
+<p>and on <span class="math inline">\(\partial M \times
+(0,\infty)\)</span>, since <span class="math inline">\(f,
+\bar{f}\)</span> satisfy the Dirichlet boundary condition, we have</p>
+<p><span class="math display">\[
+    f(x,t) - \bar{f}(x,t) = 0 - 0 = 0.
+\]</span></p>
+<p>So <span class="math inline">\(f - \bar{f} \equiv 0\)</span> on <span
+class="math inline">\(\Gamma\)</span>, which by the maximum pinciple
+implies <span class="math inline">\(f - \bar{f} \equiv 0\)</span> on
+<span class="math inline">\(M \times (0,\infty)\)</span>. Then this
+implies</p>
+<p><span class="math display">\[
+    0 = \int_M \left(H - \bar{H}\right)f_0dy \Leftrightarrow H =
+\bar{H}.
+\]</span></p>
+<p>To see positivity on the interior, assume <span
+class="math inline">\(f_0 \geq 0\)</span> on <span
+class="math inline">\(M\)</span>. We will see by the strong maximum
+principle that <span class="math inline">\(f(x,t)\)</span> is striclty
+positive on <span class="math inline">\((M\setminus\partial
+M)\times(0,\infty)\)</span>. First, if <span class="math inline">\(f_0
+\equiv 0\)</span> on <span class="math inline">\(M\)</span>, then since
+<span class="math inline">\(f(x,t) = 0\)</span> on <span
+class="math inline">\(\partial M\)</span> (the Dirichlet condition),
+that means <span class="math inline">\(f(x,t) \equiv 0\)</span> on <span
+class="math inline">\((\partial M \times (0,\infty)) \cup (M\times
+\{0\})\)</span>. So by the maximum principle, that implies <span
+class="math inline">\(f(x,t) \equiv 0\)</span> everywhere. So that case
+is trivial. Now suppose there is some <span class="math inline">\(x_0
+\in M\)</span> such that <span class="math inline">\(f_0(x_0) &gt;
+0\)</span>. Then by smoothness of <span class="math inline">\(f\)</span>
+(justified later when we talk about well-definedness of <span
+class="math inline">\(H\)</span>), <span class="math inline">\(f(x,t)
+&gt; 0\)</span> near the point <span class="math inline">\((x_0,
+0)\)</span>. Now there are two cases:</p>
+<ol type="1">
+<li>If <span class="math inline">\(f \equiv \text{const}\)</span>, then
+that implies <span class="math inline">\(f &gt; 0\)</span>
+everywhere.</li>
+<li>If <span class="math inline">\(f\)</span> is not constant, then
+applying the strong maximum principle to <span
+class="math inline">\(-f\)</span>, we have that <span
+class="math inline">\(-f\)</span> does not achieve its maximum anywhere
+in the interior, i.e. in <span class="math inline">\((M \setminus
+\partial M) \times (0,\infty)\)</span>, which implies that <span
+class="math inline">\(f\)</span> does not achieve its minimum anywhere
+in <span class="math inline">\((M\setminus\partial M) \times
+(0,\infty)\)</span>. Since <span class="math inline">\(f \geq 0\)</span>
+on the boundary (<span class="math inline">\(f_0 \geq 0\)</span> on
+<span class="math inline">\(M\)</span> and <span
+class="math inline">\(f(x,t) = 0\)</span> on <span
+class="math inline">\(\partial M \times (0,\infty)\)</span>), that means
+<span class="math inline">\(f\)</span> is strictly positive in the
+interior.</li>
+</ol>
+<p>Again we rely on the maximum principle to show that</p>
+<p><span class="math display">\[
+    \int_M H(x,y,t)dy \leq 1.
+\]</span></p>
+<p>Taking <span class="math inline">\(f_0 \equiv 1\)</span>, we have
+that the integral <span class="math inline">\(\int_M H(x,y,t) dy =
+f(x,t)\)</span> is a solution to the heat equation with boundary values
+<span class="math inline">\(f_0 \equiv 1\)</span> on <span
+class="math inline">\(M\times\{0\}\)</span> and <span
+class="math inline">\(f(x,t) = 0\)</span> on <span
+class="math inline">\(\partial M \times (0,\infty)\)</span> due to the
+Dirichlet condition. So by the maximum principle, since the maximum of
+<span class="math inline">\(f\)</span> is attained on the boundary, this
+implies that <span class="math inline">\(\int_M H(x,y,t)dy \leq
+1\)</span>.</p>
+<p>Finally, it remains to justify the above formal calculations
+(i.e. show that <span class="math inline">\(H\)</span> is well-defined)
+and subsequent regularity of <span class="math inline">\(H\)</span>, and
+thus that of <span class="math inline">\(f\)</span>. To do this, we want
+to show that the sum</p>
+<p><span class="math display">\[
+    H(x,y,t) = \sum\limits_{i=1}^\infty e^{-\mu_i t}\phi_i(x)\phi_i(y)
+\]</span></p>
+<p>converges absolutely. To do this, we will use the Sobolev inequality
+to obtain a bound on the supremum norm of the eigenfunctions <span
+class="math inline">\(\phi_i\)</span> and lemma <a
+href="#lem:dimlinearspace" title="4.2">4.2</a> to obtain a bound on the
+eigenvalues <span class="math inline">\(\mu_i\)</span>. Recall in
+dimension <span class="math inline">\(m \geq 3\)</span>, the Sobolev
+inequality states that there is a constant <span
+class="math inline">\(C_{\mathcal{SD}} &gt; 0\)</span> depending only on
+<span class="math inline">\(M\)</span>, such that for each <span
+class="math inline">\(f \in H^{1,2}_c(M)\)</span>, we have</p>
+<p><span class="math display">\[
+    \int_M |\nabla f|^2 \geq C_{\mathcal{SD}}\left(\int_M
+|f|^{\frac{2m}{m-2}}\right)^{\frac{m-2}{m}}.
+\]</span></p>
+<p>From now on, we will only cover the <span class="math inline">\(m
+\geq 3\)</span> case. The <span class="math inline">\(m=2\)</span> case
+is analogous using the corresponding Sobolev inequality for that
+dimension. Let <span class="math inline">\(u \in H^{1,2}_c(M)\)</span>
+be a nonnegative function, <span class="math inline">\(k \geq 2\)</span>
+be some constant. Then integrating by parts gives</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M u^{k-1}\Delta u &amp;= -\int_M \langle
+\nabla\left(u^{k-1}\right),\nabla u\rangle \\
+    &amp;= -(k-1) \int_M u^{k-2}|\nabla u|^2 \\
+    &amp;= \frac{-4(k-1)}{k^2}\int_M
+\left|\nabla\left(u^{k/2}\right)\right|^2,
+\end{aligned}\]</span></p>
+<p>since</p>
+<p><span class="math display">\[
+    \left|\nabla\left(u^{k/2}\right)\right|^2 =
+\left(\frac{k}{2}\right)^2\left(u^{k/2-1}\right)^2|\nabla u|^2 =
+    \frac{k^2}{4}u^{k-2}|\nabla u|^2.
+\]</span></p>
+<p>Then applying the Sobolev inequality, we have that</p>
+<p><span id="eq:aftersobolev" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \int_M u^{k-1}\Delta u &amp;= \frac{-4(k-1)}{k^2}\int_M
+\left|\nabla\left(u^{k/2}\right)\right|^2 \\
+    &amp;\leq \frac{-4(k-1)C_{\mathcal{SD}}}{k^2}\left(\int_M
+|u|^{\frac{k}{2}\frac{2m}{m-2}}\right)^{\frac{m-2}{m}} \\
+    &amp;\leq \frac{-2C_{\mathcal{SD}}}{k^2}\left(\int_M
+|u|^{\frac{km}{m-2}}\right)^{\frac{m-2}{m}}.
+\end{aligned}\]</span><span class="eqnos-number">(4.1)</span></span>
+</p>
+<p>Choosing <span class="math inline">\(u = |\phi_i|\)</span>, then
+<span class="math inline">\(u\)</span> satisfies <span
+class="math inline">\(\Delta u = -\mu_i u\)</span> and (<a
+href="#eq:aftersobolev">4.1</a>) becomes</p>
+<p><span class="math display">\[
+    \frac{-2C_\mathcal{SD}}{k}\left(\int_M|\phi_i|^{\frac{km}{m-2}}\right)^{\frac{m-2}{m}}
+\geq \int_M
+    |\phi_i|^{k-1}\Delta|\phi_i| = -\int_M \mu_i |\phi_i|^k,
+\]</span></p>
+<p>which is equivalent to</p>
+<p><span id="eq:aftersobolevphi" class="eqnos"><span
+class="math display">\[
+    \int_M |\phi_i|^k \geq \frac{2C_\mathcal{SD}}{k\mu_i}\left(\int_M
+    |\phi_i|^{\frac{km}{m-2}}\right)^{\frac{m-2}{m}}.
+\]</span><span class="eqnos-number">(4.2)</span></span> </p>
+<p>Setting <span class="math inline">\(\beta = \frac{m}{m-2}\)</span>,
+the right hand side above becomes</p>
+<p><span class="math display">\[
+    \frac{2C_\mathcal{SD}}{k\mu_i}\left(\int_M
+|\phi_i|^{k\beta}\right)^{\frac{1}{\beta}} =
+    \left(\left(\frac{2C_\mathcal{SD}}{k\mu_i}\right)^{\frac{1}{k}}\right)^k\Vert
+\phi_i \Vert_{k\beta}^k,
+\]</span></p>
+<p>and the left hand side is <span
+class="math inline">\(\Vert\phi_i\Vert_k^k\)</span>, so (<a
+href="#eq:aftersobolevphi">4.2</a>) can be rewritten as</p>
+<p><span id="eq:phiknormineq" class="eqnos"><span
+class="math display">\[
+    \left(\frac{2C_\mathcal{SD}}{k\mu_i}\right)^\frac{1}{k}\Vert\phi_i\Vert_{k\beta}
+\leq \Vert\phi_i\Vert_k.
+\]</span><span class="eqnos-number">(4.3)</span></span> </p>
+<p>Setting <span class="math inline">\(k = 2\beta^j\)</span> for <span
+class="math inline">\(j = 0,1,2,\dots\)</span>, we obtain</p>
+<p><span class="math display">\[
+    \Vert\phi_i\Vert_{2\beta^{j+1}} \leq
+    \left(\frac{\beta^j\mu_i}{2C_\mathcal{SD}}\right)^{\frac{1}{2\beta^j}}\Vert\phi_i\Vert_{2\beta^j}.
+\]</span></p>
+<p>Remembering that <span class="math inline">\(\Vert\phi_i\Vert_2 =
+1\)</span> we have that</p>
+<p><span class="math display">\[\begin{aligned}
+    \Vert\phi_i\Vert_{2\beta} &amp;\leq
+\left(\frac{\beta\mu_i}{2C_\mathcal{SD}}\right)^{\frac{1}{2\beta}}, \\
+    \Vert\phi_i\Vert_{2\beta^2} &amp;\leq
+    \left(\frac{\beta^2\mu_i}{2C_\mathcal{SD}}\right)^{\frac{1}{2\beta^2}}\left(\frac{\beta\mu_i}{2C_\mathcal{SD}}\right)^{\frac{1}{2\beta}},
+\\
+    &amp;\vdots \\
+    \Vert\phi_i\Vert_{2\beta^j} &amp;\leq \prod\limits_{\ell = 0}^j
+    \left(\frac{\beta^\ell\mu_i}{2C_\mathcal{SD}}\right)^{\frac{1}{2\beta^\ell}}.
+\end{aligned}\]</span></p>
+<p>Then letting <span class="math inline">\(j\to\infty\)</span> and
+using the fact that <span
+class="math inline">\(\lim\limits_{p\to\infty}\nparallel\phi_i\Vert_p =
+\Vert\phi_i\Vert_\infty\)</span> where <span
+class="math inline">\(\nparallel f \Vert_p\)</span> denotes the average
+<span class="math inline">\(p\)</span>-norm, we have</p>
+<p><span id="eq:supnormphibound" class="eqnos"><span
+class="math display">\[
+    \Vert\phi_i\Vert_\infty \leq C_1\mu_i^\frac{m}{4}.
+\]</span><span class="eqnos-number">(4.4)</span></span> </p>
+<p>So we have obtained a bound on the supremum norm of the
+eigenfunctions.</p>
+<p>Next we have to bound the eigenvalues <span
+class="math inline">\(\mu_k\)</span> in terms of <span
+class="math inline">\(k\)</span>. Let <span
+class="math inline">\(E\)</span> be the <span
+class="math inline">\(k\)</span>-dimensional vector space spanned by the
+first <span class="math inline">\(k\)</span> eigenfunctions <span
+class="math inline">\(\{\phi_1,\phi_2,\dots,\phi_k\}\)</span>. We will
+show that for some constant <span class="math inline">\(C_2 &gt;
+0\)</span> depending only on <span class="math inline">\(m\)</span> and
+<span class="math inline">\(C_\mathcal{SD}\)</span>, for any <span
+class="math inline">\(u \in E\)</span>, the estimate</p>
+<p><span id="eq:supnormubound" class="eqnos"><span
+class="math display">\[
+    \Vert u \Vert_\infty \leq C_2
+\mu_k^{\frac{m-2}{2}}V(M)^\frac{m-1}{m}\nparallel u\Vert_2.
+\]</span><span class="eqnos-number">(4.5)</span></span> </p>
+<p>This estimate, combined with lemma <a href="#lem:dimlinearspace"
+title="4.2">4.2</a> implies the following estimate</p>
+<p><span id="eq:mukbound" class="eqnos"><span class="math display">\[
+    \mu_k \geq C_3 k^\frac{1}{m-1}V(M)^\frac{-2}{m}
+\]</span><span class="eqnos-number">(4.6)</span></span> </p>
+<p>for some constant <span class="math inline">\(C_3 &gt; 0\)</span>
+depending only on <span class="math inline">\(m\)</span> and <span
+class="math inline">\(C_\mathcal{SD}\)</span>. To establish (<a
+href="#eq:supnormubound">4.5</a>), let <span
+class="math inline">\(E\)</span> denote the <span
+class="math inline">\(k\)</span>-dimensional vector space spanned by the
+first <span class="math inline">\(k\)</span> eigenfunctions <span
+class="math inline">\(\{\phi_1,\phi_2,\dots,\phi_k\}\)</span>. Let <span
+class="math inline">\(u \in C^\infty\)</span> be a function. Note that
+for <span class="math inline">\(u\)</span>, we have <span
+class="math inline">\(|\nabla u|^2 = |\nabla |u||^2\)</span> and so</p>
+<p><span class="math display">\[\begin{aligned}
+    \Delta(u^2) &amp;= 2u\Delta u + 2|\nabla u|^2,\\
+    \Delta|u|^2 &amp;= 2|u|\Delta|u| + 2|\nabla|u||^2,
+\end{aligned}\]</span></p>
+<p>which together imply that <span class="math inline">\(u\Delta u =
+|u|\Delta|u|\)</span>. So, applying (<a href="#eq:aftersobolev">4.1</a>)
+to <span class="math inline">\(|u|\)</span>, we get</p>
+<p><span id="eq:aftersobolevabsu" class="eqnos"><span
+class="math display">\[
+    \int_M |u|^{k-2}u\Delta u \leq
+\frac{-2C_\mathcal{SD}}{k}\left(\int_M
+|u|^\frac{km}{m-2}\right)^\frac{m-2}{m}.
+\]</span><span class="eqnos-number">(4.7)</span></span> </p>
+<p>We now claim that for any <span class="math inline">\(u \in
+E\)</span>, and <span class="math inline">\(j \geq 0\)</span>, we have
+the following estimate</p>
+<p><span id="eq:preiterateestimateu" class="eqnos"><span
+class="math display">\[
+    \nparallel u \Vert_{2\beta^{j+1}} \leq \prod\limits_{\ell = 0}^j
+\left(\frac{\mu_k V(M)^{2/m}\beta^\ell}{C}\right)^\frac{1}{2\beta^\ell -
+    1}\nparallel u \Vert_2,
+\]</span><span class="eqnos-number">(4.8)</span></span> </p>
+<p>which we will iterate in a similar manner to the one for <span
+class="math inline">\(\Vert\phi_i\Vert_{2\beta^{j+1}}\)</span> above to
+obtain (<a href="#eq:supnormubound">4.5</a>).</p>
+<p>To obtain (<a href="#eq:preiterateestimateu">4.8</a>), choose an
+<span class="math inline">\(h \in E\)</span> such that <span
+class="math inline">\(h\)</span> has the following extremal
+property,</p>
+<p><span id="eq:hextremalproperty" class="eqnos"><span
+class="math display">\[
+    \frac{\Vert h \Vert_{2\beta^{j+1}}}{\Vert h \Vert_2} =
+\max\limits_{u \in E}\frac{\Vert u \Vert_{2\beta^{j+1}}}{\Vert u
+\Vert_2}.
+\]</span><span class="eqnos-number">(4.9)</span></span> </p>
+<p>Then setting <span class="math inline">\(u = h\)</span> and <span
+class="math inline">\(k = 2\beta^j\)</span> in (<a
+href="#eq:aftersobolevabsu">4.7</a>), and then using the Holder
+inequality, we have that</p>
+<p><span id="eq:afterholderh" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{C_\mathcal{SD}}{\beta^j}\left(\int_M|h|^{2\beta^{j+1}}\right)^\frac{1}{\beta}
+&amp;\leq -\int_M |h|^{2\beta^j-2}h\Delta h \\
+    &amp;\leq
+    \left(\int_M |\Delta
+h|^{2\beta^{j+1}}\right)^\frac{1}{2\beta^j+1}\left(\int_M
+|h|^{2\beta^j}\right)^\frac{2\beta^j-1}{2\beta^j}
+    V(M)^\frac{\beta-1}{2\beta^j+1}.
+\end{aligned}\]</span><span class="eqnos-number">(4.10)</span></span>
+</p>
+<p>To control the first term, since <span class="math inline">\(h \in E
+= \text{span}\{\phi_1,\phi_2,\dots,\phi_k\}\)</span>, we can write <span
+class="math inline">\(h = \sum\limits_{\ell = 1}^k a_\ell
+\phi_\ell\)</span>, and therefore <span class="math inline">\(\Delta h =
+-\sum\limits_{\ell=1}^k\mu_\ell a_\ell\phi_\ell\)</span>. For <span
+class="math inline">\(p \geq 2\)</span> and <span
+class="math inline">\(1 \leq i \leq k\)</span>, observe that the
+function <span class="math inline">\(F(\mu_i) := \int_M |\Delta
+h|^p\)</span> is convex in <span class="math inline">\(\mu_i\)</span>.
+To check this, we compute the second derivative and see that</p>
+<p><span class="math display">\[
+    \frac{\partial^2 F}{\partial \mu_i^2} = \int_M
+    \frac{\partial^2}{\partial\mu_i^2}\left|\sum\limits_{\ell = 1}^k
+    \mu_\ell a_\ell \phi_\ell\right|^p =
+p(p-1)\int_M\left|\sum\limits_{\ell = 1}^k
+    \mu_\ell a_\ell \phi_\ell\right|^{p-2}a_\ell^2\phi_\ell^2 \geq 0.
+\]</span></p>
+<p>This means that <span class="math inline">\(F\)</span> is bounded
+above by either <span class="math inline">\(F(0)\)</span> or by <span
+class="math inline">\(F(\mu_k)\)</span>. Then in particular, there is a
+<span class="math inline">\(\{\alpha\} \subset \{1,2,\dots,k\}\)</span>
+such that</p>
+<p><span id="eq:boundfromF" class="eqnos"><span class="math display">\[
+    \int_M |\Delta h|^{2\beta^{j+1}} \leq \int_M
+\left|\sum\limits_\alpha
+    \mu_k a_\alpha \phi_\alpha\right|^{2\beta^{j+1}}.
+\]</span><span class="eqnos-number">(4.11)</span></span> </p>
+<p>Then remembering that <span class="math inline">\(\sum\limits_\alpha
+a_\alpha \phi_\alpha \in E\)</span> and the extremal property of <span
+class="math inline">\(h\)</span> (<a
+href="#eq:hextremalproperty">4.9</a>), we have that</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M \left|\sum\limits_\alpha a_\alpha
+    \phi_\alpha\right|^{2\beta^{j+1}} &amp;\leq
+\left\Vert\sum\limits_\alpha
+    a_\alpha \phi_\alpha\right\Vert_2^{2\beta^{j+1}}\Vert h
+    \Vert_{2\beta^{j+1}}^{2\beta^{j+1}}\Vert h \Vert_h^{-2\beta^{j+1}}
+\\
+    &amp;\leq
+    \left(\int_M \left|\sum\limits_\alpha a_\alpha
+\phi_\alpha\right|^2\right)^{\beta^{j+1}}\left(\int_M|h|^{2\beta^{j+1}}\right)\left(\int_M|h|^2\right)^{-\beta^{j+1}}
+\\
+    &amp;\leq \left(\int_M \left|\sum\limits_\alpha a_\alpha
+\phi_\alpha\right|^2\right)^{\beta^{j+1}}\left(\int_M|h|^{2\beta^{j+1}}\right)
+\\
+    &amp;\leq \left(\sum\limits_\alpha
+a_\alpha^2\right)^{\beta^{j+1}}\left(\int_M|h|^{2\beta^{j+1}}\right) \\
+    &amp;\leq \int_M |h|^{2\beta^{j+1}}.
+\end{aligned}\]</span></p>
+<p>So inserting this into (<a href="#eq:afterholderh">4.10</a>), we
+have</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{C_\mathcal{SD}}{\beta^j}\left(\int_M|h|^{2\beta^{j+1}}\right)^\frac{1}{\beta}
+&amp;\leq \left(\int_M |\Delta
+h|^{2\beta^{j+1}}\right)^\frac{1}{2\beta^j+1}\left(\int_M
+|h|^{2\beta^j}\right)^\frac{2\beta^j-1}{2\beta^j}
+V(M)^\frac{\beta-1}{2\beta^j+1} \\
+    &amp;\leq V(M)^\frac{\beta-1}{2\beta^{j+1}}\Vert h
+    \Vert_{2\beta^j}^{2\beta^j-1}\left(\int_M \left|\sum\limits_\alpha
+    \mu_\alpha a_\alpha
+    \phi_\alpha\right|^{2\beta^{j+1}}\right)^\frac{1}{2\beta^{j+1}} \\
+    &amp;\leq V(M)^\frac{\beta-1}{2\beta^{j+1}} \Vert h
+    \Vert_{2\beta^j}^{2\beta^j-1}\mu_k \Vert h \Vert_{2\beta^{j+1}},
+\end{aligned}\]</span></p>
+<p>which implies</p>
+<p><span id="eq:preiterateestimateh" class="eqnos"><span
+class="math display">\[
+    \nparallel h \Vert_{2\beta^{j+1}} \leq \left(\frac{\mu_k
+    V(M)^{2/m}\beta^j}{C}\right)^\frac{1}{2\beta^j-1}\nparallel h
+    \Vert_{2\beta^j}.
+\]</span><span class="eqnos-number">(4.12)</span></span> </p>
+<p>By the extremal property of <span class="math inline">\(h\)</span>,
+we have the same inequality for <span class="math inline">\(u \in
+E\)</span> and then iterating we obtain the claimed estimate (<a
+href="#eq:preiterateestimateu">4.8</a>) for <span
+class="math inline">\(u\)</span>. Then letting <span
+class="math inline">\(j \to \infty\)</span>, we arrive at (<a
+href="#eq:supnormubound">4.5</a>), which, after applying lemma <a
+href="#lem:dimlinearspace" title="4.2">4.2</a>, gives us (<a
+href="#eq:mukbound">4.6</a>).</p>
+<p>Now that we have bounded <span
+class="math inline">\(\Vert\phi_i\Vert_\infty\)</span> with (<a
+href="#eq:supnormphibound">4.4</a>) and <span
+class="math inline">\(\mu_k\)</span> with (<a
+href="#eq:mukbound">4.6</a>), we have that each summand</p>
+<p><span class="math display">\[
+    e^{-\mu_i t}\phi_i(x)\phi_i(y) \leq e^{-\mu_i
+    t}\Vert\phi_i\Vert_\infty^2 \leq C_1 e^{-\mu_i t}\mu_i^{m/2} \leq
+C_1
+    C(t) e^{-\mu_i t/2},
+\]</span></p>
+<p>where the last inequality comes from the fac that <span
+class="math inline">\(e^{-x t}x^{m/2} \leq C(t) e^{-xt/2}\)</span> for
+some constant <span class="math inline">\(C(t) &gt; 0\)</span> depending
+only on <span class="math inline">\(t\)</span> and valid for any <span
+class="math inline">\(0\leq x &lt; \infty\)</span>.</p>
+<p>So we have that the infinite series</p>
+<p><span class="math display">\[
+    \sum\limits_{i=1}^\infty e^{-\mu_i t}\phi_i(x)\phi_i(y) \leq C_1C(t)
+    \sum\limits_{i=1}^\infty e^{-C_4 i^{\frac{1}{m-1}} t},
+\]</span></p>
+<p>which converges uniformly. So <span class="math inline">\(H\)</span>
+as defined above is well-defined on <span class="math inline">\(M \times
+M \times [a,\infty)\)</span> for any <span class="math inline">\(a &gt;
+0\)</span>. To see that <span class="math inline">\(H\)</span>, and
+therefore <span class="math inline">\(f\)</span>, is smooth, note
+that</p>
+<p><span class="math display">\[
+    \int_M \langle \nabla\phi_i,\nabla\phi_j\rangle = -\int_M \phi_j
+    \Delta\phi_i = \int_M \mu_i \phi_i\phi_j = \delta_{ij}\mu_i,
+\]</span></p>
+<p>where <span class="math inline">\(\delta_{ij}\)</span> is the
+Kronecker delta. So the integral of each partial sum</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M \left|\sum\limits_{i=1}^k e^{-\mu_i
+    t}\phi_i(x)\nabla\phi_j(y)\right|^2dy &amp;= \int_M
+\sum\limits_{i,j=1}^k
+    e^{-(\mu_i + \mu_j)t}
+    \phi_i(x)\phi_j(x)\langle\nabla\phi_i(y),\nabla\phi_j(y)\rangle dy
+\\
+    &amp;= \int_M \sum\limits_{i,j=1}^k
+    e^{-(\mu_i+\mu_j)t}\phi_i(x)\phi_j(x)\delta_{ij}\mu_i dy \\
+    &amp;= \sum\limits_{i=1}^k 2^{-2\mu_i t}\mu_i \phi_i(x)^2,
+\end{aligned}\]</span></p>
+<p>which by the argument above converges uniformly as <span
+class="math inline">\(k \to \infty\)</span>. So the partial sums <span
+class="math inline">\(\sum\limits_{i=1}^k e^{-2\mu_i t}\mu_i
+\phi_i(x)^2\)</span> converge weakly in <span
+class="math inline">\(H^{1,2}(M)\)</span> to <span
+class="math inline">\(H(x,y,t)\)</span>, and since each partial sum
+solves the heat equation, this means <span
+class="math inline">\(H(x,y,t)\)</span> is a weak solution to the heat
+equation. Then regularity theory implies that <span
+class="math inline">\(H\)</span> is smooth and that <span
+class="math inline">\(f\)</span> therefore satisfies (<a
+href="#eq:heateq">2.1</a>), (<a href="#eq:initialdata">2.2</a>) and (<a
+href="#eq:Dirichlet">2.3</a>), thereby justifying our formal
+calculations above.</p>
+</div>
+<!--# Duhamel's Principle and Minimality of the Dirichlet Heat Kernel-->
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-Evans" class="csl-entry" role="doc-biblioentry">
+Evans, Lawrence C. 2010. <em><span>P</span>artial
+<span>D</span>ifferential <span>E</span>quations</em>. Second. Vol. 19.
+Graduate Studies in Mathematics. American Mathematical Society.
+</div>
+<div id="ref-GT" class="csl-entry" role="doc-biblioentry">
+Gilbarg, David, and Neil S. Trudinger. 2001. <em><span>E</span>lliptic
+<span>P</span>artial <span>D</span>ifferential <span>E</span>quations of
+<span>S</span>econd <span>O</span>rder</em>. Classics in Mathematics.
+Springer-Verlag.
+</div>
+<div id="ref-Li" class="csl-entry" role="doc-biblioentry">
+Li, Peter. 2012. <em><span>G</span>eometric <span>A</span>nalysis</em>.
+<span>C</span>ambridge <span>S</span>tudies in <span>A</span>dvanced
+<span>M</span>athematics 134. Cambridge University Press.
+</div>
+</div>
+</body>
+</html>
