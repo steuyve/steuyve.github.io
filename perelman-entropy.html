@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Montonicity formulae for Pereleman’s Energy and Entropy Functionals Under Ricci Flow</title>
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
+  <script type="text/javascript" src="mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Montonicity formulae for Pereleman’s Energy and
+Entropy Functionals Under Ricci Flow</h1>
+<p class="author">Stephen Shang Yi Liu</p>
+<p class="date">November 2022</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>In <span class="citation" data-cites="Per02">(<a href="#ref-Per02"
+role="doc-biblioref">Perelman 2002</a>)</span>, Perelman defined energy
+and entropy functionals on a Riemannian manifold and showed their
+monotonicity under the Ricci flow coupled with a backward heat-type
+equation. These monotonicity formulae were used to establish Perelman’s
+no local collapsing theorem that formed a step in his resolution of the
+Poincare conjecture. The aim of this report is to give an account of
+Perelman’s proof of monotonicity, in particular by viewing the Ricci
+flow as a gradient flow. At the end, this report will also survey later
+work by Ni in <span class="citation" data-cites="Ni04">(<a
+href="#ref-Ni04" role="doc-biblioref">Ni 2004</a>)</span> and
+Kotschwar-Ni in <span class="citation" data-cites="KN09">(<a
+href="#ref-KN09" role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>
+showing similar monotonicity formulae for entropy functionals for the
+static manifold case for the heat equation and <span
+class="math inline">\(p\)</span>-heat equation respectively and their
+applications to rigidity results for Riemannian manifolds.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of Contents</h2>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#evolution-of-geometric-quantities-under-ricci-flow"
+id="toc-evolution-of-geometric-quantities-under-ricci-flow"><span
+class="toc-section-number">2</span> Evolution of Geometric Quantities
+Under Ricci Flow</a>
+<ul>
+<li><a href="#metric-inverse" id="toc-metric-inverse"><span
+class="toc-section-number">2.1</span> Metric Inverse</a></li>
+<li><a href="#volume-form" id="toc-volume-form"><span
+class="toc-section-number">2.2</span> Volume Form</a></li>
+<li><a href="#scalar-curvature" id="toc-scalar-curvature"><span
+class="toc-section-number">2.3</span> Scalar Curvature</a></li>
+</ul></li>
+<li><a href="#the-variation-of-the-energy-functional"
+id="toc-the-variation-of-the-energy-functional"><span
+class="toc-section-number">3</span> The Variation of the Energy
+Functional</a></li>
+<li><a href="#perelmans-entropy-functional-and-monotonicity-formula"
+id="toc-perelmans-entropy-functional-and-monotonicity-formula"><span
+class="toc-section-number">4</span> Perelman’s Entropy Functional and
+Monotonicity Formula</a></li>
+<li><a href="#applications-to-rigidity-results"
+id="toc-applications-to-rigidity-results"><span
+class="toc-section-number">5</span> Applications to Rigidity
+Results</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</nav>
+<hr />
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<p>Given a closed (i.e. compact and without boundary) <span
+class="math inline">\(n\)</span>-dimensional Riemannian manifold <span
+class="math inline">\(M\)</span> with a one-parameter family of smooth
+Riemannian metrics <span class="math inline">\(g(t)\)</span>, the Ricci
+flow, introduced by Richard Hamilton in <span class="citation"
+data-cites="hamilton_1982">(<a href="#ref-hamilton_1982"
+role="doc-biblioref">Hamilton 1982</a>)</span>, is the PDE</p>
+<p><span class="math display">\[
+    \frac{\partial}{\partial t} g(t) = -2\text{Ric}(g(t)).
+\]</span></p>
+<p>This is a weakly parabolic PDE with a short-time existence theory
+(given initial condition <span class="math inline">\(g(0) = g_0\)</span>
+where <span class="math inline">\(g_0\)</span> is an initial smooth
+metric) shown by Hamilton and later by DeTurck in <span class="citation"
+data-cites="deturck_1983">(<a href="#ref-deturck_1983"
+role="doc-biblioref">DeTurck 1983</a>)</span>.</p>
+<p>The Ricci flow grew to prominence in Grisha’s Perelman’s use of it to
+resolve the Poincare conjecture. Involved in the proof were monotonicity
+formulas for certain energy and entropy functionals introduced by
+Perelman in <span class="citation" data-cites="Per02">(<a
+href="#ref-Per02" role="doc-biblioref">Perelman 2002</a>)</span>. These
+monotonicity formulae by themselves are interesting, and have been used
+to show certain rigidity results related to the logarithmic Sobolev
+inequality (<span class="citation" data-cites="Ni04">(<a
+href="#ref-Ni04" role="doc-biblioref">Ni 2004</a>)</span>, <span
+class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni 2009</a>)</span>). In Section 2 of
+this report we will briefly go over evolution equations for certain
+geometric quantities under the Ricci Flow. In Section 3 and 4, we will
+introduce Perelman’s energy and entropy functionals and use these
+evolution equations to establish the monotonicity formulae. Finally, in
+Section 5, we will give a survey (without proofs) of applications of
+these monotonicity formulae to the aforementioned rigidity results.</p>
+<h1 data-number="2"
+id="evolution-of-geometric-quantities-under-ricci-flow"><span
+class="header-section-number">2</span> Evolution of Geometric Quantities
+Under Ricci Flow</h1>
+<p>Let <span class="math inline">\(M\)</span> be an <span
+class="math inline">\(n\)</span>-dimensional smooth closed manifold (in
+particular, it is compact and has no boundary), and let <span
+class="math inline">\(g(s)\)</span> be a one-parameter family of smooth
+Riemannian metrics on <span class="math inline">\(M\)</span>. In this
+section, we will compute how certain geometric quantities evolve under
+the variation <span class="math inline">\(v_{ij} := \partial_s
+g_{ij}\)</span>. For the time being, it will be convenient to leave the
+variation as a general variation <span
+class="math inline">\(v_{ij}\)</span>, but we will later specialize this
+to the Ricci Flow (i.e. <span class="math inline">\(v_{ij} = \partial_t
+g_{ij} = -2R_{ij}\)</span>).</p>
+<h2 data-number="2.1" id="metric-inverse"><span
+class="header-section-number">2.1</span> Metric Inverse</h2>
+<p>Let <span class="math inline">\(g^{ij}\)</span> denote the inverse of
+the matrix <span class="math inline">\(g_{ij}\)</span>. Let <span
+class="math inline">\(\delta^i_k\)</span> denote the Kronecker delta,
+then differentiating the equation <span
+class="math inline">\(g^{ij}g_{jk} = \delta^i_k\)</span>, we have</p>
+<p><span id="eq:variation-inverse" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    &amp;\partial_s\left(g^{ij}g_{jk}\right) = 0 \\
+    &amp;\Rightarrow \left(\partial_s g^{ij}\right)g_{jk} +
+g^{ij}\left(\partial_s g_{jk}\right) = 0 \\
+    &amp;\Rightarrow \left(\partial_s g^{ij}\right)g_{jk} =
+-g^{ij}v_{jk} \\
+    &amp;\Rightarrow \partial g^{ij} = -g^{ik}g^{j\ell}v_{k\ell}.
+\end{aligned}\]</span><span class="eqnos-number">(2.1)</span></span>
+</p>
+<p>So in particular, if our variation is the Ricci flow, we would have
+that</p>
+<p><span id="eq:variation-inverseRF" class="eqnos"><span
+class="math display">\[
+    \partial_t g^{ij} = 2g^{ik}g^{j\ell}R_{k\ell}.
+\]</span><span class="eqnos-number">(2.2)</span></span> </p>
+<h2 data-number="2.2" id="volume-form"><span
+class="header-section-number">2.2</span> Volume Form</h2>
+<p>Let <span class="math inline">\(d\mu\)</span> denote the Riemannian
+volume form induced by the metric <span
+class="math inline">\(g\)</span>. Then we know that</p>
+<p><span class="math display">\[
+    d\mu = \sqrt{\det(g_{ij})}dx^1\wedge\cdots\wedge dx^n,
+\]</span></p>
+<p>in a positively oriented local coordinate system <span
+class="math inline">\(\{x^i\}_{i=1}^n\)</span>.</p>
+<p>We will use the following formula for the derivative of the
+determinant of a matrix which can be derived from the Liebniz formula of
+the determinant of a matrix. Let <span
+class="math inline">\(A(s)\)</span> be a general matrix. Then we
+have</p>
+<p><span id="eq:ddslogdetA" class="eqnos"><span class="math display">\[
+    \frac{d}{ds}\log\det{A} =
+\left(A^{-1}\right)^{ij}\frac{d}{ds}A_{ij}.
+\]</span><span class="eqnos-number">(2.3)</span></span> </p>
+<p>So we compute</p>
+<p><span id="eq:variation-volumeform" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{d}{ds}d\mu &amp;=
+\frac{d}{ds}\sqrt{\det(g_{ij})}dx^1\wedge\cdots\wedge dx^n \\
+    &amp;=
+\frac{d}{ds}\left(\exp\left(\frac{1}{2}\log\det\left(g_{ij}\right)\right)\right)
+dx^1 \wedge \cdots \wedge dx^n \\
+    &amp;=
+\frac{1}{2}\exp\left(\frac{1}{2}\log\det\left(g_{ij}\right)\right)\frac{d}{ds}\log\det\left(g_{ij}\right)
+dx^1 \wedge \cdots \wedge dx^n \\
+    &amp;= \frac{1}{2}g^{ij}\left(\partial_s
+g_{ij}\right)\sqrt{\det(g_{ij})} dx^1 \wedge \cdots \wedge dx^n \\
+    &amp;= \frac{1}{2}Vd\mu,
+\end{aligned}\]</span><span class="eqnos-number">(2.4)</span></span>
+</p>
+<p>where we used (<a href="#eq:ddslogdetA">2.3</a>) in the penultimate
+line and where we are denoting <span class="math inline">\(V =
+g^{ij}v_{ij}\)</span> the trace of the variation.</p>
+<p>In particular, when the variation is the Ricci flow, we have then
+that</p>
+<p><span id="eq:variation-volumeformRF" class="eqnos"><span
+class="math display">\[
+    \frac{1}{2}Vd\mu = \frac{1}{2} g^{ij}(-2 R_{ij})d\mu =
+-g^{ij}R_{ij}d\mu = -Rd\mu,
+\]</span><span class="eqnos-number">(2.5)</span></span> </p>
+<p>where <span class="math inline">\(R\)</span> denotes the scalar
+curvature of the manifold with respect to the metric <span
+class="math inline">\(g\)</span>.</p>
+<h2 data-number="2.3" id="scalar-curvature"><span
+class="header-section-number">2.3</span> Scalar Curvature</h2>
+<p>For reasons of length, we only record the formula for the variation
+of the scalar curvature without showing the derivation. For the full
+computation, see (2.30) of chapter 2 section 5 of <span class="citation"
+data-cites="CLN06">(<a href="#ref-CLN06" role="doc-biblioref">Chow, Lu,
+and Ni 2006</a>)</span>.</p>
+<p><span id="eq:variation-scalar" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial_s} R = -\Delta V + \text{div}(\text{div }
+v) - \langle v, \text{Ric}\rangle,
+\]</span><span class="eqnos-number">(2.6)</span></span> </p>
+<p>where <span class="math inline">\(v\)</span> denotes the matrix <span
+class="math inline">\(v_{ij}\)</span> and as above, <span
+class="math inline">\(V = g^{ij}v_{ij}\)</span> is the trace of <span
+class="math inline">\(v\)</span> with respect to the metric <span
+class="math inline">\(g\)</span>, <span
+class="math inline">\(\text{div}(\text{div } v) = \nabla_i\nabla_j
+v_{ij}\)</span>, and the inner product is taken with respect to <span
+class="math inline">\(g\)</span> (i.e. <span
+class="math inline">\(\langle v, \text{Ric}\rangle =
+g^{ik}g^{j\ell}v_{ij}R_{k\ell}\)</span>).</p>
+<p>When we specialize to Ricci flow, we have that</p>
+<p><span id="eq:variation-scalarRF" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial_t} R &amp;= -\Delta g^{ij}(-2R_{ij}) +
+\nabla_i\nabla_j (-2R_{ij}) - \langle -2\text{Ric},\text{Ric}\rangle \\
+    &amp;= 2\Delta R - \nabla_i 2\nabla_j R_{ij} +
+2\left|\text{Ric}\right|^2 \\
+    &amp;= 2\Delta R - \nabla_i \nabla_i R + 2\left|\text{Ric}\right|^2
+\\
+    &amp;= \Delta R + 2\left|\text{Ric}\right|^2,
+\end{aligned}\]</span><span class="eqnos-number">(2.7)</span></span>
+</p>
+<p>where we used the contracted second Bianchi identity <span
+class="math inline">\(2\nabla_jR_{ij} = \nabla_i R\)</span> (equation
+(1.19) of <span class="citation" data-cites="CLN06">(<a
+href="#ref-CLN06" role="doc-biblioref">Chow, Lu, and Ni
+2006</a>)</span>) in the penultimate line.</p>
+<h1 data-number="3" id="the-variation-of-the-energy-functional"><span
+class="header-section-number">3</span> The Variation of the Energy
+Functional</h1>
+<p>Let <span class="math inline">\(M\)</span> be a closed manifold (in
+particular, <span class="math inline">\(M\)</span> is compact and has no
+boundary) and let <span class="math inline">\(g(s)\)</span> be a
+one-parameter family of smooth Riemannian metrics on <span
+class="math inline">\(M\)</span>. As above, we denote <span
+class="math inline">\(v_{ij} = \partial_s g_{ij}\)</span> to be the
+variation and <span class="math inline">\(V = g^{ij}v_{ij}\)</span> to
+be the trace of the variation. Let <span
+class="math inline">\(f\)</span> be a function on <span
+class="math inline">\(M\)</span> that also varies with <span
+class="math inline">\(s\)</span>. In this section we study the variation
+of the functional introduced by Perelman in <span class="citation"
+data-cites="Per02">(<a href="#ref-Per02" role="doc-biblioref">Perelman
+2002</a>)</span>:</p>
+<p><span id="eq:energydefn" class="eqnos"><span class="math display">\[
+    \mathcal{F}(g,f) := \int_M \left(R + |\nabla f|^2\right)e^{-f}d\mu,
+\]</span><span class="eqnos-number">(3.1)</span></span> </p>
+<p>where the norm is measured with respect to the metric <span
+class="math inline">\(g\)</span>, i.e. <span
+class="math inline">\(|\nabla f|^2 = g^{ij}\nabla_i f\nabla_j
+f\)</span>, and the volume form <span
+class="math inline">\(d\mu\)</span> is the one with respect to <span
+class="math inline">\(g\)</span>. Note that the variation of the total
+scalar curvature <span class="math inline">\(\int_M Rd\mu\)</span> (also
+called the Einstein-Hilbert functional) is related to the Yamabe
+problem, and we can view the second term in the integrand as an
+Dirichlet energy-type term since</p>
+<p><span class="math display">\[
+    \int_M |\nabla f|^2e^{-f}d\mu = 4\int_M
+\left|\nabla\left(e^{-f/2}\right)\right|^2d\mu.
+\]</span></p>
+<p>One can also see that the second term is an Dirichlet energy-type
+term if we view <span class="math inline">\(e^{-f}d\mu\)</span> as a
+weighted measure. For these reasons, <span
+class="math inline">\(\mathcal{F}\)</span> is often referred to as
+Perelman’s energy functional.</p>
+<p>We impose the constraint that the variation of the measure <span
+class="math inline">\(e^{-f}d\mu\)</span> is zero, i.e.</p>
+<p><span id="eq:varmeaszero" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial s}\left(e^{-f}d\mu\right) = 0.
+\]</span><span class="eqnos-number">(3.2)</span></span> </p>
+<p>We will see that we can recover the Ricci flow (up to a pullback by a
+diffeomorphism) as the gradient flow for <span
+class="math inline">\(\mathcal{F}\)</span> coupled to a heat-type
+equation for <span class="math inline">\(f\)</span> which comes from the
+constraint on the measure above. First, expanding out the left hand side
+above, and by using (<a href="#eq:variation-volumeform">2.4</a>), we see
+that</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial s}\left(e^{-f}d\mu\right) &amp;=
+\frac{\partial}{\partial s}e^{-f} d\mu + e^{-f}\frac{\partial}{\partial
+s}d\mu \\
+    &amp;= -\frac{\partial}{\partial s}fe^{-f}d\mu +
+\frac{1}{2}e^{-f}Vd\mu \\
+    &amp;= e^{-f}\left(\frac{1}{2}V - \frac{\partial}{\partial
+s}f\right)d\mu.
+\end{aligned}\]</span></p>
+<p>Then, since <span class="math inline">\(e^{-f}\)</span> is never
+zero, we see that the constraint (<a href="#eq:varmeaszero">3.2</a>)
+implies that <span class="math inline">\(f\)</span> satisfies the
+differential equation</p>
+<p><span id="eq:variation-f" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial s} f = \frac{1}{2}V.
+\]</span><span class="eqnos-number">(3.3)</span></span> </p>
+<p>Now we move on to studying the variation of <span
+class="math inline">\(\mathcal{F}\)</span>. We begin with</p>
+<p><span id="eq:varF" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial s}\mathcal{F}(g,f) = \int_M
+\frac{\partial}{\partial_s}\left(Re^{-f}d\mu\right) +
+\frac{\partial}{\partial_s}\left(|\nabla f|^2e^{-f}d\mu\right).
+\]</span><span class="eqnos-number">(3.4)</span></span> </p>
+<p>We deal with each integrand separately. By (<a
+href="#eq:variation-scalar">2.6</a>) and the constraint (<a
+href="#eq:varmeaszero">3.2</a>), we have that</p>
+<p><span id="eq:varfirst1" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \int_M \frac{\partial}{\partial_s}\left(Re^{-f}d\mu\right) &amp;=
+\int_M \frac{\partial R}{\partial_s} e^{-f}d\mu +
+R\frac{\partial}{\partial_s}\left(e^{-f}d\mu\right) \\
+     &amp;= \int_M \frac{\partial R}{\partial s}e^{-f}d\mu \\
+     &amp;= -\int_M \langle v, \text{Ric}\rangle e^{-f}d\mu + \int_M
+\left(-\Delta V + \nabla_i\nabla_jv_{ij}\right)e^{-f}d\mu.
+\end{aligned}\]</span><span class="eqnos-number">(3.5)</span></span>
+</p>
+<p>Applying integration by parts twice to the last integrand above, and
+using that <span class="math inline">\(\nabla_j\left(e^{-f}\right) =
+-\nabla_jfe^{-f}\)</span>, we get that</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_M \nabla_i\nabla_j v_{ij}e^{-f}d\mu &amp;= \int_M
+\nabla_i\nabla_j\left(e^{-f}\right)v_{ij}d\mu \\
+    &amp;= \int_M\nabla_i\left(-\nabla_jfe^{-f}\right)v_{ij}d\mu \\
+    &amp;= \int_M -\nabla_i\nabla_jfe^{-f} -
+\nabla_jf\left(\nabla_ie^{-f}\right)v_{ij}d\mu \\
+    &amp;= \int_M \left(\nabla_if \nabla_j f - \nabla_i\nabla_j
+f\right)e^{-f}v_{ij}d\mu.
+\end{aligned}\]</span></p>
+<p>So (<a href="#eq:varfirst1">3.5</a>) can be re-written as</p>
+<p><span id="eq:varfirst2" class="eqnos"><span class="math display">\[
+    \int_M \frac{\partial}{\partial s}\left(Re^{-f}d\mu\right) = -\int_M
+\langle v,\text{Ric}\rangle e^{-f}d\mu + \int_M \left(-\Delta V +
+\nabla_i f\nabla_j f - \nabla_i\nabla_j f\right)e^{-f}d\mu.
+\]</span><span class="eqnos-number">(3.6)</span></span> </p>
+<p>We proceed to computing the second integral in (<a
+href="#eq:varF">3.4</a>). We have</p>
+<p><span id="eq:varsecond1" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \int_M \frac{\partial}{\partial_s}\left(|\nabla f|^2
+e^{-f}d\mu\right) &amp;= \int_M \frac{\partial}{\partial s}\left(|\nabla
+f|^2\right)e^{-f}d\mu + \int_M |\nabla f|^2\frac{\partial}{\partial
+s}\left(e^{-f}d\mu\right) \\
+    &amp;= \int_M \frac{\partial}{\partial s}\left(|\nabla
+f|^2\right)e^{-f}d\mu \\
+    &amp;= \int_M \left(\frac{\partial}{\partial s}
+g^{ij}\nabla_i\nabla_j f\right)e^{-f}d\mu \\
+    &amp;= \int_M \left[\left(\partial_s g^{ij}\right)\nabla_i\nabla_j f
++ 2g^{ij}\nabla_i f\left(\partial_s \nabla_j f\right)\right]e^{-f}d\mu
+\\
+    &amp;= \int_M \left[-g^{ik}g^{j\ell}v_{k\ell}\nabla_i\nabla_j f +
+g^{ij}\nabla_i\left(\nabla_j\partial_s f\right)\right]e^{-f}d\mu \\
+    &amp;= \int_M \left[-v_{ij}\nabla_if\nabla_jf + \langle\nabla f,
+\nabla V\rangle\right]e^{-f}d\mu,
+\end{aligned}\]</span><span class="eqnos-number">(3.7)</span></span>
+</p>
+<p>where we have used (<a href="#eq:variation-inverse">2.1</a>) and (<a
+href="#eq:variation-f">3.3</a>) in the penultimate and last lines above,
+respectively.</p>
+<p>Note that since <span class="math inline">\(\nabla\left(e^{-f}\right)
+= -\nabla fe^{-f}\)</span>, the second term in the last line above can
+be re-written by integration by parts</p>
+<p><span class="math display">\[
+    \int_M\langle\nabla f,\nabla V\rangle e^{-f}d\mu = \int_M
+-\langle\nabla\left(e^{-f}\right),\nabla V\rangle d\mu = \int_M \Delta
+Ve^{-f}d\mu.
+\]</span></p>
+<p>So we get that</p>
+<p><span id="eq:varsecond2" class="eqnos"><span class="math display">\[
+    \int_M \frac{\partial}{\partial s}\left(|\nabla
+f|^2e^{-f}d\mu\right) = \int_M \left(-v_{ij}\nabla_i f\nabla_j f +
+\Delta V\right)e^{-f}d\mu.
+\]</span><span class="eqnos-number">(3.8)</span></span> </p>
+<p>Adding the results of (<a href="#eq:varfirst2">3.6</a>) and (<a
+href="#eq:varsecond2">3.8</a>) together, see that the <span
+class="math inline">\(\Delta V\)</span> and <span
+class="math inline">\(\nabla_i f\nabla_j f\)</span> terms cancel out and
+we get that</p>
+<p><span id="eq:varF2" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial s}\mathcal{F}(g,f) = -\int_M \langle v,
+\text{Ric} + \nabla\nabla f\rangle e^{-f}d\mu.
+\]</span><span class="eqnos-number">(3.9)</span></span> </p>
+<p>Up to now, we haven’t specified a particular flow yet, that is, we
+haven’t yet specified a choice of <span class="math inline">\(v_{ij} =
+\partial_s g_{ij}\)</span>. This result above suggests that if we
+choose</p>
+<p><span id="eq:choiceofflow" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}g_{ij} = v_{ij} = -2\left(R_{ij} +
+\nabla_i\nabla_j f\right),
+\]</span><span class="eqnos-number">(3.10)</span></span> </p>
+<p>to be the gradient flow, then we get the following monotonicity
+formula</p>
+<p><span id="eq:monotonicity-energy" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}\mathcal{F}(g(t),f(t)) = 2\int_M
+\left|\text{Ric} + \nabla\nabla f\right|^2e^{-f}d\mu \geq 0.
+\]</span><span class="eqnos-number">(3.11)</span></span> </p>
+<p>Putting in our specific choice of <span
+class="math inline">\(v_{ij}\)</span> into (<a
+href="#eq:variation-f">3.3</a>) we then see that <span
+class="math inline">\(f\)</span> evolves as</p>
+<p><span id="eq:heattypeeqn-f" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}f = \frac{1}{2}\left(-2g^{ij}R_{ij} -
+2g^{ij}\nabla_i\nabla_j f\right) = -R - \Delta f.
+\]</span><span class="eqnos-number">(3.12)</span></span> </p>
+<p>So to summarize, we have the monotonicity formula (<a
+href="#eq:monotonicity-energy">3.11</a>) for <span
+class="math inline">\(\mathcal{F}\)</span> when the metric evolves by
+the gradient flow as in (<a href="#eq:choiceofflow">3.10</a>) under the
+constraint that <span class="math inline">\(e^{-f}d\mu\)</span> is
+fixed, coupled with (<a href="#eq:heattypeeqn-f">3.12</a>), which can be
+seen as a backward heat-type equation.</p>
+<p>We can observe that (<a href="#eq:choiceofflow">3.10</a>) is quite
+similar to the Ricci flow, save for the extra Hessian term on <span
+class="math inline">\(f\)</span>. We can actually recover the Ricci flow
+via a pullback by a diffeomorphism. Note that <span
+class="math inline">\(\left(\mathcal{L}_{\nabla f}g\right)_{ij} =
+2\nabla_i\nabla_j f\)</span> and <span
+class="math inline">\(\mathcal{L}_{\nabla f}f = |\nabla f|^2\)</span>,
+where <span class="math inline">\(\mathcal{L}\)</span> denotes the Lie
+derivative. Then we see that if <span class="math inline">\(\Psi(t): M
+\to M\)</span> is a family of diffeomorphisms solving</p>
+<p><span class="math display">\[
+    \frac{d}{dt}\Psi(t) = \nabla_{g(t)}f(t), \quad \Psi(0) =
+\text{id}_M,
+\]</span></p>
+<p>then for <span class="math inline">\(g,f\)</span> solving (<a
+href="#eq:choiceofflow">3.10</a>) and (<a
+href="#eq:heattypeeqn-f">3.12</a>) above, then <span
+class="math inline">\(\bar{g}(t) = \Psi(t)^\ast g(t)\)</span> and <span
+class="math inline">\(\bar{f}(t) = f \circ \Psi(t)\)</span> satisfy the
+system</p>
+<p><span id="eq:RFsystem" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    &amp;\frac{\partial}{\partial t}\bar{g}_{ij} = -2 \bar{R}_{ij} \\
+    &amp;\frac{\partial}{\partial t}\bar{f} = -\bar{\Delta}\bar{f} +
+|\bar{\nabla}\bar{f}|^2 - \bar{R},
+\end{aligned}\]</span><span class="eqnos-number">(3.13)</span></span>
+</p>
+<p>where the barred quantities denote taking them with respect to the
+metric <span class="math inline">\(\bar{g}\)</span>. For reasons of
+length, the details of checking this computation above are left out of
+this report. See the proof of Lemma 5.15 of chapter 5 section 2 of <span
+class="citation" data-cites="chow_ricci_2007">(<a
+href="#ref-chow_ricci_2007" role="doc-biblioref">Chow et al.
+2007</a>)</span></p>
+<p>One can also see that <span
+class="math inline">\(\mathcal{F}\)</span> is invariant under
+diffeomorphisms, i.e. <span
+class="math inline">\(\mathcal{F}(\bar{g},\bar{f}) =
+\mathcal{F}(g,f)\)</span>, so we see that the same monotonicity formula
+(<a href="#eq:monotonicity-energy">3.11</a>) applies for <span
+class="math inline">\(\mathcal{F}\)</span> under the system (<a
+href="#eq:RFsystem">3.13</a>), which is the Ricci flow coupled with a
+backward heat-type equation.</p>
+<p>We should also briefly address (again, without proofs for reasons of
+length) the short-time existence theory for the system (<a
+href="#eq:RFsystem">3.13</a>) above. The Ricci flow has a
+well-established existence theory, which entails modifying it into a
+strictly parabolic equation (called the Ricci-Turck Flow) with
+short-time existence of solution to the corresponding initial value
+problem being guaranteed by the standard parabolic PDE theory (see <span
+class="citation" data-cites="deturck_1983">(<a href="#ref-deturck_1983"
+role="doc-biblioref">DeTurck 1983</a>)</span> for details). For the
+evolution equation for <span class="math inline">\(f\)</span>, setting
+<span class="math inline">\(u = e^{-f}\)</span> the evolution equation
+becomes</p>
+<p><span class="math display">\[
+    \frac{\partial u}{\partial \tau} = \Delta u - Ru
+\]</span></p>
+<p>which is also a linear parabolic equation with a solution on <span
+class="math inline">\([0,T]\)</span> with initial data at <span
+class="math inline">\(\tau = 0\)</span> for <span
+class="math inline">\(u\)</span> corresponding to final data for <span
+class="math inline">\(f\)</span> at time <span
+class="math inline">\(T\)</span>.</p>
+<h1 data-number="4"
+id="perelmans-entropy-functional-and-monotonicity-formula"><span
+class="header-section-number">4</span> Perelman’s Entropy Functional and
+Monotonicity Formula</h1>
+<p>Note that the classical entropy for a manifold (analogous to the
+notion of entropy from information theory), is defined by</p>
+<p><span id="eq:defnclassicalentropy" class="eqnos"><span
+class="math display">\[
+    \mathcal{N} := -\int_M u\log{u}d\mu = \int_M fe^{-f}d\mu,
+\]</span><span class="eqnos-number">(4.1)</span></span> </p>
+<p>where we take <span class="math inline">\(u = e^{-f}\)</span>.</p>
+<p>Note that under the gradient flow (<a
+href="#eq:choiceofflow">3.10</a>) and (<a
+href="#eq:heattypeeqn-f">3.12</a>) subject to the constraint that <span
+class="math inline">\(\partial_t(e^{-f}d\mu) = 0\)</span> observe
+that</p>
+<p><span class="math display">\[
+    \frac{\partial}{\partial t}\mathcal{N} = \int_M \frac{\partial
+f}{\partial t}e^{-f}d\mu = -\int_M\left(R + \Delta f\right)d\mu =
+-\mathcal{F},
+\]</span></p>
+<p>where we use the fact that <span class="math inline">\(\int_M \Delta
+fe^{-f}d\mu = \int_M |\nabla f|^2e^{-f}d\mu\)</span>. We now define
+Perelman’s entropy which is a modification of Perelman’s energy
+functional that includes this classical entropy above along with a scale
+factor <span class="math inline">\(\tau\)</span>:</p>
+<p><span id="eq:defnperelmanentropy" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \mathcal{W}(g,f,\tau) &amp;:= \int_M \left[ \tau\left(R + |\nabla
+f|^2\right) + f - n\right](4\pi\tau)^{-n/2}e^{-f}d\mu \\
+    &amp;= (4\pi\tau)^{-n/2}\left(\tau\mathcal{F} + \mathcal{N}\right) -
+n\int_M (4\pi\tau)^{-n/2}e^{-f}d\mu.
+\end{aligned}\]</span><span class="eqnos-number">(4.2)</span></span>
+</p>
+<p>Note that the term <span
+class="math inline">\((4\pi\tau)^{-n/2}e^{-f}\)</span> coincides with
+the heat kernel for a specific choice of <span
+class="math inline">\(f\)</span> involving the Euclidean distance
+function.</p>
+<p>We now consider the coupled system:</p>
+<p><span id="eq:entropysystem" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    &amp;\frac{\partial}{\partial t}g_{ij} = -2R_{ij} -
+2\nabla_i\nabla_j f, \\
+    &amp;\frac{\partial}{\partial t}f = -R - \Delta f + \frac{n}{2\tau},
+\\
+    &amp;\frac{\partial}{\partial t}\tau = -1.
+\end{aligned}\]</span><span class="eqnos-number">(4.3)</span></span>
+</p>
+<p>Then when recomputing the variation of the <span
+class="math inline">\(\mathcal{F}\)</span> functional, we see that the
+effect of the extra <span class="math inline">\(\frac{n}{2\tau}\)</span>
+term in the evolution equation for <span
+class="math inline">\(f\)</span> is</p>
+<p><span id="eq:modifiedFvariation" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial t}\mathcal{F} &amp;= \int_M
+\frac{\partial}{\partial t}(R + |\nabla f|^2)e^{-f}d\mu + \int_M (R +
+|\nabla f|^2)\frac{\partial}{\partial t}\left(e^{-f}d\mu\right) \\
+    &amp;= 2\int_M \left|R_{ij} + \nabla_i\nabla_j f\right|^2e^{-f}d\mu
++ 2\int_M g^{ij}\nabla_i\left(\frac{n}{2\tau}\right)\nabla_jfe^{-f}d\mu
+\\
+        &amp;\qquad + \int_M (R + |\nabla
+f|^2)\left(-\frac{\partial}{\partial t}f\right)e^{-f}d\mu + \int_M (R +
+|\nabla f|^2)e^{-f}(-R - \Delta f)d\mu \\
+    &amp;= 2\int_M \left|R_{ij} + \nabla_i\nabla_j f\right|^2e^{-f}d\mu
++ \int_M (R + |\nabla f|^2)\left(R + \Delta f -
+\frac{n}{2\tau}\right)e^{-f}d\mu \\
+        &amp;\qquad + \int_M (R + |\nabla f|^2)(-R - \Delta f)e^{-f}d\mu
+\\
+    &amp;= 2\int_M \left|R_{ij} + \nabla_i\nabla_j f\right|^2e^{-f}d\mu
+- \frac{n}{2\tau}\mathcal{F}.
+\end{aligned}\]</span><span class="eqnos-number">(4.4)</span></span>
+</p>
+<p>We also have that the variation of the classical entropy under the
+above system,</p>
+<p><span id="eq:Nvariation" class="eqnos"><span
+class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial t}\mathcal{N} &amp;= \int_M
+\left(\frac{\partial}{\partial t}f\right)e^{-f}d\mu + \int_M
+f\frac{\partial}{\partial t}\left(e^{-f}d\mu\right) \\
+    &amp;= \int_M \left(-R - \Delta f + \frac{n}{2\tau}\right)e^{-f}d\mu
++ \int_M f\left(-\frac{\partial}{\partial t}f\right)e^{-f}d\mu \\
+        &amp;\qquad + \int_M fe^{-f}(-R -\Delta f)d\mu \\
+    &amp;= -\int_M (R + \Delta f)e^{-f}d\mu + \frac{n}{2\tau}\int_M
+e^{-f}d\mu \\
+        &amp;\qquad + \int_M f\left(R + \Delta f -
+\frac{n}{2\tau}\right)e^{-f}d\mu + \int_M fe^{-f}(- R - \Delta f)d\mu \\
+    &amp;= -\int_M (R + |\nabla f|^2)e^{-f}d\mu + \frac{n}{2\tau}\int_M
+e^{-f}d\mu - \frac{n}{2\tau}\int_M fe^{-f}d\mu \\
+    &amp;= -\mathcal{F} + \frac{n}{2\tau}\int_M e^{-f}d\mu -
+\frac{n}{2\tau}\mathcal{N}.
+\end{aligned}\]</span><span class="eqnos-number">(4.5)</span></span>
+</p>
+<p>Then using (<a href="#eq:modifiedFvariation">4.4</a>) and (<a
+href="#eq:Nvariation">4.5</a>), and imposing the constraint that <span
+class="math inline">\(\int_M(4\pi\tau)^{-n/2}e^{-f}d\mu = 1\)</span>, we
+compute</p>
+<p><span class="math display">\[\begin{aligned}
+    \frac{\partial}{\partial t}\mathcal{W} &amp;=
+\frac{\partial}{\partial t}\left[(4\pi\tau)^{-n/2}\left(\tau\mathcal{F}
++ \mathcal{N}\right)\right] + \frac{\partial}{\partial
+t}n\int_M(4\pi\tau)^{-n/2}e^{-f}d\mu \\
+    &amp;= \left(\frac{\partial}{\partial
+t}(4\pi\tau)^{-n/2}\right)\left(\tau\mathcal{F} + \mathcal{N}\right) +
+(4\pi\tau)^{-n/2}\frac{\partial}{\partial t}\left(\tau\mathcal{F} +
+\mathcal{N}\right) \\
+    &amp;= (4\pi\tau)^{-n/2}\frac{n}{2\tau}\left(\tau\mathcal{F} +
+\mathcal{N}\right) + (4\pi\tau)^{-n/2}\left(-\mathcal{F} +
+\tau\frac{\partial}{\partial t}\mathcal{F} + \frac{\partial}{\partial
+t}\mathcal{N}\right) \\
+    &amp;= (4\pi\tau)^{-n/2}\left(\frac{n}{2\tau}\left(\tau\mathcal{F} +
+\mathcal{N}\right) + 2\tau\int_M\left|R_{ij} + \nabla_i\nabla_j
+f\right|^2e^{-f}d\mu - 2\mathcal{F}\right.\\
+    &amp;\left.\qquad\qquad\qquad\qquad- \tau\frac{n}{2\tau}\mathcal{F}
+- \frac{n}{2\tau}\mathcal{N} + \frac{n}{2\tau}\int_Me^{-f}d\mu\right) \\
+    &amp;= (4\pi\tau)^{-n/2}\left(2\tau\int_M\left|R_{ij} +
+\nabla_i\nabla_j f\right|^2e^{-f}d\mu - 2\mathcal{F} +
+\frac{n}{2\tau}\int_M e^{-f}d\mu\right).
+\end{aligned}\]</span></p>
+<p>Then completing the square we discover the monotonicity formula for
+Perelman’s entropy functional,</p>
+<p><span id="eq:monotonicity-entropy" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}\mathcal{W} = 2\tau\int_M \left|R_{ij} +
+\nabla_i\nabla_j f - \frac{1}{2\tau}g_{ij}\right|^2e^{-f}d\mu \geq 0,
+\]</span><span class="eqnos-number">(4.6)</span></span> </p>
+<p>for <span class="math inline">\(\tau &gt; 0\)</span>.</p>
+<h1 data-number="5" id="applications-to-rigidity-results"><span
+class="header-section-number">5</span> Applications to Rigidity
+Results</h1>
+<p>Though it is out of scope to go into the details for this report, we
+mention that Perelman used the above monotonicity formula for the
+entropy to prove what is called the no-local collapsing theorem, which
+was used to understand the singularity models of Ricci flow in the proof
+of the Geometrization/Poincare conjecture.</p>
+<p>In the final part of this section and report, we survey a suite of
+similar monotonicity formulae to static manifolds (that is, manifolds
+not evolving by Ricci flow) by Ni and collaborators and their
+applications to rigidity problems in geometry.</p>
+<p>The first result is by Ni in <span class="citation"
+data-cites="Ni04">(<a href="#ref-Ni04" role="doc-biblioref">Ni
+2004</a>)</span>:</p>
+<div id="thm:Ni1" class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+1</span> <span class="statement-info">(Theorem 1.1 of <span
+class="citation" data-cites="Ni04">(<a href="#ref-Ni04"
+role="doc-biblioref">Ni 2004</a>)</span>)</span>.</span><span
+class="statement-spah"> </span>Let <span
+class="math inline">\(M\)</span> be a closed static <span
+class="math inline">\(n\)</span>-dimensional Riemannian manifold with
+nonnegative Ricci curvature. Let <span class="math inline">\(u\)</span>
+be a positive solution to the heat equation</p>
+<p><span id="eq:heateqn" class="eqnos"><span class="math display">\[
+    \left(\frac{\partial}{\partial t} - \Delta\right)u(x,t) = 0,
+\]</span><span class="eqnos-number">(5.1)</span></span> </p>
+<p>normalized so that <span class="math inline">\(\int_M ud\mu =
+1\)</span>. Define <span class="math inline">\(f\)</span> by <span
+class="math inline">\(u = (4\pi\tau)^{-n/2}e^{-f}\)</span> and <span
+class="math inline">\(\tau = \tau(t) &gt; 0\)</span> with <span
+class="math inline">\(\frac{d}{dt}\tau = 1\)</span>. Then for <span
+class="math inline">\(\mathcal{W}\)</span> defined analogously to above
+as</p>
+<p><span id="eq:Ni04entropy" class="eqnos"><span class="math display">\[
+    \mathcal{W} := \int_M \left(\tau|\nabla f|^2 + f - n \right)ud\mu,
+\]</span><span class="eqnos-number">(5.2)</span></span> </p>
+<p>the following monotonicity formula holds:</p>
+<p><span id="eq:Ni04monotonicity" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}\mathcal{W} = -2\tau \int_M
+\left(\left|\nabla_i\nabla_j f - \frac{1}{2\tau}g_{ij}\right|^2 +
+R_{ij}f_if_j\right)d\mu \leq 0.
+\]</span><span class="eqnos-number">(5.3)</span></span> </p>
+</div>
+<p>That is, the entropy <span class="math inline">\(\mathcal{W}\)</span>
+is monotone decreasing along the heat equation. Note that change in sign
+from that of Perelman’s result and the absence of the scalar curvature
+term in this entropy defined for the static case. Ni also extended the
+above monotonicity result to the class of complete noncompact manifolds
+with nonnegative Ricci curvature.</p>
+<p>The logarithmic Sobolev inequality (which is a dimensionless version
+of the usual Sobolev inequality) can be written as</p>
+<p><span id="eq:logSobolev" class="eqnos"><span class="math display">\[
+    \int \varphi^2\log\varphi d\mu \leq \int |\nabla\varphi|^2d\mu,
+\]</span><span class="eqnos-number">(5.4)</span></span> </p>
+<p>for <span class="math inline">\(\varphi\)</span> such that <span
+class="math inline">\(\int \varphi^2 d\mu = 1\)</span>.</p>
+<p>Part of Perelman’s work with the entropy functional is to show that
+<span class="math inline">\(\mathcal{W} \geq 0\)</span> at some time
+<span class="math inline">\(\tau_0\)</span> is equivalent to the
+logarithmic Sobolev inequality above being valid on the manifold <span
+class="math inline">\(M\)</span>. With that fact, one can then use Ni’s
+monotonicity formula above to show that <span
+class="math inline">\(\mathcal{W} \equiv 0\)</span> after that time,
+which Ni uses to establish the following rigidity result for the
+geometry of the manifold:</p>
+<div class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+2</span>.</span><span class="statement-spah"> </span>Let <span
+class="math inline">\(M\)</span> be a complete noncompact <span
+class="math inline">\(n\)</span>-dimensional Riemannian manifold with
+nonnegative Ricci curvature. Then the logarithmic Sobolev inequality (<a
+href="#eq:logSobolev">5.4</a>) holds on <span
+class="math inline">\(M\)</span> if and only if <span
+class="math inline">\(M\)</span> is isometric to <span
+class="math inline">\(\mathbb{R}^n\)</span>.</p>
+</div>
+<p>Later, Kotschwar and Ni in <span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span> generalized the above result to a certain <span
+class="math inline">\(p\)</span>-heat equation for <span
+class="math inline">\(p &gt; 1\)</span>, where the Laplacian operator in
+(<a href="#eq:heateqn">5.1</a>) above is replaced by the <span
+class="math inline">\(p\)</span>-Laplacian given by</p>
+<p><span class="math display">\[
+    \Delta_p u := \text{div}(|\nabla u|^{p-2}\nabla u),
+\]</span></p>
+<p>and we consider the following <span
+class="math inline">\(p\)</span>-heat equation</p>
+<p><span id="eq:pheateqn" class="eqnos"><span class="math display">\[
+    \frac{\partial}{\partial t}u^{p-1} = (p-1)^{p-1}\Delta_pu.
+\]</span><span class="eqnos-number">(5.5)</span></span> </p>
+<p>We define <span class="math inline">\(f\)</span> analogously as
+before following the form of the fundamental solution to the above
+equation as follows:</p>
+<p><span id="eq:defnfp" class="eqnos"><span class="math display">\[
+    u^{p-1} = \frac{1}{\pi^{n/2}(p^{\ast
+p-1}p)^{n/p}}\frac{\Gamma(n/2+1}{\Gamma(n/p^\ast + 1}e^{-f}t^{-n/p}.
+\]</span><span class="eqnos-number">(5.6)</span></span> </p>
+<p>Then choosing <span class="math inline">\(f\)</span> such that <span
+class="math inline">\(\int_M u^{p-1}d\mu = 1\)</span>, we can define the
+following <span class="math inline">\(p\)</span>-entropy:</p>
+<p><span id="eq:defpentropy" class="eqnos"><span class="math display">\[
+    \mathcal{W}_p(g,f,t) := \int_M \left(t|\nabla f|^p + f - n
+\right)u^{p-1}d\mu.
+\]</span><span class="eqnos-number">(5.7)</span></span> </p>
+<p>Then Kotscwhar and Ni find the following monotonicity formula for
+this entropy.</p>
+<div class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+3</span> <span class="statement-info">(Theorem 6.13 of <span
+class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>)</span>.</span><span class="statement-spah"> </span>Let
+<span class="math inline">\(M\)</span> be a closed static <span
+class="math inline">\(n\)</span>-dimensional Riemannian manifold with
+nonnegative Ricci curvature. Let <span class="math inline">\(u\)</span>
+be a positive solution to (<a href="#eq:pheateqn">5.5</a>) such that
+<span class="math inline">\(\int_M u^{p-1}d\mu = 1\)</span> with <span
+class="math inline">\(f\)</span> defined as above. Then</p>
+<p><span id="eq:monotonicity-pentropy" class="eqnos"><span
+class="math display">\[
+    \frac{\partial}{\partial t}\mathcal{W}_p(g,f,t) =
+-tp\int_M\left(\left||\nabla f|^{p-2}\nabla_i\nabla_jf -
+\frac{1}{tp}a_{ij}\right|_A^2 + |\nabla
+f|^{2p-4}R_{ij}f_if_j\right)u^{p-1}d\mu \leq 0,
+\]</span><span class="eqnos-number">(5.8)</span></span> </p>
+<p>where <span class="math inline">\(A\)</span> is the tensor <span
+class="math inline">\(\text{id} + (p-2)\frac{\nabla f \otimes \nabla
+f}{|\nabla f|^2}\)</span> and <span
+class="math inline">\(a_{ij}\)</span> is the matrix inverse to <span
+class="math inline">\(A^{ij}\)</span>.</p>
+</div>
+<p>Note that the tensor <span class="math inline">\(A\)</span> is
+obtained via linearizing equation (<a href="#eq:pheateqn">5.5</a>) above
+and is given in local coordinates by <span class="math inline">\(A^{ij}
+= g^{ij} + \frac{p-2}{|\nabla f|^2}f^if^j\)</span>. Then taking the norm
+of a 2-tensor with respect to <span class="math inline">\(A\)</span> is
+given by <span class="math inline">\(|T|_A^2 =
+A^{ik}A^{j\ell}T_{ij}T_{k\ell}\)</span>.</p>
+<p>Analogously we also have the <span
+class="math inline">\(p\)</span>-logarithmic Sobolev inequality,</p>
+<p><span id="eq:p-logsobolev" class="eqnos"><span
+class="math display">\[
+    \int |\varphi|^p \log{|\varphi|^p} \leq
+\frac{n}{p}\log\left(C_{p,n}\int |\nabla\varphi|^p\right),
+\]</span><span class="eqnos-number">(5.9)</span></span> </p>
+<p>for <span class="math inline">\(p &gt; 1\)</span>, a constant <span
+class="math inline">\(C_{p,n}\)</span> depending on <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(n\)</span> and <span
+class="math inline">\(\varphi\)</span> such that <span
+class="math inline">\(\int|\varphi|^p = 1\)</span>.</p>
+<p>Then similarly one can show that <span
+class="math inline">\(\mathcal{W}_p \geq 0\)</span> is equivalent to the
+<span class="math inline">\(p\)</span>-logarithmic Sobolev inequality
+being valid on the manifold (Proposition 6.18 of <span class="citation"
+data-cites="KN09">(<a href="#ref-KN09" role="doc-biblioref">Kotschwar
+and Ni 2009</a>)</span>). Then finally, Kotschwar and Ni establish the
+following rigidity result:</p>
+<div class="statement theorem plain">
+<p><span class="statement-heading"><span class="statement-label">Theorem
+4</span> <span class="statement-info">(Theorem 6.19 of <span
+class="citation" data-cites="KN09">(<a href="#ref-KN09"
+role="doc-biblioref">Kotschwar and Ni
+2009</a>)</span>)</span>.</span><span class="statement-spah"> </span>Let
+<span class="math inline">\(M\)</span> be a complete noncompact <span
+class="math inline">\(n\)</span>-dimensional Riemannian manifold with
+nonnegative Ricci curvature such that (<a
+href="#eq:p-logsobolev">5.9</a>) holds for some <span
+class="math inline">\(p &gt; 1\)</span> with the sharp constant <span
+class="math inline">\(C_{p,n}\)</span> on <span
+class="math inline">\(M\)</span>. Then <span
+class="math inline">\(M\)</span> is isometric to <span
+class="math inline">\(\mathbb{R}^n\)</span>.</p>
+</div>
+<h1 class="unnumbered" id="references">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-chow_ricci_2007" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Sun-Chin Chu, David Glickenstein, Christine Guenther,
+James Isenberg, Tom Ivey, Dan Knopf, Peng Lu, Feng Luo, and Lei Ni.
+2007. <em>The <span>Ricci</span> <span>Flow</span>:
+<span>Techniques</span> and <span>Applications</span>: <span>Part</span>
+<span>I</span>: <span>Geometric</span> <span>Aspects</span></em>.
+Mathematical Surveys and Monographs, v. 135, <span>&lt;</span>144,
+163<span>&gt;</span>. Providence, R.I: American Mathematical Society.
+</div>
+<div id="ref-CLN06" class="csl-entry" role="doc-biblioentry">
+Chow, Bennett, Peng Lu, and Lei Ni. 2006. <em>Hamilton’s
+<span>Ricci</span> <span>Flow</span></em>. American Mathematical Soc.
+</div>
+<div id="ref-deturck_1983" class="csl-entry" role="doc-biblioentry">
+DeTurck, Dennis M. 1983. <span>“Deforming Metrics in the Direction of
+Their <span>Ricci</span> Tensors.”</span> <em>Journal of Differential
+Geometry</em> 18 (1): 157–62. <a
+href="https://doi.org/10.4310/jdg/1214509286">https://doi.org/10.4310/jdg/1214509286</a>.
+</div>
+<div id="ref-hamilton_1982" class="csl-entry" role="doc-biblioentry">
+Hamilton, Richard S. 1982. <span>“Three-Manifolds with Positive
+<span>Ricci</span> Curvature.”</span> <em>Journal of Differential
+Geometry</em> 17 (2): 255–306. <a
+href="https://doi.org/10.4310/jdg/1214436922">https://doi.org/10.4310/jdg/1214436922</a>.
+</div>
+<div id="ref-KN09" class="csl-entry" role="doc-biblioentry">
+Kotschwar, Brett, and Lei Ni. 2009. <span>“Local Gradient Estimates of
+<span class="math inline">\(p\)</span>-Harmonic Functions, <span
+class="math inline">\(1/H\)</span>-Flow, and an Entropy Formula.”</span>
+<em>Annales Scientifiques de l’École Normale Supérieure</em> Ser. 4, 42
+(1): 1–36. <a
+href="https://doi.org/10.24033/asens.2089">https://doi.org/10.24033/asens.2089</a>.
+</div>
+<div id="ref-Ni04" class="csl-entry" role="doc-biblioentry">
+Ni, Lei. 2004. <span>“The Entropy Formula for Linear Heat
+Equation.”</span> <em>The Journal of Geometric Analysis</em> 14. <a
+href="https://doi.org/10.1007/BF02921867">https://doi.org/10.1007/BF02921867</a>.
+</div>
+<div id="ref-Per02" class="csl-entry" role="doc-biblioentry">
+Perelman, Grisha. 2002. <span>“The Entropy Formula for the
+<span>Ricci</span> Flow and Its Geometric Applications.”</span> <a
+href="http://arxiv.org/abs/math/0211159">http://arxiv.org/abs/math/0211159</a>.
+</div>
+</div>
+</body>
+</html>
